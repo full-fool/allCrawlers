@@ -59,10 +59,10 @@ def writeToLog(content):
 
 def loadProcess():
 	namelist = []
-	return int(open('process.txt').read())
+	return int(open('process_male.txt').read())
 
 def writeProcess(process):
-	filehandler = open('process.txt', 'w')
+	filehandler = open('process_male.txt', 'w')
 	filehandler.write('%s' % process)
 	filehandler.close()
 
@@ -109,15 +109,15 @@ page = urllib2.urlopen(req, requestData).read()
 #page = urllib2.urlopen(req, requestData).read()
 #page = str(urllib2.urlopen(req, requestData).read())[11:-13]
 
-startPoint = loadProcess()
+#startPoint = loadProcess()
 
 def getPicsForOneRound():
-	for i in range(startPoint, 200000):
+	for i in range(0, 1000):
 		writeProcess(str(i))
 		print 'processing page %s' % i
 		
 		req = urllib2.Request('http://search.jiayuan.com/v2/search_v2.php')
-		requestData = urllib.urlencode([('sex', 'f'), ('stc', '23:1'), ('sn', 'default'), ('sv', 1), ('p', i), ('f','select'),\
+		requestData = urllib.urlencode([('sex', 'm'), ('stc', '23:1'), ('sn', 'default'), ('sv', 1), ('p', i), ('f','select'),\
 			('lifeStyle', 'bigPhoto'), ('pri_uid', 0), ('jsversion', 'v5')])
 		page = str(urllib2.urlopen(req, requestData).read())[11:-13]
 
@@ -139,7 +139,6 @@ def getPicsForOneRound():
 			except Exception as ep:
 				print 'cannot find uhash in helloUrl,%s' % helloUrl
 				continue
-
 			if os.path.exists(str(personId)):
 				print 'folder %s is already exists\n' % personId
 				continue

@@ -1,0 +1,16 @@
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947753870_bthumb_800x600.jpg,0
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947750011_bthumb_800x600.jpg,0
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947757802_bthumb_800x600.jpg,0
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947759133_bthumb_800x600.jpg,0
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947750154_bthumb_800x600.jpg,0
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947750685_bthumb_800x600.jpg,0
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947759396_bthumb_800x600.jpg,0
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947758657_bthumb_800x600.jpg,0
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947753870_bthumb_800x600.jpg,1
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947750011_bthumb_800x600.jpg,1
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947757802_bthumb_800x600.jpg,1
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947759133_bthumb_800x600.jpg,1
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947750154_bthumb_800x600.jpg,1
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947750685_bthumb_800x600.jpg,1
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947759396_bthumb_800x600.jpg,1
+http://img.pcauto.com.cn/images/pcautogallery/201010/14/12870615947758657_bthumb_800x600.jpg,1

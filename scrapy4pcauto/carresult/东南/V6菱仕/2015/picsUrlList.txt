@@ -1,0 +1,6 @@
+http://img.pcauto.com.cn/images/upload/upc/tx/auto5/1411/26/c23/41340556_1416995910230_800x600.jpg,0
+http://img.pcauto.com.cn/images/upload/upc/tx/auto5/1411/26/c23/41340551_1416995910085_800x600.jpg,0
+http://img.pcauto.com.cn/images/upload/upc/tx/auto5/1411/26/c23/41340552_1416995910170_800x600.jpg,0
+http://img.pcauto.com.cn/images/upload/upc/tx/auto5/1411/26/c23/41340556_1416995910230_800x600.jpg,1
+http://img.pcauto.com.cn/images/upload/upc/tx/auto5/1411/26/c23/41340551_1416995910085_800x600.jpg,1
+http://img.pcauto.com.cn/images/upload/upc/tx/auto5/1411/26/c23/41340552_1416995910170_800x600.jpg,1

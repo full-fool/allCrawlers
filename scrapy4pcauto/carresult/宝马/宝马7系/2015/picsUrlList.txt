@@ -1,0 +1,12 @@
+http://img.pconline.com.cn/images/upload/upc/tx/auto5/1410/03/c6/39228774_1412307468246_800x600.jpg,0
+http://img.pconline.com.cn/images/upload/upc/tx/auto5/1410/03/c6/39228776_1412307468276_800x600.jpg,0
+http://img.pconline.com.cn/images/upload/upc/tx/auto5/1410/03/c6/39228775_1412307468275_800x600.jpg,0
+http://img.pconline.com.cn/images/upload/upc/tx/auto5/1410/03/c6/39228777_1412307468278_800x600.jpg,0
+http://img.pconline.com.cn/images/upload/upc/tx/auto5/1410/03/c6/39228778_1412307468304_800x600.jpg,0
+http://img.pconline.com.cn/images/upload/upc/tx/auto5/1410/03/c6/39228779_1412307468320_800x600.jpg,0
+http://img.pconline.com.cn/images/upload/upc/tx/auto5/1410/03/c6/39228774_1412307468246_800x600.jpg,1
+http://img.pconline.com.cn/images/upload/upc/tx/auto5/1410/03/c6/39228776_1412307468276_800x600.jpg,1
+http://img.pconline.com.cn/images/upload/upc/tx/auto5/1410/03/c6/39228775_1412307468275_800x600.jpg,1
+http://img.pconline.com.cn/images/upload/upc/tx/auto5/1410/03/c6/39228777_1412307468278_800x600.jpg,1
+http://img.pconline.com.cn/images/upload/upc/tx/auto5/1410/03/c6/39228778_1412307468304_800x600.jpg,1
+http://img.pconline.com.cn/images/upload/upc/tx/auto5/1410/03/c6/39228779_1412307468320_800x600.jpg,1

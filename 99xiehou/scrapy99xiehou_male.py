@@ -20,14 +20,14 @@ tryTimes = 3
 
 def loadProcess():
     try:
-        carBrandNum = int(open('process_female.txt').read())
+        carBrandNum = int(open('process.txt').read())
         return carBrandNum
     except Exception as ep:
         print 'wrong with the process.txt'
         sys.exit()
 
 def setProcess(process):
-    filehandler = open('process_female.txt', 'w')
+    filehandler = open('process.txt', 'w')
     filehandler.write(process)
     filehandler.close()
 
@@ -62,18 +62,18 @@ def writeToLog(content):
         print content
     except Exception as ep:
         print ep.message
-    filehandler = open('log_female.txt', 'a')
+    filehandler = open('log.txt', 'a')
     filehandler.write(content+'\n')
     filehandler.close()
 
 
 #一共159种品牌
 startPage = loadProcess()
-for i in range(startPage, 1149):
+for i in range(startPage, 1419):
     setProcess(str(i))
     print 'start to process %s' % i
     
-    queryUrl = 'http://www.99xiehou.com/Search/index/sex/%E5%A5%B3/age_min/18/age_max/80/province/%E8%AF%B7%E9%80%89%E6%8B%A9%E7%9C%81%E4%BB%BD%E5%90%8D/city/%E8%AF%B7%E9%80%89%E6%8B%A9%E5%9F%8E%E5%B8%82%E5%90%8D/pic/1/p/' + str(i+1) + '.html' 
+    queryUrl = 'http://99xiehou.lvbjp.com/Search/index/sex/%E7%94%B7/age_min/16/age_max/80/province/%E8%AF%B7%E9%80%89%E6%8B%A9%E7%9C%81%E4%BB%BD%E5%90%8D/city/%E8%AF%B7%E9%80%89%E6%8B%A9%E5%9F%8E%E5%B8%82%E5%90%8D/pic/1/p/' + str(i+1) + '.html' 
     onePage = getPageWithSpecTimes(0, queryUrl)
     #onePage = urllib.urlopen(queryUrl).read()
     if onePage == None:
@@ -131,10 +131,10 @@ for i in range(startPage, 1149):
             print 'cannot find age info in %s' % compPersonUrl
             continue
 
-        print 'dir name is %s_%s_f' % (personId, age)
-        if os.path.exists('%s_%s_f' % (personId, age)): 
+        print 'dir name is %s_%s_m' % (personId, age)
+        if os.path.exists('%s_%s_m' % (personId, age)): 
             continue
-        os.makedirs('%s_%s_f' % (personId, age))
+        os.makedirs('%s_%s_m' % (personId, age))
 
         for j in range(len(picSectionList)):
             try:
@@ -143,7 +143,7 @@ for i in range(startPage, 1149):
             except Exception as ep:
                 print 'cannot find pic url in page,%s' % compPersonUrl 
                 continue
-            picPath = os.path.join('%s_%s_f' % (personId, age), '%s.jpg' % j)
+            picPath = os.path.join('%s_%s_m' % (personId, age), '%s.jpg' % j)
             try:
                 urllib.urlretrieve(picurl, picPath)
             except Exception as ep:

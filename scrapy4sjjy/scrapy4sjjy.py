@@ -109,11 +109,11 @@ page = urllib2.urlopen(req, requestData).read()
 #page = urllib2.urlopen(req, requestData).read()
 #page = str(urllib2.urlopen(req, requestData).read())[11:-13]
 
-startPoint = loadProcess()
+#startPoint = loadProcess()
 
 def getPicsForOneRound():
-	for i in range(startPoint, 200000):
-		writeProcess(str(i))
+	for i in range(0, 1000):
+		#writeProcess(str(i))
 		print 'processing page %s' % i
 		
 		req = urllib2.Request('http://search.jiayuan.com/v2/search_v2.php')

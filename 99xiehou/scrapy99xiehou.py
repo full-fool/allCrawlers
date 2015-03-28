@@ -86,6 +86,9 @@ for i in range(startPage, 1419):
     personUrlList = onePersonUrlPatten.findall(onePage)
 
     print 'there are %s people found' % len(personUrlList)
+    if len(personUrl) == 0:
+        print 'website had broken'
+        sys.exit()
     for personUrl in personUrlList:
         compPersonUrl = 'http://99xiehou.lvbjp.com' + personUrl
         #onePersonPage = getPageWithSpecTimes(0, compPersonUrl)
@@ -129,9 +132,9 @@ for i in range(startPage, 1419):
             continue
 
         print 'dir name is %s_%s_m' % (personId, age)
-
-        if not os.path.exists('%s_%s_m' % (personId, age)):
-            os.makedirs('%s_%s_m' % (personId, age))
+        if os.path.exists('%s_%s_m' % (personId, age)): 
+            continue
+        os.makedirs('%s_%s_m' % (personId, age))
 
         for j in range(len(picSectionList)):
             try:

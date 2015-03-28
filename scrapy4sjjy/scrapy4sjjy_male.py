@@ -119,7 +119,11 @@ def getPicsForOneRound():
 		req = urllib2.Request('http://search.jiayuan.com/v2/search_v2.php')
 		requestData = urllib.urlencode([('sex', 'm'), ('stc', '23:1'), ('sn', 'default'), ('sv', 1), ('p', i), ('f','select'),\
 			('lifeStyle', 'bigPhoto'), ('pri_uid', 0), ('jsversion', 'v5')])
-		page = str(urllib2.urlopen(req, requestData).read())[11:-13]
+		try:
+			page = str(urllib2.urlopen(req, requestData).read())[11:-13]
+		except Exception as ep:
+			print 'cannot open page %s' % i
+			continue
 
 		#此处的url为女性，如果男性的话就在后面加上&sex=m
 		#jsonUrl = 'http://search.jiayuan.com/v2/search_v2.php?p=%s' % i

@@ -171,9 +171,8 @@ totalLen = len(namelist)
 eachLen = totalLen/ threadNum
 
 for i in range(threadNum):
-    DownloadOnePage(namelist[i*eachLen:min(i*eachLen+eachLen, totalLen)], picsNumPerPerson).start()
-
-
-
-
+    if i < threadNum - 1:
+        DownloadOnePage(namelist[i*eachLen:min(i*eachLen+eachLen, totalLen)], picsNumPerPerson).start()
+    else:
+        DownloadOnePage(namelist[i*eachLen:totalLen], picsNumPerPerson).start()
 

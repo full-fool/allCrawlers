@@ -156,6 +156,19 @@ except Exception as ep:
     print 'wrong input'
     sys.exit()
 
+print 'input the people number'
+try:
+    peopleNum = int(raw_input())
+    if peopleNum % 1000 != 0:
+        print 'the number must be a times of 1000'
+        sys.exit() 
+except Exception as ep:
+    print ep.message
+    print 'wrong input'
+    sys.exit()
+
+
+
 picsNumPerPerson = 0
 print 'input the pics number for each person'
 try:
@@ -176,10 +189,10 @@ except Exception as ep:
     sys.exit()    
 
 totalNameList = getListFromFile('namelist_all.txt')
-namelist = totalNameList[startPoint:startPoint+1000]
-if not os.path.exists('%s-%s' % (startPoint+1, startPoint+1000)):
-    os.makedirs('%s-%s' % (startPoint+1, startPoint+1000))
-os.chdir('%s-%s' % (startPoint+1, startPoint+1000))
+namelist = totalNameList[startPoint:startPoint+peopleNum]
+if not os.path.exists('%s-%s' % (startPoint+1, startPoint+peopleNum)):
+    os.makedirs('%s-%s' % (startPoint+1, startPoint+peopleNum))
+os.chdir('%s-%s' % (startPoint+1, startPoint+peopleNum))
 totalLen = len(namelist)
 
 eachLen = totalLen/ threadNum

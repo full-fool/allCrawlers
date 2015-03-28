@@ -8,6 +8,7 @@ import json
 import os
 import socket
 import threading 
+import time
 from bs4 import BeautifulSoup
 socket.setdefaulttimeout(50)
 reload(sys)
@@ -52,67 +53,84 @@ def writeMapping(url, path):
 
     writeLock.release()
 
-class DownloadOnePage(threading.Thread):
+def loadProcess():
+    try:
+        carBrandNum = int(open('process.txt').read())
+        return carBrandNum
+    except Exception as ep:
+        print 'wrong with the process.txt'
+        sys.exit()
+
+def setProcess(process):
+    filehandler = open('process.txt', 'w')
+    filehandler.write(process)
+    filehandler.close()
+
+
+
+class DownloadOneName(threading.Thread):
     #三个参数分别为start，eachlen，totallen
-    def __init__(self, subnamelist, picsNumForPerson):
+    def __init__(self, name, picsNumForPerson):
         threading.Thread.__init__(self)
-        self.namelist = subnamelist
+        self.name = name
         self.picsNumForPerson = picsNumForPerson
 
-
     def run(self):
-        for i in range(len(self.namelist)):
-            if not os.path.exists(self.namelist[i].decode('utf8')):
-                os.makedirs(self.namelist[i].decode('utf8'))
-            PicsList = os.listdir(self.namelist[i].decode('utf8'))
-            bingPicsNum = 0
-            for pics in PicsList:
-                if '_bing' in pics:
-                    bingPicsNum += 1
-            if bingPicsNum > 100:
+        #for i in range(len(self.namelist)):
+        name = self.name
+        if not os.path.exists(name.decode('utf8')):
+            os.makedirs(name.decode('utf8'))
+        PicsList = os.listdir(name.decode('utf8'))
+        bingPicsNum = 0
+        for pics in PicsList:
+            if '_bing' in pics:
+                bingPicsNum += 1
+        if bingPicsNum > 100:
+            return
+        picsNum = 0   
+        pageNum = (self.picsNumForPerson-1) / 35 + 1
+        print 'page num is %s' % pageNum
+        for j in range(pageNum):
+            queryUrl = 'http://cn.bing.com/images/async?first=%s&count=35&q=%s' % (35*j, name)
+            picsPage = getPageWithSpecTimes(0, queryUrl)
+            if picsPage == None:
                 continue
-            picsNum = 0   
-            pageNum = (self.picsNumForPerson-1) / 35 + 1
-            print 'page num is %s' % pageNum
-            for j in range(pageNum):
-                queryUrl = 'http://cn.bing.com/images/async?first=%s&count=35&q=%s' % (35*j, self.namelist[i])
-                picsPage = getPageWithSpecTimes(0, queryUrl)
-                if picsPage == None:
+            pagesoup = BeautifulSoup(picsPage, from_encoding='utf8')
+            iList = pagesoup.find_all("div", attrs={"class": 'dg_u'})
+            for item in iList:
+                trash = item.a.get('m')
+                if trash == None:
                     continue
-                pagesoup = BeautifulSoup(picsPage, from_encoding='utf8')
-                iList = pagesoup.find_all("div", attrs={"class": 'dg_u'})
-                for item in iList:
-                    trash = item.a.get('m')
-                    if trash == None:
-                        continue
-                    try:
-                        url = trash.split(',')[4].split('"')[1]
-                    except Exception as ep:
-                        print ep.message
-                    picsNum += 1
-                    newPath = os.path.join(self.namelist[i].decode('utf8'), '%s_bing.jpg' % picsNum)
+                try:
+                    url = trash.split(',')[4].split('"')[1]
+                except Exception as ep:
+                    print ep.message
+                picsNum += 1
+                newPath = os.path.join(name.decode('utf8'), '%s_bing.jpg' % picsNum)
 
-                    alreadyTriedTimes = 0
-                    while alreadyTriedTimes < 3:
+                alreadyTriedTimes = 0
+                while alreadyTriedTimes < 3:
+                    try:
+                        urllib.urlretrieve(url, newPath)
+                        writeMapping(url, newPath)
                         try:
-                            urllib.urlretrieve(url, newPath)
-                            writeMapping(url, newPath)
+                            print 'download one pic for %s' % name.decode('utf8')
+                        except Exception as ep:
+                            print ep.message
+                       
+                        break
+                    except Exception as ep:
+                        alreadyTriedTimes += 1
+                        if alreadyTriedTimes < tryTimes:
+                            pass
+                        else:
+                            print ep.message
                             try:
-                                print 'download one pic for %s' % self.namelist[i].decode('utf8')
+                                print 'cannot download pic,%s,%s' % (name.decode('utf8'), url)
                             except Exception as ep:
                                 print ep.message
-                           
-                            break
-                        except Exception as ep:
-                            alreadyTriedTimes += 1
-                            if alreadyTriedTimes < tryTimes:
-                                pass
-                            else:
-                                print ep.message
-                                try:
-                                    print 'cannot download pic,%s,%s' % (self.namelist[i].decode('utf8'), url)
-                                except Exception as ep:
-                                    print ep.message
+
+
 
 
 
@@ -137,6 +155,8 @@ try:
     if startPoint % 1000 != 0:
         print 'the number must be a times of 1000'
         sys.exit()
+    #setProcess(str(startPoint))
+
 except Exception as ep:
     print ep.message
     print 'wrong input'
@@ -175,18 +195,30 @@ except Exception as ep:
     sys.exit()    
 
 
+
+threadNumPool = {}
 totalNameList = getListFromFile('namelist_all.txt')
 namelist = totalNameList[startPoint:startPoint+peopleNum]
-if not os.path.exists('%s-%s' % (startPoint+1, startPoint+peopleNum)):
-    os.makedirs('%s-%s' % (startPoint+1, startPoint+peopleNum))
-os.chdir('%s-%s' % (startPoint+1, startPoint+peopleNum))
-totalLen = len(namelist)
-eachLen = totalLen / threadNum
+for i in range(len(namelist)):
+    findThread = False
+    while findThread == False:
+        for j in range(threadNum):
+            if not threadNumPool.has_key(j):
+                threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson)
+                threadNumPool[j].start()
+                findThread = True
+                break
+            else:
+                if not threadNumPool[j].isAlive():
+                    #threadNumPool[j].stop()
+                    threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson)
+                    threadNumPool[j].start()
+                    findThread = True
+                    break
+        if findThread == False: 
+            time.sleep(5)
 
 
-for i in range(threadNum):
-    if i < threadNum - 1:
-        DownloadOnePage(namelist[i*eachLen:min(i*eachLen+eachLen, totalLen)], picsNumPerPerson).start()
-    else:
-        DownloadOnePage(namelist[i*eachLen:totalLen], picsNumPerPerson).start()
+
+
 

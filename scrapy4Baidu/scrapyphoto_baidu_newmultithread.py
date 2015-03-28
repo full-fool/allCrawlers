@@ -8,6 +8,7 @@ import json
 import os
 import socket
 import threading 
+import time
 from bs4 import BeautifulSoup
 socket.setdefaulttimeout(50)
 reload(sys)
@@ -130,6 +131,67 @@ class DownloadOnePage(threading.Thread):
 
 
 
+class DownloadOneName(threading.Thread):
+    #三个参数分别为start，eachlen，totallen
+    def __init__(self, name, picsNumForPerson):
+        threading.Thread.__init__(self)
+        self.name = name
+        self.picsNumForPerson = picsNumForPerson
+
+    def run(self):
+        name = self.name
+
+        if not os.path.exists(name.decode('utf8')):
+            os.makedirs(name.decode('utf8'))
+        PicsList = os.listdir(name.decode('utf8'))
+        baiduPicsNum = 0
+        for pics in PicsList:
+            if '_baidu' in pics:
+                baiduPicsNum += 1
+        if baiduPicsNum > 100:
+            return
+        pageNum = (self.picsNumForPerson-1) / 60 + 1
+        print 'page num is %s' % pageNum
+
+        picsNum = 0
+        for j in range(pageNum):
+            encodedName = urllib.quote(name.encode('gbk'))
+            queryUrl = 'http://image.baidu.com/i?tn=resultjson_com&word=%s&oe=utf-8&rn=60&pn=%s' % (encodedName, 60*j)
+            picsPage = getPageWithSpecTimes(0, queryUrl)
+            if picsPage == None:
+                continue
+            
+            picsUrlPattern = re.compile(r'"objURL":"([^"]+?)"')
+            picsUrlList = picsUrlPattern.findall(picsPage)
+            for pics in picsUrlList:
+                realUrl = decodeUrl(pics)
+
+                picsNum += 1
+                newPath = os.path.join(name.decode('utf8'), '%s_baidu.jpg' % picsNum)
+
+                alreadyTriedTimes = 0
+                while alreadyTriedTimes < 3:
+                    try:
+                        urllib.urlretrieve(str(realUrl), newPath)
+                        writeMapping(str(realUrl), newPath)
+                        try:
+                            print 'download one pic for %s' % name.decode('utf8')
+                        except Exception as ep:
+                            print ep.message
+                       
+                        break
+                    except Exception as ep:
+                        alreadyTriedTimes += 1
+                        if alreadyTriedTimes < tryTimes:
+                            pass
+                        else:
+                            print ep.message
+                            try:
+                                print 'cannot download pic,%s,%s' % (name.decode('utf8'), str(realUrl))
+                            except Exception as ep:
+                                print ep.message
+
+
 
 
 
@@ -156,6 +218,19 @@ except Exception as ep:
     print 'wrong input'
     sys.exit()
 
+print 'input the people number'
+try:
+    peopleNum = int(raw_input())
+    if peopleNum % 1000 != 0:
+        print 'the number must be a times of 1000'
+        sys.exit() 
+except Exception as ep:
+    print ep.message
+    print 'wrong input'
+    sys.exit()
+
+
+
 picsNumPerPerson = 0
 print 'input the pics number for each person'
 try:
@@ -175,21 +250,29 @@ except Exception as ep:
     print 'wrong input'
     sys.exit()    
 
-totalNameList = getListFromFile('namelist_all.txt')
-namelist = totalNameList[startPoint:startPoint+1000]
-if not os.path.exists('%s-%s' % (startPoint+1, startPoint+1000)):
-    os.makedirs('%s-%s' % (startPoint+1, startPoint+1000))
-os.chdir('%s-%s' % (startPoint+1, startPoint+1000))
-totalLen = len(namelist)
 
-eachLen = totalLen / threadNum
-threadPool = []
-for i in range(threadNum):
-    threadPool.append(DownloadOnePage(namelist[i*eachLen:min(i*eachLen+eachLen, totalLen)], picsNumPerPerson))
-for name in namelist:
-    
-for eachThread in threadPool:
-    eachThread.start()
+threadNumPool = {}
+totalNameList = getListFromFile('namelist_all.txt')
+namelist = totalNameList[startPoint:startPoint+peopleNum]
+for i in range(len(namelist)):
+    findThread = False
+    while findThread == False:
+        for j in range(threadNum):
+            if not threadNumPool.has_key(j):
+                threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson)
+                threadNumPool[j].start()
+                findThread = True
+                break
+            else:
+                if not threadNumPool[j].isAlive():
+                    #threadNumPool[j].stop()
+                    threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson)
+                    threadNumPool[j].start()
+                    findThread = True
+                    break
+        if findThread == False: 
+            time.sleep(5)
+
 
 
 

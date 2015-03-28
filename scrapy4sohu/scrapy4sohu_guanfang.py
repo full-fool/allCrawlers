@@ -146,7 +146,8 @@ def processTypePicsUrl(brand, carType, url):
         if i == 0:
             outPicsUrl = 'http://db.auto.sohu.com' + firstPicUrl
         else:
-            outPicsUrl = 'http://db.auto.sohu.com' + firstPicUrl.replace('_t1000.shtml', '_t1000_%s.shtml'%(i+1))
+            #此处也有官方图修改，外观是t1000,官方是t8000
+            outPicsUrl = 'http://db.auto.sohu.com' + firstPicUrl.replace('_t8000.shtml', '_t8000_%s.shtml'%(i+1))
         
         #print 'outPicsUrl is %s'  % outPicsUrl
 
@@ -187,38 +188,11 @@ def processTypePicsUrl(brand, carType, url):
     print 'done for %s,%s\n' % (brand, carType)
 
 
-
-
-
-
-
-
-
-#carBrandList中第一个是链接，第二项的.decode('utf8')是品牌名
-#carBrandList = getAllCarBrandAndLink()
-
-
-#writeBrandAndTypeInfo()
-#processTypePicsUrl('aa', 'sdf', 'http://db.auto.sohu.com/model_3196/picture.shtml')
-#sys.exit()
-#processTypePicsUrl('aa', 'sdf', 'http://db.auto.sohu.com/model_3196/picture.shtml')
-#sys.exit()
-
-
-
-
 carNum = loadProcess()
-# if carNum == 0:
-#     filehandler = open('log.txt','w')
-#     filehandler.close()
 
 print 'process is %s' % carNum
 carBrandList = loadCarBrandAndLink()
 
-#print len(carBrandList)
-#sys.exit()
-
-#carBrandDict={}
 for i in range(carNum, len(carBrandList)):
     print 'processing %s\n' % i 
     setProcess(str(i)) 

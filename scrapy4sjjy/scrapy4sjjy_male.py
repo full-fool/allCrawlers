@@ -112,6 +112,7 @@ page = urllib2.urlopen(req, requestData).read()
 #startPoint = loadProcess()
 personIdList = {}
 def getPicsForOneRound():
+	sequentSamePage = 0
 	for i in range(0, 1000):
 		#writeProcess(str(i))
 		print 'processing page %s' % i
@@ -131,6 +132,8 @@ def getPicsForOneRound():
 		#page = urllib2.urlopen(jsonUrl).read()
 		resultjson = json.loads(page)
 		userInfoList = resultjson['userInfo']
+		thisPageAllSame = True
+
 		for j in range(len(userInfoList)):
 			personId = userInfoList[j]['uid']
 
@@ -144,7 +147,8 @@ def getPicsForOneRound():
 				print 'folder %s is already exists\n' % personId
 				continue
 
-
+			
+			thisPageAllSame = False
 			gender = userInfoList[j]['sexValue']
 			age = userInfoList[j]['age']
 			location = userInfoList[j]['work_location']
@@ -181,6 +185,15 @@ def getPicsForOneRound():
 					urllib.urlretrieve(picsUrlList[k], picsPath)
 				except Exception as ep:
 					writeToLog('cannot download pics,%s,%s' % (personId, picsUrlList[k]))
+
+		if thisPageAllSame == False:
+			sequentSamePage = 0
+		else:
+			sequentSamePage += 1
+
+		if sequentSamePage == 10:
+			print 'there are 10 pages that are all the same'
+			return
 
 
 while 1:

@@ -52,7 +52,11 @@ for carBrand in carDirList:
             if not os.path.exists(filePath):
                 continue
             picsUrlList = getListFromFile(filePath)
-            carYearDict[carYear] = picsUrlList
+            usefulUrlList = []
+            for originalPicUrl in picsUrlList:
+                if not originalPicUrl in usefulUrlList:
+                    usefulUrlList.append(originalPicUrl)
+            carYearDict[carYear] = usefulUrlList
         carTypeDict[carType] = carYearDict
     carBrandDict[carBrand] = carTypeDict
 

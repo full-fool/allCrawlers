@@ -110,7 +110,7 @@ page = urllib2.urlopen(req, requestData).read()
 #page = str(urllib2.urlopen(req, requestData).read())[11:-13]
 
 #startPoint = loadProcess()
-
+personIdList = {}
 def getPicsForOneRound():
 	for i in range(0, 1000):
 		#writeProcess(str(i))
@@ -133,6 +133,18 @@ def getPicsForOneRound():
 		userInfoList = resultjson['userInfo']
 		for j in range(len(userInfoList)):
 			personId = userInfoList[j]['uid']
+
+			if not personIdList.has_key(personId):
+				personIdList[personId] = 1
+			else:
+				print 'personId %s has already searched' % personId
+				continue
+			
+			if os.path.exists(str(personId)):
+				print 'folder %s is already exists\n' % personId
+				continue
+
+
 			gender = userInfoList[j]['sexValue']
 			age = userInfoList[j]['age']
 			location = userInfoList[j]['work_location']
@@ -142,9 +154,6 @@ def getPicsForOneRound():
 				uhash = uhashPattern.findall(helloUrl)[0]
 			except Exception as ep:
 				print 'cannot find uhash in helloUrl,%s' % helloUrl
-				continue
-			if os.path.exists(str(personId)):
-				print 'folder %s is already exists\n' % personId
 				continue
 
 			picsMainPageUrl = 'http://photo.jiayuan.com/showphoto.php?uid_hash=%s' % uhash

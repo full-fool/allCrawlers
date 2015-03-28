@@ -107,10 +107,13 @@ for wrongPic in wrongPicList:
 
     for eachDir in allDirsList:
         if str(uid) in eachDir:
+            if not os.path.exists(eachDir[7:]):
+                os.makedirs(eachDir[7:])
+            newDir = eachDir[7:]
             picsNum+=1
             try:
-                urllib.urlretrieve(PicUrl, os.path.join(eachDir,'re_%s.jpg' % picsNum))
-                print 'already download %s' % PicUrl
+                urllib.urlretrieve(PicUrl, os.path.join(newDir,'re_%s.jpg' % picsNum))
+                print 'already download %s,%s' % (PicUrl, uid)
             except Exception as ep:
                 writeToLog('cannot download,%s,%s' % (PicUrl, uid))
             break

@@ -21,6 +21,10 @@ writeLock = threading.Lock()
 
 
 
+makeDirLock = threading.Lock()
+
+
+
 
 def getListFromFile(fileName):
     picsUrlList = []
@@ -74,17 +78,46 @@ class DownloadPicsForOneDir(threading.Thread):
         for picUrl in downloadList:
             picPath = os.path.join(dirName, '%s.jpg' % picNum)
             try:
-                urllib.urlretrieve(picUrl, picPath)
-                print 'download one pic for %s,%s' % (dirName, picUrl)
+                filehandler = open(picPath, 'wb')
+                picContent = urllib2.urlopen(picUrl).read()
+                if 'file not found' in picContent:
+                    time.sleep(5)
+                    picContent = urllib2.urlopen(picUrl).read()
+
+                if 'file not found' in picContent:
+                    writeToLog('cannot download pic because of empty content,%s,%s' % (picUrl, dirName))
+                    continue
+                filehandler.write(picContent)
+                filehandler.close()
+                #urllib.urlretrieve(picUrl, picPath)
+                print 'download one pic for %s,%s\n' % (dirName, picUrl)
                 picNum += 1
             except Exception as ep:
+                print ep.message
                 writeToLog('cannot download pic,%s,%s' % (picUrl, dirName))
+                time.sleep(5)
         
         # 将已经下载过的区分开来
+        makeDirLock.acquire()
         os.rename(dirName, 'huafen_' + dirName)
-
+        makeDirLock.release()
         
 
+
+# picUrl = 'http://huafans.dbankcloud.com/pic/43f7aaa565090e2d5b1122a569e4614810f.jpg?mode=open'
+# filehandler = open('testpic.jpg', 'wb')
+# picContent = urllib.urlopen(picUrl).read()
+# if 'file not found' in picContent:
+#     time.sleep(5)
+#     print 'file not found'
+#     picContent = urllib.urlopen(picUrl).read()
+
+# if 'file not found' in picContent:
+#     print 'cannot download pic because of empty content'
+#     sys.exit()
+# filehandler.write(picContent)
+# filehandler.close()
+# sys.exit()
 
 
 

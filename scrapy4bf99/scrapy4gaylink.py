@@ -173,12 +173,12 @@ class DownloadOnePagePeople(threading.Thread):
 
 
 
-threadNum = 1
+threadNum = 100
 threadNumPool = {}
 
 
 startPage = loadProcess()
-for i in range(startPage, 13871):
+for i in range(startPage, 3000):
     setProcess(str(i))
     findThread = False
     while findThread == False:

@@ -18,9 +18,9 @@ class ZipDir(threading.Thread):
 	def run(self):
 
 		dirName = self.dirName
-		#print 'dirName is %s' % dirName
+		print 'processing %s' % dirName
 		if os.path.exists('%s.zip' % dirName):
-			print '%s.zip has already exist\n' 
+			print '%s.zip has already exist\n' % dirName 
 			return
 		f = zipfile.ZipFile('%s.zip' % dirName,'w',zipfile.ZIP_STORED, allowZip64=True)  
 		startdir = dirName

@@ -61,7 +61,7 @@ def getPageWithSpecTimes(decodeType, url):
     return html
 
 def writeToLog(content):
-    writeLock.acquire()
+    #writeLock.acquire()
 
     try:
         print content
@@ -71,7 +71,7 @@ def writeToLog(content):
     filehandler.write(content+'\n')
     filehandler.close()
 
-    writeLock.close()
+    #writeLock.close()
 
 def getProvinceAndDistrictCouple():
     filelines = open('newprovinceinfo.txt').read().split('\n')
@@ -82,7 +82,7 @@ def getProvinceAndDistrictCouple():
 
 
 
-
+'''
 class DownloadPicsForOnePerson(threading.Thread):
     def __init__(self, url):
         threading.Thread.__init__(self)
@@ -126,15 +126,17 @@ class DownloadPicsForOnePerson(threading.Thread):
 
         #print 'pics done for person %s\n' % compPersonUrl
 
-
+'''
 
 
 cookies = 'cookies.txt'
 cj = cookielib.LWPCookieJar(cookies)
 cj.save()
-opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
-urllib2.install_opener(opener)
+headers = ('User-Agent','Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11')
 
+opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
+opener.addheaders = [headers]
+urllib2.install_opener(opener)
 
 
 threadNum = 100
@@ -166,6 +168,49 @@ for i in range(startPoint, len(provinceAndDistrictCodeList)):
         personUrlList = onePersonUrlPatten.findall(onePage)
         print '%s people found in page,%s' % (len(personUrlList), queryUrl)
         for compPersonUrl in personUrlList:                
+            print 'compPersonUrl is %s' % compPersonUrl
+            onePersonPage = urllib2.urlopen(compPersonUrl).read().decode('GBk', 'ignore').encode('utf8')
+            time.sleep(1)
+            onePersonPage = urllib2.urlopen(compPersonUrl).read().decode('GBk', 'ignore').encode('utf8')
+            if '珍爱网注册' in onePersonPage:
+                print 'force to sign in'
+                sys.exit()
+
+            picUrlPattern = re.compile(r'<img class="hidden" src="(.+?)">')
+            picUrlList = picUrlPattern.findall(onePersonPage)
+            print 'there are %s pics for person %s' % (len(picUrlList), compPersonUrl)
+
+            if len(picUrlList) < 5:
+                print 'no enough pics for one person,%s' % compPersonUrl
+                return
+
+            memberIdPattern = re.compile(r'memberid=(\d+)')
+            memberId = memberIdPattern.findall(compPersonUrl)[0]
+
+            agePattern = re.compile(r'今年<strong class="c_01">(\d+)岁</strong>')
+            age = agePattern.findall(onePersonPage)[0]
+
+            print 'dir name is %s_%s_f' % (memberId, age)
+
+            if not os.path.exists('%s_%s_f' % (memberId, age)):
+                os.makedirs('%s_%s_f' % (memberId, age))
+
+            picPath = os.path.join('%s_%s_f' % (memberId, age), 'picsUrlList.txt')
+            filehandler = open(picPath, 'a')
+            for eachPicUrl in picUrlList:
+                picurl = eachPicUrl.replace('_3', '_6')
+                filehandler.write(picurl+'\n')
+            filehandler.close()
+
+
+
+
+
+
+
+
+
+'''
             findThread = False
             while findThread == False:
                 for j in range(threadNum):
@@ -184,3 +229,4 @@ for i in range(startPoint, len(provinceAndDistrictCodeList)):
                     time.sleep(5)
 
 
+'''

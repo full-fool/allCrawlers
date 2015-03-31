@@ -22,6 +22,7 @@ class ZipFile(threading.Thread):
 			for filename in filenames:    
 				f.write(os.path.join(dirpath,filename))    
 		f.close()
+		print 'dirName has been done'
 
 
 

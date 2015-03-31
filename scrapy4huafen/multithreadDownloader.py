@@ -21,11 +21,6 @@ writeLock = threading.Lock()
 
 
 
-makeDirLock = threading.Lock()
-
-
-
-
 def getListFromFile(fileName):
     picsUrlList = []
     for line in open(fileName):
@@ -78,15 +73,15 @@ class DownloadPicsForOneDir(threading.Thread):
         for picUrl in downloadList:
             picPath = os.path.join(dirName, '%s.jpg' % picNum)
             try:
-                filehandler = open(picPath, 'wb')
-                picContent = urllib2.urlopen(picUrl).read()
+                picContent = urllib.urlopen(picUrl).read()
                 if 'file not found' in picContent:
                     time.sleep(5)
-                    picContent = urllib2.urlopen(picUrl).read()
+                    picContent = urllib.urlopen(picUrl).read()
 
                 if 'file not found' in picContent:
                     writeToLog('cannot download pic because of empty content,%s,%s' % (picUrl, dirName))
                     continue
+                filehandler = open(picPath, 'wb')
                 filehandler.write(picContent)
                 filehandler.close()
                 #urllib.urlretrieve(picUrl, picPath)
@@ -98,26 +93,13 @@ class DownloadPicsForOneDir(threading.Thread):
                 time.sleep(5)
         
         # 将已经下载过的区分开来
-        makeDirLock.acquire()
-        os.rename(dirName, 'huafen_' + dirName)
-        makeDirLock.release()
+        try:
+            os.rename(dirName, 'huafen_' + dirName)
+        except Exception as ep:
+            print ep.message
+            writeToLog('error in rename,%s' % dirName)
+            return
         
-
-
-# picUrl = 'http://huafans.dbankcloud.com/pic/43f7aaa565090e2d5b1122a569e4614810f.jpg?mode=open'
-# filehandler = open('testpic.jpg', 'wb')
-# picContent = urllib.urlopen(picUrl).read()
-# if 'file not found' in picContent:
-#     time.sleep(5)
-#     print 'file not found'
-#     picContent = urllib.urlopen(picUrl).read()
-
-# if 'file not found' in picContent:
-#     print 'cannot download pic because of empty content'
-#     sys.exit()
-# filehandler.write(picContent)
-# filehandler.close()
-# sys.exit()
 
 
 

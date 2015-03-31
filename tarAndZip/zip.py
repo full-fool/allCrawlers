@@ -16,7 +16,10 @@ class ZipFile(threading.Thread):
 
 	def run(self):
 		dirName = self.dirName
-		f = zipfile.ZipFile('%s.zip' % dirName,'w',zipfile.ZIP_STORED)   
+		f = zipfile.ZipFile('%s.zip' % dirName,'w',zipfile.ZIP_STORED)  
+		if os.path.exists('%s.zip' % dirName):
+			print '%s.zip has already exist' 
+			return
 		startdir = dirName
 		for dirpath, dirnames, filenames in os.walk(startdir):    
 			for filename in filenames:    

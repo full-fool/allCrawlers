@@ -1,18 +1,36 @@
+#coding=utf-8
+
 import os
 import shutil
 from zipfile import *
 import zipfile
+import threading
 
 
-partNum = 0
+
+
+class ZipFile(threading.Thread):
+	def __init__(self, dirName):
+		threading.Thread.__init__(self)
+		self.dirName = dirName
+
+	def run(self):
+		dirName = self.dirName
+		f = zipfile.ZipFile('%s.zip' % dirName,'w',zipfile.ZIP_STORED)   
+		startdir = dirName
+		for dirpath, dirnames, filenames in os.walk(startdir):    
+			for filename in filenames:    
+				f.write(os.path.join(dirpath,filename))    
+		f.close()
+
+
+
 for eachDir in os.listdir('.'):
 	if not os.path.isdir(eachDir):
 		continue
-	f = zipfile.ZipFile('%s.zip' % eachDir,'w',zipfile.ZIP_STORED)   
-	partNum += 1 	
-	startdir = eachDir
-	for dirpath, dirnames, filenames in os.walk(startdir):    
-	    for filename in filenames:    
-	        f.write(os.path.join(dirpath,filename))    
-	f.close()
+	ZipFile(eachDir).start()
+
+
+
+
 

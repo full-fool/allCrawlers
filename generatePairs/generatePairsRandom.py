@@ -23,6 +23,10 @@ except Exception as ep:
 	print 'input error'
 	sys.exit()
 
+if os.path.exists('pos_result.csv'):
+	os.remove('pos_result.csv')
+if os.path.exists('neg_result.csv'):
+	os.remove('neg_result.csv')
 #posPairNum = selectedNum
 #negPairNum = 4 * selectedNum
 
@@ -43,7 +47,7 @@ def generatePosTestList(pairNum):
 		selectedPersonFolder = allNamesList[notChosenList[randomChosenNum]]
 		picsOfOnePersonList = os.listdir(os.path.join('Image', selectedPersonFolder))
 		picsNumForPerson = len(picsOfOnePersonList)
-		if len(picsNumForPerson) >= 2:
+		if picsNumForPerson >= 2:
 			firstPic = picsOfOnePersonList[random.randint(0, picsNumForPerson-1)]
 			#firstPic = selectedPersonFolder+'-a.jpg'
 			picsOfOnePersonList.remove(firstPic)
@@ -77,7 +81,7 @@ def generateNegTestList(pairNum):
 		firstPersonPicList = os.listdir(os.path.join('Image', allNamesList[firstPersonNum]))
 		secondPersonPicList = os.listdir(os.path.join('Image', allNamesList[secondPersonNum]))
 
-		firstPic = firstPersonPicList[random.ranint(0, len(firstPersonPicList)-1)]
+		firstPic = firstPersonPicList[random.randint(0, len(firstPersonPicList)-1)]
 		secondPic = secondPersonPicList[random.randint(0, len(secondPersonPicList)-1)]
 
 

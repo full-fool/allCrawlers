@@ -87,7 +87,7 @@ class DownloadOneName(threading.Thread):
                 bingPicsNum += 1
         if bingPicsNum > 100:
             return
-        picsNum = 0   
+        picsNum = 1 
         pageNum = (self.picsNumForPerson-1) / 35 + 1
         print 'page num is %s' % pageNum
         for j in range(pageNum):
@@ -200,6 +200,10 @@ except Exception as ep:
 threadNumPool = {}
 totalNameList = getListFromFile('namelist_all.txt')
 namelist = totalNameList[startPoint:startPoint+peopleNum]
+if not os.path.exists('%s-%s' % (startPoint+1, startPoint+peopleNum)):
+    os.makedirs('%s-%s' % (startPoint+1, startPoint+peopleNum))
+os.chdir('%s-%s' % (startPoint+1, startPoint+peopleNum))
+
 for i in range(len(namelist)):
     findThread = False
     while findThread == False:

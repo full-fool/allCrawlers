@@ -198,6 +198,11 @@ except Exception as ep:
 threadNumPool = {}
 totalNameList = getListFromFile('namelist_all.txt')
 namelist = totalNameList[startPoint:startPoint+peopleNum]
+if not os.path.exists('%s-%s' % (startPoint+1, startPoint+peopleNum)):
+    os.makedirs('%s-%s' % (startPoint+1, startPoint+peopleNum))
+os.chdir('%s-%s' % (startPoint+1, startPoint+peopleNum))
+
+
 for i in range(len(namelist)):
     findThread = False
     while findThread == False:

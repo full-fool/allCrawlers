@@ -5,7 +5,12 @@ import sys
 
 
 
-allNamesList = os.listdir('Image')
+allNamesListOri = os.listdir('Image')
+allNamesList = []
+for oriFile in allNamesListOri:
+	if os.path.isdir(os.path.join('Image', oriFile)):
+		allNamesList.append(oriFile)
+
 selectedNum = len(allNamesList)
 
 
@@ -72,7 +77,7 @@ def generateNegTestList(pairNum):
 		firstPersonPicList = os.listdir(os.path.join('Image', allNamesList[firstPersonNum]))
 		secondPersonPicList = os.listdir(os.path.join('Image', allNamesList[secondPersonNum]))
 
-		firstPic = firstPersonPicList[random.ranint(0, len(firstPersonPicList)-1)]
+		firstPic = firstPersonPicList[random.randint(0, len(firstPersonPicList)-1)]
 		secondPic = secondPersonPicList[random.randint(0, len(secondPersonPicList)-1)]
 
 

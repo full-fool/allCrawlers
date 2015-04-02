@@ -45,5 +45,10 @@ for i in range(len(processDirs)):
 	partName = '%s_part%s' % (prefix, (i/eachPartNum))
 	if not os.path.exists(partName):
 		os.makedirs(partName)
-	print 'before move, dirName is %s and partName is %s' % (processDirs[i], partName)
-	shutil.move(processDirs[i], partName)
+	#print 'before move, dirName is %s and partName is %s' % (processDirs[i], partName)
+	try:
+		shutil.move(processDirs[i], partName)
+	except Exception as ep:
+		print ep.message
+		print 'cannot move file %s to %s' % (processDirs[i], partName)
+		pass

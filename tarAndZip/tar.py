@@ -19,11 +19,36 @@ for eachFile in allDirsInDir:
 	if os.path.isdir(eachFile):
 		processDirs.append(eachFile)
 
+def flattenDir(dirName):
+	allSubFilesList = os.listdir(dirName)
+	for subFile in allSubFilesList:
+		shutil.move(os.path.join(dirName, subFile), '.')
+	os.rmdir(dirName)
+
 partNum = (len(processDirs)-1) / eachPartNum + 1
+
+for i in range(len(processDirs)):
+	if 'part' in processDirs[i]:
+		print 'flatening %s now' % processDirs[i]
+		flattenDir(processDirs[i])
+
+
+allDirsInDir = os.listdir('.')
+processDirs = []
+for eachFile in allDirsInDir:
+	if os.path.isdir(eachFile):
+		processDirs.append(eachFile)
+
 
 for i in range(len(processDirs)):
 	belongPartName = '%s_part%s' % (prefix, (i/eachPartNum))
 	partName = '%s_part%s' % (prefix, (i/eachPartNum))
 	if not os.path.exists(partName):
 		os.makedirs(partName)
-	shutil.move(processDirs[i], partName)
+	#print 'before move, dirName is %s and partName is %s' % (processDirs[i], partName)
+	try:
+		shutil.move(processDirs[i], partName)
+	except Exception as ep:
+		print ep.message
+		print 'cannot move file %s to %s' % (processDirs[i], partName)
+		pass

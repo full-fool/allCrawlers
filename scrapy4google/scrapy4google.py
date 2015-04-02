@@ -1,9 +1,226 @@
-import urllib2, urllib,base64,requests
-#print urllib2.urlopen('http://www.google.com').read()
-# base64String ='/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxQSEhUUEhQUFBUXFRcWGBYYFBQVFxYXGBcYGBcYGhUYHCggGhwlHhUUITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGxAQGiwkHyQsLCwsLCwsLCwsLCwsLywsLCwsLCwsLCwsLCwsLCwsLCwsNCwsLCwsLCwsLCwsLCwsLP/AABEIALEBHAMBIgACEQEDEQH/xAAcAAEAAgIDAQAAAAAAAAAAAAAABQYEBwECAwj/xABEEAABAgMEBwUFBQcCBwEAAAABAAIDBBEFEiExBkFRYXGBkRMiobHBBzJC0fBScoKy4SMzNGKSosJz8RRjg5Ozw9Ik/8QAGQEBAAMBAQAAAAAAAAAAAAAAAAIDBAEF/8QAJREAAgICAQUBAAIDAAAAAAAAAAECEQMhMQQSIjJBUXGBE6HB/9oADAMBAAIRAxEAPwDdiIiicCIiAIiIAiIgC6RH0FSu5URb0+IMNz3agetPrlVDpTPaNpM5rXQ4b7lB3iMySDRoO3XUZdFpyYiEmpFTnw3lTGkFomLELidZoNrjmfrUAq9MxdQ157Sqb7mWVSPGM7HOq5a3WkKHrK848SgorCJ1iPP15UXQADP65LyL65eC7tbu8lIgzs+CCFiuliDUY7l6zEW78J5LwbFcdp2HWpHDvEJGB5LmXbXGq9ojatqRSm5Y8lDGZRMNGeBx4rxcCDRe7e7lku8RoPMYKIRYtBdInykYOBNw0D21zG3iMxz2lfR1nTYisDgRiF8mQnXSNvgt4eyXSPtWdi895gw3tGQ5V6UUU6dE6tGzkXAK5UiIREQBERAEREAREQBERAEREAREQBERAEREB1eVrD2oWvT9kDnicqUB+YpyK2RPxbrHE7FoHTCbMaO6hzNOQwr4EqrLLVFuJW7K3GiVq468BwWC1o+f6LMnogAwyyHLWsOXbWpI3/IJHSs7LboTD7oWCGXjj09N5XvMPJPP6ouoA/RTRFo9IbNgouIjjqFVn2dIxIpowHkFaJPQmI73zTpTwzVcs0Y8k4YJS4KGIL3mlKeSkZKywPeOG6vILYULQoN2U26yux0Vyo13PD64qmXU3wXx6b9KNMWcRDwFQc9uWIr0UCIBa7EEfW1bdFguAAIw447/ADKhLW0eu3iG4axTLHVs1KMOpp0xPprWii3Aciea7wxqWROWbdxFVgiLjTOnULZGXctGOUXF7O72Gm9TeilsGWmIcQZtPeG0HMcwsBjLwqDj5rxhNx2fXoovZJKj6ssybbFhte01DgCDuOX1uWYFrD2PW7fYZd593FvqFs8KcXashJUwiIunAiIgCIiAIiIAiIgCIiAIiIAiIgCFEKArmmk72cB22mHE1A+ty0baFQ4n8IPmfVbS9os3UshjbU8Tl4VWq7XwrwPUmnoVlySvJRrxqoWV6aN5+HAbtQ+a94jQ1g34/X1rXnJsL3k7BXmagep5L0nzqGOzyHorXzRVHiyN11PJSFkWe6M8NA4/JYTYdTTlxK2VoLZN1oeRiVXmydiLsOLueyzaNWG2AwUArTE0Vmgw1iwGrPgiiyQ3s1vRx2QXV0EL3JXV6nRyyPiw1HTcqCDvU1EasKZCqlEkma90jsbuuLBvps/Ra4m20fXb9UW8J6GCMlrjTCxwwdozDHEK7pstPtZRnx9ytEPZRqabRgkxDAcR9cei87PNLvH68ln29BuuY4axQ8W4DwBWlvyMqXiS2hFoGBMsdXXj6+BK+i4D7zQRrAK+X7PNHNcNRFeGR8vAL6M0Tme0loZ13aHlgpY3to5kWrJdERWlIREQBERAEREAREQBERAEREAREQBdYhwXZYlqR7kNztjSfBDqNUaTzd+cxOALj0NG+qo2kOAPEDo3HzViixr0w9x1Bw/LTzKrmkho2u1zvHH0WCDvJZukqgYljw6Mc7+fwFB6lYtoGld/kMlLWdCpDb+InoPkeigpt1Xnj4AK5O5MqaqKRm2FJX4jW8OpW4rJlgxoG5av0TmGQ3X3nlrJ3K+yukor3mXW6q165LLmtzNeKlEtkBqzobFFWdacKJ7rmk8QphkQLsUGcFq8yvV715FykEdHBYkwFml2Cx44CjJHbIWYaqtpbArLv4Kx2haUJnvOA6qB0jitfAeWkEFuBBqCqUqkmSe0axlolOleisNtisKEdRvDmQ1w83KrtPkrDOm9Jwj/ADnwY35r0ZLaZ596aMKzXHLXs37Fvn2Yzl+WpsI8frwWgGvuvJ31+uS217KLQpEu/DEaabnDMc81ziaY5gzbK4QItBnCIiAIiIAiIgCIiAIiIAiIgCIiAKuabTdyA4VzH0PLorGtbe1KdwLOAzpjSuWvOnMKGR1FlmNXJFFkolbzvtV8CfQjoojSEYsH8wJGwA4+akpF1AOB8v1CjbU7xB2X/EtWGGpm2e4HLQWwjXCjAOZ/3KrsfXx9afNWS1TRmzFx8W+hHVV5jLwZvPqVdiemyucdpFu0HiQ4YJeAXaiRVW2b0olmi68NO4geWaqElYcR7P2WdOHosex9H2OfFbMvuxLrgwON1t4g0JOvMKqMVOTdl0pOEaSJOatmA43oV9uNKXSacNYU/o9pM4YXr42E94dVRpWxXvDJYSzBEvgmMQ+8BeJNXXrl0A0rroNat8/YMKFGrLxA9poLodfLTu1luHKq7kxqKtMjjm5Omi/ys2HgEL0iPooiww4C67UaLLtmIWNNFVbou+mDatsiGDdxKp0zbhiuo6O1oOHv08Ask2OJiLdjxQxlReq4AurjQV81S7SskQ3xYMSAXRi89nE7V4AaS27dhgERAQHY1+IbFZjx9ytsqyT7XSReJKRlHe9GvuOyja+FVgaQ2aIcN7oMQ3SDeY7EHgdRUDbejplIUCIx3Zxi1vaQ6171NQ28Fn/8PMOgkxW3cNtars4dr5OQn3LgoZGKsEu6suxn8z6cQGfooSLD7xWeyMWhm5xPUNqtL2kZeGzGie8eHkR9clc/ZxOER2srQk3mnY8auePVVK0oVHGm4jgcfKnRZViTJhxWuBpiHcCDjToVyW1Z2OnR9QSce+0HqNhXuoixpi8Gu+0MePru3KXV6KGqOEREOBERAEREAREQBERAEREAREQBxoKlah9oEzUF+sEagauf3z07jfwLbcwKscNrT5LS+mUS9ChnXRjid5Jc78viqsvBdiWyvyhJzONBXqB6BQ3bVdTVU/mr8lLMddaTz8FAyZrFaN1ergVlhy2a5cJEpbgownc7l7v/AMlQsqPc4NUpaxBhRCNRPSpULKvwH4fBSxrwOSfmjcmiEL9mDuUlPWBDinvNBOddfVRehsasJvBW6EaqiKNMiAgaKQW6ieJJ81nw7PZDFWihopYNWLOYKcuCCMSWF0hdrXxoFjy8S87gu9rVoDsVa4JUdWSTIjQHDJR0zow34CWnaCRRTFlPqpJwVkeCLKRK6IQ2vvuq8g17xJWZbUAdmRuVgjUCgrYidx3AqMjqRpaab+0cN5HVdoh7o4VHIfousdxc8vHu3jTzGPAZLsXd1p3lv11WtcGN7Z3mnXoTHbO6eWXgSu4h0uvGojxw86dUs5t9kRm6o4jX9bV7SbC6C7aGO8q+FD4Ll/DlfTemhk1WBCxrgGjbhSn9j4aua11oAQZaFt7SGTnrD2/+kdFsVXY34lOTkLhcrhTKwiIgCIiAIiIAiIgCIiAIiIDh7agjbgtL6SNAYWnBwjDADEABwIrqx18FuorUunkDsozjTZFrvc0gjq0KnNwXYeSj2o8tYRhg3HiQfkFX5OJ/+ho2Mx6DPp4qRtCLeaB9uIRyaAFFWe79vEdqDD6BVQjUWXylbRlTUSsGNtqfzk+qjoBwO6nkPms6ayiN2voOZFPGij2mhd9ZYegUorQfJtPQWYrCCvEvGWttAovdotgSxWS6kzatxJdsRYVqEkAbSvVj11jNDhQqUnaI0YUjdBpUV10KyrTu0ABXgyy24ltAftAAHgSM15Tlk3qFxqR4cFC6R36d7IBbUKVe/BRkuy5rrxzWTEiLsJUg1sx5yKqfpdP9nLxXa7pp5KxzhWvfaNM0lnDaQOpx8KqUdySI5XUGa4bPuc4E5CndGAwwx2mmFSpQOqOYPVQcEKXl8gNo8jVehNfh50GSNmvuxGnb3epH6KYkoN1sSuQaW+H+yhJc9w7Qa+v+KsTm5sGcVxNNwbQHqB1Wd8l/w2ZoBC7ku3cx+ePdZHOP/eZ1WxFTtAZM9+IR3RSGzeGBrK/2BXEq/H6mXJ7BcIimQCIiAIiIAiIgCIiAIiIAiIgBWvfavBFyG87xxpj8vFbDVP8AaZJdpLt3OpTDG8Q2mPFRnwShyaNtGHQNP2Wk8XOrh1UJLOuDHAuqT90NPmT4BWO33MFRiaGmVGl1a55kVVWa+rtuB55V5YKqKtF8nTJWN77qanE8m0+Sh4kTBx3n5+qlXg1iuJ10H4sfmoOL7j+I80gjsn/02RoDEwB2hbKlclpv2cz9O4duHyW2bPjLFlXbkaNmKXdBGXHm2s94gcVDRdKId64zvnYMT0Cm5mCHihAKqc7Z1x9aU/mAp4hR/k044xf8kuy23AVdDeGnWGu+S6zNvH7DwNpa7rlksNjIoaA2NUZgGmGOWS852WecYkW9TCgPyClSLFjf4v8AZ7S+k0JxoXDrVTsGLeyxCrFhWWL9WtDW8BiVbHuDQo1+FWWk6RHTztS1R7T5sF8OENVXu8m+q2Na9oNhMdEeaBoqtHWrPmPFfFd8TsOGoclo6aFy7vww9ROo0YsIKUljgOA8VgQ24clKy8Ko5NW2TMaRlybO5EOxpPjT1Vx0VsZ01MNuVyDa091o993I+KqUlAL+42tS7GmVCQTXdQFfRuh9hMlYLbpDnOALn0pXYANTccBz1qlR7nRbKVKyYs+TbBhthsFGtFAvcoivM5wiIhwIiIAiIgCIiAIiIAiIgCIiA5VZ9oVf+FqMxEaR4/p0VmCr+ncYNk4hIr7tONa+i5Lhko8nzrpDEoQyvu/mOfooWE01FNYpXLWVm2g8viuIxpU+tVzJw8BX7JPU4eaqjpF0ts7TcVrWDe69yaP0UYYRcx2048wQsi021I4np9BdJWJgaahUjdt4j1UkqQbskND4da7b1Qto2POEUDuq11ondEU0ydjwK2ZAlQQvP6l+ZuwKoIsUCKCF6PlA/NQknHMM0dkpyBHBUE0yb0Y5sBh1uHArzNhMBzceJUuIq8o0TBTcY0d/yT/TDEIMFAo60pwMaS4gAYr1tCdDQqDphOu7J5J1FRW3RF8WU/TTSUzT7jCRCaf6jtO7d9CvEYgblxCbUjYu7AS6u+nX9F6sYqKpHmSbk7Z73e70VjsuWqw72jwKr8TUN4+XqrnYEKsOmy740+apyuoluOOzvZbRDeQMDVtTucBt4rdHs7tYRpbsz78Fxhka6A93ww5LRU3HuxHAYF8NpHEN/RbD0Lnuxm+0FezjQ2veKZVp3uROKqg3Gd/pZNKUKNuLhchFtMJwiIuAIiIAiIgCIiAIiIAiIgCIiA5VY9o0K9JP3Ob44eqs4VW9orS+WEMYdpFYz+o3fNwUZ+rJw9kaGl4GEU7Qac6Nx5OqsKGe68/zho4AKXvFgmGH4X+A7uHRRbWfs2j7TyT5lZovZrktEXPDHlThjVYcKIWkEZiuGojIg7jVZ0fvE8T4rEhsvmg1mnVaPhR9JKz4nZuEVlbtakawCfRbisOOIkNpGOAWubLsc9nQgh1CKa6/XmrVoBHIYWH4XED7pxHqOS87O1J2vh6GNVEtUWAujYTh7pKlrlQuewVaiSsizNRG7/BYsadiO3KYjS6xBKo0xZERIRzOJVD08iUh02kDkMStlTgAC1Np3MXooaPhFOZU8CvIiOV+DKkwUaTyHNZcnCvCuz1/QHqF4RmUwUhGHZww34iMd1c/TovTbPOS3ZivNXDw5V9VdNFMWuG8enyVFa7GuxW7Q6Zow7z6hU9QvAuwex4aQG7GaRhQNI4VI9Fsn2cBkcshvHvQosPXkSHCmzBz+i1xpO8F0NwyPd6OPzVu9mM9cjNByERv5rh8HnoFBPUWda9kbm0diuMK4/34TjDdvu5HpRSRWDLMuzEQanta/wDEO67wDFnLWuDJI4REQiEREAREQBERAEREARFygCUXKjLS0glZf99HhM3F4r/SMUBJqse0B92Vvj4Hsdlse13+KwLX9p0jBYXMeYrqd1rWvF46heIoFpq3NOo83GLoz+7dc0MGDG3tjfU4qE34tIsxryTOJ6MH9uR8VXf3Xv8AIrEiYQmO197xIUbKTdXObXMeVCVmTkWsNgG7xWftaZr7k1oiC6g5qU0QkxEmIQcKgkkila0BwprOeCiGtJdTWcOZWw/ZpIft3ubSrGEY4AAUBN7Ia9qum9UZ4os89ZbYMwGs917A4YUoQbpA3CgWFYMAMm5lgwAEN3W8rNpLAp2T9bTjnk6lKk45gZ7VFWEwPjzL9vZt/pv/ADBXn5Y1No34pXBFjlHYLMAWFACzGrkTrOIjVixVlOWFMmgXZMIgrbjXWmi1HMwO2mrtdZFc+J+ti2dpHFoxztgNFRtHJfvveaUArV2QJqTxOAFN5UsDq2Ry7VEK+RuRCX4hldmeFB9bCoubj3iXHXlwU3bMUGtBmdWRoAPRV6OaZ4nyW7HvZjlrR5vOB2qYsCZulo1F1D4VUE13ms+zYl07gCfQKzJG40QxyqVkxaUxUQ/vOP8AdgrL7P6vjBoxLg4cy3PqAqNHi4bm08ak+JKtegNrNgRmxX1o0hzqUrQVJ8PVUOFRLVO5M+jmfv2H/lPr/VDp5FZyp1jadyEUlxmGQzgwNins3ADH4sMSTr1BWyXmWRBWG9rxta4O8lpMrPRFylEB1RcrhcOBERAEXgJyHWl9ta0pXXlTivSDGa4Va4OGWBrjnTxCA7oiIDlchcIgKL7Sv4d3D1C0dCzZ/wBTzKIhxnjbuUP7rvzuVff7x4lEXETRlWd+8/CVKPyHLzciKufJox8GNZv8RD++PNbS9k3vO+8/zhrlFGXKOLhly0v/AIZvBnmFXNFc5j/VH/jYiLJ1Hv8A0a8Hp/ZZoGazURRiSfJ0Kwp7JEUZHUUrSn927gqpYvuRP9RvqiLuP1Yn8IGNr4KuHMoi9LGYch1hrJg6+ARFZIqie8x8f3h/ksyyf3buB8iiKuXqSj7HeB7sT7rfztWwPY1/G/g+S5RWfDO+Tfij438Q37vzREJmeuqIhwIiLgMc5nj6lestl0/KERAf/9k='
-# filehandler = open('this.jpeg', 'wb')
-# filehandler.write(base64.b64decode(base64String))
-# filehandler.close()
-#print urllib.urlopen('https://www.google.co.jp/search?q=rachel&tbm=isch&ijn=1&ei=pCAMVf-jOsSm8AXplYLIDw&start=100').read()
-print requests.get('https://www.google.co.jp/search?q=rachel&tbm=isch&ijn=1&ei=pCAMVf-jOsSm8AXplYLIDw&start=100').content
-#print requests.get('http://image.baidu.com/i?tn=resultjson_com&word=%E5%88%98%E5%BE%B7%E5%8D%8E&oe=utf-8&rn=60&pn=60').headers
+#coding=utf-8
+import json
+import sys
+import urllib2, urllib
+import re
+import cookielib
+import codecs
+import json
+import os
+import socket
+import threading 
+import time
+import requests
+from bs4 import BeautifulSoup
+socket.setdefaulttimeout(50)
+reload(sys)
+sys.setdefaultencoding('utf8')
+
+tryTimes = 3
+writeLock = threading.Lock()
+
+# cookies = 'cookies.txt'
+# cj = cookielib.LWPCookieJar(cookies)
+# cj.save()
+# headers = ('User-Agent','Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11')
+
+# opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
+# opener.addheaders = [headers]
+# urllib2.install_opener(opener)
+
+# #print urllib2.urlopen('https://www.google.com.hk/search?safe=strict&tbm=isch&ijn=1&start=100&q=hankson').read()
+# print requests.get('https://www.google.com.hk/search?safe=strict&tbm=isch&ijn=1&start=100&q=hankson').content
+# sys.exit()
+
+
+#type 0,justopen, 1,gb2312, 2,gbk, 3,GBK, 4,utf-8
+def getPageWithSpecTimes(decodeType, url):
+    global tryTimes
+    alreadyTriedTimes = 0
+    html = None
+    while alreadyTriedTimes < tryTimes:
+        try:
+            if decodeType == 0:
+                html = urllib.urlopen(url).read()                
+            elif decodeType == 1:
+                html = urllib.urlopen(url).read().decode('gb2312', 'ignore').encode('utf8')
+            elif decodeType == 2:
+                html = urllib.urlopen(url).read().decode('gbk', 'ignore').encode('utf8')
+            elif decodeType == 3:
+                html = urllib.urlopen(url).read().decode('GBK', 'ignore').encode('utf8')
+            else:
+                html = urllib.urlopen(url).read()
+            break
+        except Exception as ep:
+            if alreadyTriedTimes < tryTimes - 1:
+                alreadyTriedTimes += 1
+                pass
+            else:
+                return None
+    return html
+
+def writeMapping(url, path):
+    writeLock.acquire()
+
+    filehandler = open('Mapping_google.csv','a')
+    filehandler.write(url+','+path+'\n')
+    filehandler.close()
+
+    writeLock.release()
+
+
+
+class DownloadOneName(threading.Thread):
+    #三个参数分别为start，eachlen，totallen
+    def __init__(self, name, picsNumForPerson):
+        threading.Thread.__init__(self)
+        self.personName= name
+        self.picsNumForPerson = picsNumForPerson
+
+    def run(self):
+        name = self.personName
+        if not os.path.exists(name.decode('utf8')):
+            os.makedirs(name.decode('utf8'))
+        PicsList = os.listdir(name.decode('utf8'))
+        googlePicsNum = 0
+        for pics in PicsList:
+            if '_google' in pics:
+                googlePicsNum += 1
+        if googlePicsNum > self.picsNumForPerson * 2 / 3:
+            return
+        pageNum = (self.picsNumForPerson - 1) / 100 + 1
+        print 'page num is %s' % pageNum
+
+        picsNum = 1
+        for j in range(pageNum):
+            encodedName = urllib.quote(name.encode('gbk'))
+            queryUrl = 'https://www.google.com.hk/search?safe=strict&tbm=isch&ijn=%s&start=%s&q=%s' % (j, 100*j, encodedName)
+            try:
+                picsPage = requests.get(queryUrl).content
+                print 'successfully get page '
+            except Exception as ep:
+                continue
+            
+            picsUrlPattern = re.compile(r'imgurl=(.+?)&amp;imgrefurl')
+
+            picsUrlList = picsUrlPattern.findall(picsPage)
+            for pics in picsUrlList:
+                #picsNum += 1
+                newPath = os.path.join(name.decode('utf8'), '%s_google.jpg' % picsNum)
+
+                alreadyTriedTimes = 0
+                while alreadyTriedTimes < 3:
+                    try:
+                        urllib.urlretrieve(pics, newPath)
+
+                        writeMapping(pics, newPath)
+                        picsNum += 1
+                        try:
+                            print 'thread %s download #%s pic for %s' % (self.getName(), picsNum, name.decode('utf8'))
+                        except Exception as ep:
+                            print ep.message
+                       
+                        break
+                    except Exception as ep:
+                        alreadyTriedTimes += 1
+                        if alreadyTriedTimes < tryTimes:
+                            pass
+                        else:
+                            print ep.message
+                            try:
+                                print 'thread %s cannot download pic,%s,%s' % (self.getName(), name.decode('utf8'), str(realUrl))
+                            except Exception as ep:
+                                print ep.message
+
+
+
+
+
+
+
+def getListFromFile(fileName):
+    namelist = []
+    for line in open(fileName):
+        for line2 in line.split('\r'):
+            line2 = re.sub(r'\n', '', line2)
+            if line2 != '':
+                namelist.append(line2)
+
+    return namelist
+
+
+
+print 'input the start point'
+try:
+    startPoint = int(raw_input())
+    if startPoint % 1000 != 0:
+        print 'the number must be a times of 1000'
+        sys.exit()
+except Exception as ep:
+    print ep.message
+    print 'wrong input'
+    sys.exit()
+
+print 'input the people number'
+try:
+    peopleNum = int(raw_input())
+    if peopleNum % 1000 != 0:
+        print 'the number must be a times of 1000'
+        sys.exit() 
+except Exception as ep:
+    print ep.message
+    print 'wrong input'
+    sys.exit()
+
+
+
+picsNumPerPerson = 0
+print 'input the pics number for each person'
+try:
+    picsNumPerPerson = int(raw_input())
+
+except Exception as ep:
+    print ep.message
+    print 'wrong input'
+    sys.exit()
+
+threadNum = 1
+print 'input the thread number'
+try:
+    threadNum = int(raw_input())
+except Exception as ep:
+    print ep.message
+    print 'wrong input'
+    sys.exit()    
+
+
+threadNumPool = {}
+totalNameList = getListFromFile('namelist_all.txt')
+namelist = totalNameList[startPoint:startPoint+peopleNum]
+if not os.path.exists('%s-%s' % (startPoint+1, startPoint+peopleNum)):
+    os.makedirs('%s-%s' % (startPoint+1, startPoint+peopleNum))
+os.chdir('%s-%s' % (startPoint+1, startPoint+peopleNum))
+
+
+for i in range(len(namelist)):
+    findThread = False
+    while findThread == False:
+        for j in range(threadNum):
+            if not threadNumPool.has_key(j):
+                threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson)
+                threadNumPool[j].start()
+                findThread = True
+                break
+            else:
+                if not threadNumPool[j].isAlive():
+                    threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson)
+                    threadNumPool[j].start()
+                    findThread = True
+                    break
+        if findThread == False: 
+            time.sleep(5)
+
+
+
+
+

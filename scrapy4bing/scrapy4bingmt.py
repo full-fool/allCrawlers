@@ -105,7 +105,6 @@ class DownloadOneName(threading.Thread):
                     url = trash.split(',')[4].split('"')[1]
                 except Exception as ep:
                     print ep.message
-                picsNum += 1
                 newPath = os.path.join(name.decode('utf8'), '%s_bing.jpg' % picsNum)
 
                 alreadyTriedTimes = 0
@@ -113,8 +112,10 @@ class DownloadOneName(threading.Thread):
                     try:
                         urllib.urlretrieve(url, newPath)
                         writeMapping(url, newPath)
+                        picsNum += 1
+
                         try:
-                            print 'download one pic for %s' % name.decode('utf8')
+                            print 'download #%s pic for %s' % (picsNum, name.decode('utf8'))
                         except Exception as ep:
                             print ep.message
                        
@@ -210,7 +211,6 @@ for i in range(len(namelist)):
                 break
             else:
                 if not threadNumPool[j].isAlive():
-                    #threadNumPool[j].stop()
                     threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson)
                     threadNumPool[j].start()
                     findThread = True

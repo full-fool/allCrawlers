@@ -70,65 +70,6 @@ def writeMapping(url, path):
 
     writeLock.release()
 
-class DownloadOnePage(threading.Thread):
-    #三个参数分别为start，eachlen，totallen
-    def __init__(self, personName, picsNumForPerson):
-        threading.Thread.__init__(self)
-        self.personName = personName
-        self.picsNumForPerson = picsNumForPerson
-
-    def run(self):
-        #for i in range(len(self.namelist)):
-        if not os.path.exists(self.personName.decode('utf8')):
-            os.makedirs(self.personName.decode('utf8'))
-        PicsList = os.listdir(self.personName.decode('utf8'))
-        baiduPicsNum = 0
-        for pics in PicsList:
-            if '_baidu' in pics:
-                baiduPicsNum += 1
-        if baiduPicsNum > 100:
-            return
-        pageNum = (self.picsNumForPerson-1) / 60 + 1
-        print 'page num is %s' % pageNum
-
-        picsNum = 0
-        for j in range(pageNum):
-            encodedName = urllib.quote(self.personName.encode('gbk'))
-            queryUrl = 'http://image.baidu.com/i?tn=resultjson_com&word=%s&oe=utf-8&rn=60&pn=%s' % (encodedName, 60*j)
-            picsPage = getPageWithSpecTimes(0, queryUrl)
-            if picsPage == None:
-                continue
-            
-            picsUrlPattern = re.compile(r'"objURL":"([^"]+?)"')
-            picsUrlList = picsUrlPattern.findall(picsPage)
-            for pics in picsUrlList:
-                realUrl = decodeUrl(pics)
-
-                picsNum += 1
-                newPath = os.path.join(self.personName.decode('utf8'), '%s_baidu.jpg' % picsNum)
-
-                alreadyTriedTimes = 0
-                while alreadyTriedTimes < 3:
-                    try:
-                        urllib.urlretrieve(str(realUrl), newPath)
-                        writeMapping(str(realUrl), newPath)
-                        try:
-                            print 'download one pic for %s' % self.personName.decode('utf8')
-                        except Exception as ep:
-                            print ep.message
-                       
-                        break
-                    except Exception as ep:
-                        alreadyTriedTimes += 1
-                        if alreadyTriedTimes < tryTimes:
-                            pass
-                        else:
-                            print ep.message
-                            try:
-                                print 'cannot download pic,%s,%s' % (self.personName.decode('utf8'), str(realUrl))
-                            except Exception as ep:
-                                print ep.message
-
 
 
 class DownloadOneName(threading.Thread):
@@ -140,6 +81,7 @@ class DownloadOneName(threading.Thread):
 
     def run(self):
         name = self.name
+
 
         if not os.path.exists(name.decode('utf8')):
             os.makedirs(name.decode('utf8'))
@@ -153,7 +95,7 @@ class DownloadOneName(threading.Thread):
         pageNum = (self.picsNumForPerson-1) / 60 + 1
         print 'page num is %s' % pageNum
 
-        picsNum = 0
+        picsNum = 1
         for j in range(pageNum):
             encodedName = urllib.quote(name.encode('gbk'))
             queryUrl = 'http://image.baidu.com/i?tn=resultjson_com&word=%s&oe=utf-8&rn=60&pn=%s' % (encodedName, 60*j)
@@ -166,16 +108,18 @@ class DownloadOneName(threading.Thread):
             for pics in picsUrlList:
                 realUrl = decodeUrl(pics)
 
-                picsNum += 1
+                #picsNum += 1
                 newPath = os.path.join(name.decode('utf8'), '%s_baidu.jpg' % picsNum)
 
                 alreadyTriedTimes = 0
                 while alreadyTriedTimes < 3:
                     try:
                         urllib.urlretrieve(str(realUrl), newPath)
+
                         writeMapping(str(realUrl), newPath)
+                        picsNum += 1
                         try:
-                            print 'download one pic for %s' % name.decode('utf8')
+                            print 'download #%s pic for %s' % (picsNum, name.decode('utf8'))
                         except Exception as ep:
                             print ep.message
                        
@@ -265,7 +209,6 @@ for i in range(len(namelist)):
                 break
             else:
                 if not threadNumPool[j].isAlive():
-                    #threadNumPool[j].stop()
                     threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson)
                     threadNumPool[j].start()
                     findThread = True

@@ -35,22 +35,27 @@ def initializeNotChosenList():
 
 def generatePosTestList(pairNum):
 	global notChosenList, allNamesList
-	for i in range(pairNum):
+	alreadyPariNum = 0
+	#for i in range(pairNum):
+	while 1:
 		leftForChooseNum = len(notChosenList)
 		randomChosenNum = random.randint(0, leftForChooseNum-1)
 		selectedPersonFolder = allNamesList[notChosenList[randomChosenNum]]
 		picsOfOnePersonList = os.listdir(os.path.join('Image', selectedPersonFolder))
 		picsNumForPerson = len(picsOfOnePersonList)
-		firstPic = picsOfOnePersonList[random.randint(0, picsNumForPerson-1)]
-		#firstPic = selectedPersonFolder+'-a.jpg'
-		picsOfOnePersonList.remove(firstPic)
-		secondPic = picsOfOnePersonList[random.randint(0, picsNumForPerson-2)]
+		if len(picsNumForPerson) >= 2:
+			firstPic = picsOfOnePersonList[random.randint(0, picsNumForPerson-1)]
+			#firstPic = selectedPersonFolder+'-a.jpg'
+			picsOfOnePersonList.remove(firstPic)
+			secondPic = picsOfOnePersonList[random.randint(0, picsNumForPerson-2)]
 
 
-		filehandler = open('pos_result.csv', 'a')
-		filehandler.write(selectedPersonFolder+'\\'+firstPic+','+selectedPersonFolder+'\\'+secondPic+',\n')
-		filehandler.close()
-
+			filehandler = open('pos_result.csv', 'a')
+			filehandler.write(selectedPersonFolder+'\\'+firstPic+','+selectedPersonFolder+'\\'+secondPic+',\n')
+			filehandler.close()
+			alreadyPariNum += 1
+		if alreadyPariNum >= pairNum:
+			break
 		
 		notChosenList.remove(notChosenList[randomChosenNum])
 		if len(notChosenList) == 0:

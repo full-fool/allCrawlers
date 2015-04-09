@@ -1,36 +1,18 @@
 #coding=utf-8
-import json
 import sys
 import urllib2, urllib
 import re
-import cookielib
-import codecs
-import json
 import os
 import socket
 import threading 
 import time
 import requests
-from bs4 import BeautifulSoup
 socket.setdefaulttimeout(50)
 reload(sys)
 sys.setdefaultencoding('utf8')
 
 tryTimes = 3
 writeLock = threading.Lock()
-
-# cookies = 'cookies.txt'
-# cj = cookielib.LWPCookieJar(cookies)
-# cj.save()
-# headers = ('User-Agent','Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11')
-
-# opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
-# opener.addheaders = [headers]
-# urllib2.install_opener(opener)
-
-# #print urllib2.urlopen('https://www.google.com.hk/search?safe=strict&tbm=isch&ijn=1&start=100&q=hankson').read()
-# print requests.get('https://www.google.com.hk/search?safe=strict&tbm=isch&ijn=1&start=100&q=hankson').content
-# sys.exit()
 
 
 #type 0,justopen, 1,gb2312, 2,gbk, 3,GBK, 4,utf-8

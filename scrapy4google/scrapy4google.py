@@ -79,15 +79,7 @@ class DownloadOneName(threading.Thread):
 
     def run(self):
         name = self.personName
-        if not os.path.exists(name.decode('utf8')):
-            os.makedirs(name.decode('utf8'))
-        PicsList = os.listdir(name.decode('utf8'))
-        googlePicsNum = 0
-        for pics in PicsList:
-            if '_google' in pics:
-                googlePicsNum += 1
-        if googlePicsNum > self.picsNumForPerson * 2 / 3:
-            return
+
         pageNum = (self.picsNumForPerson - 1) / 100 + 1
         print 'page num is %s' % pageNum
 
@@ -203,6 +195,23 @@ os.chdir('%s-%s' % (startPoint+1, startPoint+peopleNum))
 
 
 for i in range(len(namelist)):
+    name = namelist[i]
+    if not os.path.exists(name.decode('utf8')):
+        os.makedirs(name.decode('utf8'))
+    PicsList = os.listdir(name.decode('utf8'))
+    googlePicsNum = 0
+    for pics in PicsList:
+        if '_google' in pics:
+            googlePicsNum += 1
+    if googlePicsNum > picsNumPerPerson * 2 / 3:
+        try:
+            print 'enough google pics for %s' % name.decode('utf8')
+        except Exception as ep:
+            print ep.message
+        continue
+
+
+
     findThread = False
     while findThread == False:
         for j in range(threadNum):

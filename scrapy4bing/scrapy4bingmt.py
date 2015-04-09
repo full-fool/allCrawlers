@@ -88,7 +88,20 @@ class DownloadOneName(threading.Thread):
         # if bingPicsNum > 100:
         #     return
         name = self.name
+<<<<<<< HEAD
         picsNum = 0   
+=======
+        if not os.path.exists(name.decode('utf8')):
+            os.makedirs(name.decode('utf8'))
+        PicsList = os.listdir(name.decode('utf8'))
+        bingPicsNum = 0
+        for pics in PicsList:
+            if '_bing' in pics:
+                bingPicsNum += 1
+        if bingPicsNum > 100:
+            return
+        picsNum = 1 
+>>>>>>> 0684b283a0045b2b61ca0915adf21a36d35f07f0
         pageNum = (self.picsNumForPerson-1) / 35 + 1
         print 'page num is %s' % pageNum
         for j in range(pageNum):

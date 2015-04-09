@@ -145,9 +145,6 @@ def getListFromFile(fileName):
 print 'input the start point'
 try:
     startPoint = int(raw_input())
-    if startPoint % 1000 != 0:
-        print 'the number must be a times of 1000'
-        sys.exit()
 except Exception as ep:
     print ep.message
     print 'wrong input'
@@ -155,10 +152,7 @@ except Exception as ep:
 
 print 'input the people number'
 try:
-    peopleNum = int(raw_input())
-    if peopleNum % 1000 != 0:
-        print 'the number must be a times of 1000'
-        sys.exit() 
+    peopleNum = int(raw_input()) 
 except Exception as ep:
     print ep.message
     print 'wrong input'

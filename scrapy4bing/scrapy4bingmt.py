@@ -76,18 +76,19 @@ class DownloadOneName(threading.Thread):
         self.picsNumForPerson = picsNumForPerson
 
     def run(self):
-        #for i in range(len(self.namelist)):
         name = self.name
-        if not os.path.exists(name.decode('utf8')):
-            os.makedirs(name.decode('utf8'))
-        PicsList = os.listdir(name.decode('utf8'))
-        bingPicsNum = 0
-        for pics in PicsList:
-            if '_bing' in pics:
-                bingPicsNum += 1
-        if bingPicsNum > 100:
-            return
-        picsNum = 1 
+        # picsNum = 0   
+        # if not os.path.exists(name.decode('utf8')):
+        #     os.makedirs(name.decode('utf8'))
+        # PicsList = os.listdir(name.decode('utf8'))
+        # bingPicsNum = 0
+        # for pics in PicsList:
+        #     if '_bing' in pics:
+        #         bingPicsNum += 1
+        # if bingPicsNum > 100:
+        #     return
+        # picsNum = 1 
+
         pageNum = (self.picsNumForPerson-1) / 35 + 1
         print 'page num is %s' % pageNum
         for j in range(pageNum):
@@ -205,6 +206,21 @@ if not os.path.exists('%s-%s' % (startPoint+1, startPoint+peopleNum)):
 os.chdir('%s-%s' % (startPoint+1, startPoint+peopleNum))
 
 for i in range(len(namelist)):
+    name = namelist[i]
+    if not os.path.exists(name.decode('utf8')):
+        os.makedirs(name.decode('utf8'))
+    PicsList = os.listdir(name.decode('utf8'))
+    bingPicsNum = 0
+    for pics in PicsList:
+        if '_bing' in pics:
+            bingPicsNum += 1
+    if bingPicsNum > picsNumPerPerson * 2 / 3:
+        try:
+            print 'enough bing pics for %s\n' % name.decode('utf8')
+        except Exception as ep:
+            print ep.message
+        continue
+
     findThread = False
     while findThread == False:
         for j in range(threadNum):

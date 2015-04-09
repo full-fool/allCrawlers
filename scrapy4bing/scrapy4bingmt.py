@@ -72,12 +72,12 @@ class DownloadOneName(threading.Thread):
     #三个参数分别为start，eachlen，totallen
     def __init__(self, name, picsNumForPerson):
         threading.Thread.__init__(self)
-        self.name = name
+        self.personName = name
         self.picsNumForPerson = picsNumForPerson
 
     def run(self):
-        name = self.name
-        # picsNum = 0   
+        #for i in range(len(self.namelist)):
+        # name = self.name
         # if not os.path.exists(name.decode('utf8')):
         #     os.makedirs(name.decode('utf8'))
         # PicsList = os.listdir(name.decode('utf8'))
@@ -87,8 +87,8 @@ class DownloadOneName(threading.Thread):
         #         bingPicsNum += 1
         # if bingPicsNum > 100:
         #     return
-        # picsNum = 1 
-
+        name = self.personName
+        picsNum = 0   
         pageNum = (self.picsNumForPerson-1) / 35 + 1
         print 'page num is %s' % pageNum
         for j in range(pageNum):
@@ -106,6 +106,7 @@ class DownloadOneName(threading.Thread):
                     url = trash.split(',')[4].split('"')[1]
                 except Exception as ep:
                     print ep.message
+                    continue
                 newPath = os.path.join(name.decode('utf8'), '%s_bing.jpg' % picsNum)
 
                 alreadyTriedTimes = 0
@@ -113,10 +114,10 @@ class DownloadOneName(threading.Thread):
                     try:
                         urllib.urlretrieve(url, newPath)
                         writeMapping(url, newPath)
-                        picsNum += 1
+                        picsNum += 1 
 
                         try:
-                            print 'download #%s pic for %s' % (picsNum, name.decode('utf8'))
+                            print '%s download #%s pic for %s' % (self.getName(),picsNum, name.decode('utf8'))
                         except Exception as ep:
                             print ep.message
                        

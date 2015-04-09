@@ -112,13 +112,13 @@ class DownloadOneName(threading.Thread):
                 while alreadyTriedTimes < 3:
                     try:
                         urllib.urlretrieve(pics, newPath)
-
                         writeMapping(pics, newPath)
-                        picsNum += 1
                         try:
                             print 'thread %s download #%s pic for %s' % (self.getName(), picsNum, name.decode('utf8'))
                         except Exception as ep:
                             print ep.message
+                        picsNum += 1
+
                        
                         break
                     except Exception as ep:

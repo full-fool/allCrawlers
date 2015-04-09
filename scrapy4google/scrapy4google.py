@@ -91,6 +91,7 @@ class DownloadOneName(threading.Thread):
                 picsPage = requests.get(queryUrl).content
                 print 'successfully get page '
             except Exception as ep:
+                print ep.message
                 continue
             
             picsUrlPattern = re.compile(r'imgurl=(.+?)&amp;imgrefurl')

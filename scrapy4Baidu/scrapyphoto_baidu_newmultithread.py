@@ -76,20 +76,11 @@ class DownloadOneName(threading.Thread):
     #三个参数分别为start，eachlen，totallen
     def __init__(self, name, picsNumForPerson):
         threading.Thread.__init__(self)
-        self.name = name
+        self.personName = name
         self.picsNumForPerson = picsNumForPerson
 
     def run(self):
-        name = self.name
-        # if not os.path.exists(name.decode('utf8')):
-        #     os.makedirs(name.decode('utf8'))
-        # PicsList = os.listdir(name.decode('utf8'))
-        # baiduPicsNum = 0
-        # for pics in PicsList:
-        #     if '_baidu' in pics:
-        #         baiduPicsNum += 1
-        # if baiduPicsNum > 100:
-        #     return
+        name = self.personName
         pageNum = (self.picsNumForPerson-1) / 60 + 1
         print 'page num is %s' % pageNum
 
@@ -117,7 +108,7 @@ class DownloadOneName(threading.Thread):
                         writeMapping(str(realUrl), newPath)
                         picsNum += 1
                         try:
-                            print 'download #%s pic for %s' % (picsNum, name.decode('utf8'))
+                            print '%s download #%s pic for %s' % (self.getName(), picsNum, name.decode('utf8'))
                         except Exception as ep:
                             print ep.message
                        

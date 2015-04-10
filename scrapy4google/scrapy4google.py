@@ -172,6 +172,7 @@ os.chdir('%s-%s' % (startPoint+1, startPoint+peopleNum))
 
 
 for i in range(len(namelist)):
+    print 'process %s/%s' % (i, peopleNum)
     name = namelist[i]
     if not os.path.exists(name.decode('utf8')):
         os.makedirs(name.decode('utf8'))

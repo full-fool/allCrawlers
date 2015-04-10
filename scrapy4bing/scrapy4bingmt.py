@@ -70,35 +70,34 @@ def setProcess(process):
 
 class DownloadOneName(threading.Thread):
     #三个参数分别为start，eachlen，totallen
-    def __init__(self, name, picsNumForPerson):
+    def __init__(self, name, picsNumForPerson, alreadyPicsNum):
         threading.Thread.__init__(self)
         self.personName = name
         self.picsNumForPerson = picsNumForPerson
+        self.alreadyPicsNum = alreadyPicsNum
 
     def run(self):
-        #for i in range(len(self.namelist)):
-        # name = self.name
-        # if not os.path.exists(name.decode('utf8')):
-        #     os.makedirs(name.decode('utf8'))
-        # PicsList = os.listdir(name.decode('utf8'))
-        # bingPicsNum = 0
-        # for pics in PicsList:
-        #     if '_bing' in pics:
-        #         bingPicsNum += 1
-        # if bingPicsNum > 100:
-        #     return
         name = self.personName
-        picsNum = 0   
+        alreadyPicsNum = self.alreadyPicsNum
         pageNum = (self.picsNumForPerson-1) / 35 + 1
-        print 'page num is %s' % pageNum
-        for j in range(pageNum):
+        print '%s, page num is %s' % (self.getName(), pageNum)
+
+        picsNum = alreadyPicsNum
+        startPage = alreadyPicsNum / 35
+        startPicNum = alreadyPicsNum % 35
+        for j in range(startPage, pageNum):
             queryUrl = 'http://cn.bing.com/images/async?first=%s&count=35&q=%s' % (35*j, name)
             picsPage = getPageWithSpecTimes(0, queryUrl)
             if picsPage == None:
                 continue
             pagesoup = BeautifulSoup(picsPage, from_encoding='utf8')
             iList = pagesoup.find_all("div", attrs={"class": 'dg_u'})
+            tempProcess = 0
             for item in iList:
+                tempProcess += 1
+                if j == startPage and tempProcess <= startPicNum:
+                    continue
+
                 trash = item.a.get('m')
                 if trash == None:
                     continue
@@ -106,6 +105,7 @@ class DownloadOneName(threading.Thread):
                     url = trash.split(',')[4].split('"')[1]
                 except Exception as ep:
                     print ep.message
+                    print 'url wrong'
                     continue
                 newPath = os.path.join(name.decode('utf8'), '%s_bing.jpg' % picsNum)
 
@@ -228,13 +228,13 @@ for i in range(len(namelist)):
     while findThread == False:
         for j in range(threadNum):
             if not threadNumPool.has_key(j):
-                threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson)
+                threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson, bingPicsNum)
                 threadNumPool[j].start()
                 findThread = True
                 break
             else:
                 if not threadNumPool[j].isAlive():
-                    threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson)
+                    threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson, bingPicsNum)
                     threadNumPool[j].start()
                     findThread = True
                     break

@@ -74,18 +74,22 @@ def writeMapping(url, path):
 
 class DownloadOneName(threading.Thread):
     #三个参数分别为start，eachlen，totallen
-    def __init__(self, name, picsNumForPerson):
+    def __init__(self, name, picsNumForPerson, alreadyPics):
         threading.Thread.__init__(self)
         self.personName = name
         self.picsNumForPerson = picsNumForPerson
+        self.alreadyPics = alreadyPics
 
     def run(self):
         name = self.personName
+        alreadyPics = self.alreadyPics
         pageNum = (self.picsNumForPerson-1) / 60 + 1
         print 'page num is %s' % pageNum
 
-        picsNum = 1
-        for j in range(pageNum):
+        picsNum = alreadyPics
+        startPage = alreadyPics / 60
+        startPicNum = alreadyPics % 60
+        for j in range(startPage, pageNum):
             encodedName = urllib.quote(name.encode('gbk'))
             queryUrl = 'http://image.baidu.com/i?tn=resultjson_com&word=%s&oe=utf-8&rn=60&pn=%s' % (encodedName, 60*j)
             picsPage = getPageWithSpecTimes(0, queryUrl)
@@ -94,7 +98,11 @@ class DownloadOneName(threading.Thread):
             
             picsUrlPattern = re.compile(r'"objURL":"([^"]+?)"')
             picsUrlList = picsUrlPattern.findall(picsPage)
+            tempProess = 0
             for pics in picsUrlList:
+                tempProess += 1
+                if j == startPage and tempProess <= startPicNum:
+                    continue
                 realUrl = decodeUrl(pics)
 
                 #picsNum += 1
@@ -214,13 +222,13 @@ for i in range(len(namelist)):
     while findThread == False:
         for j in range(threadNum):
             if not threadNumPool.has_key(j):
-                threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson)
+                threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson, baiduPicsNum)
                 threadNumPool[j].start()
                 findThread = True
                 break
             else:
                 if not threadNumPool[j].isAlive():
-                    threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson)
+                    threadNumPool[j] = DownloadOneName(namelist[i], picsNumPerPerson, baiduPicsNum)
                     threadNumPool[j].start()
                     findThread = True
                     break

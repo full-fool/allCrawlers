@@ -8,14 +8,16 @@ import json
 import os
 import socket
 from bs4 import BeautifulSoup
-import uuid
+import time
+import threading
 socket.setdefaulttimeout(50)
 reload(sys)
 sys.setdefaultencoding('utf8')
 
 tryTimes = 3
 
-
+writeLock = threading.Lock()
+logLock = threading.Lock()
 
 def loadProcess():
     try:
@@ -62,9 +64,12 @@ def writeToLog(content):
         print content
     except Exception as ep:
         print ep.message
+
+    logLock.acquire()
     filehandler = open('log.txt', 'a')
     filehandler.write(content+'\n')
     filehandler.close()
+    logLock.release()
 
 
 def getListFromFile(fileName):
@@ -72,8 +77,11 @@ def getListFromFile(fileName):
     for line in open(fileName):
         for line2 in line.split('\r'):
             line2 = re.sub(r'\n', '', line2)
+            line2 = line2.strip(' ')
             namelist.append(line2)
     return namelist
+
+
 
 def getInfoForProduct(url):
     try:
@@ -83,8 +91,17 @@ def getInfoForProduct(url):
         writeToLog('cannot open page,%s' % url)
         return
 
+    if '京东网上商城' in productMainPage:
+        writeToLog('url out of date,%s' % url)
+        return
+
     pagesoup = BeautifulSoup(productMainPage, from_encoding='utf8')
 
+    resultDict = {}
+    resultDict['url'] = url
+    resultDict['info'] = {}
+    resultDict['info']['topInfo'] = []
+    #resultDict['info']['detail'] = {}
     #形如 http://item.jd.com/1322433653.html 这样的网页布局
     if 'p-parameter-list' in productMainPage:
         try:
@@ -103,9 +120,9 @@ def getInfoForProduct(url):
                     print 'unknown attribute, %s' % str(attribute)
             else:
                 allAttributesList[attribute.string.split('：')[0]] = '：'.join(attribute.string.split('：')[1:])
-
-        for eachItem in allAttributesList:
-            print eachItem, allAttributesList[eachItem]
+        resultDict['info']['detail'] = allAttributesList
+        # for eachItem in allAttributesList:
+        #     print eachItem, allAttributesList[eachItem]
 
 
 
@@ -125,112 +142,84 @@ def getInfoForProduct(url):
             #厚度：普通
             allAttributesList[attribute.string.split('：')[0]] = '：'.join(attribute.string.split('：')[1:])
 
-        for eachItem in allAttributesList:
-           print eachItem, allAttributesList[eachItem]
+        resultDict['info']['detail'] = allAttributesList
+
+        # for eachItem in allAttributesList:
+        #    print eachItem, allAttributesList[eachItem]
+
+    #get top info
+    allTopInfoItems = pagesoup.find_all('a', attrs={"clstag": re.compile(r'.+?mbNav.+?')})
+    if len(allTopInfoItems) == 0:
+        print 'no top info for url,%s' % url
+    #print len(allTopInfoItems)
+    for eachTopItemInfo in allTopInfoItems:
+        #print eachTopItemInfo.string
+        resultDict['info']['topInfo'].append(eachTopItemInfo.string)
+
+    writeLock.acquire()
+    filehandler = open('result.txt', 'a')
+    filehandler.write(json.dumps(resultDict, indent=4, ensure_ascii=False))
+    filehandler.write('@@@@@@@@@@')
+    filehandler.close()
+    writeLock.release()
+
         #print allAttributesList
 
 
 
 
 
-getInfoForProduct('http://item.jd.com/1322433653.html')
-sys.exit()
 
 
 
-cookieFile = urllib2.HTTPCookieProcessor()
-opener = urllib2.build_opener(cookieFile)
-opener.addheaders = [('User-agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.92 Safari/537.4')]
-urllib2.install_opener(opener)
+class FetchInfoForProduct(threading.Thread):
+    #三个参数分别为start，eachlen，totallen
+    def __init__(self, url):
+        threading.Thread.__init__(self)
+        self.url = url
+
+    def run(self):
+        url = self.url
+        getInfoForProduct(url)
+        
 
 
-startPage = loadProcess()
-for i in range(startPage, 9683+1):
+
+#getInfoForProduct('http://item.jd.com/1333626931.html')
+# page = urllib.urlopen('http://item.jd.com/1215987809.html').read().decode('gbk', 'ignore').encode('utf8')
+# filehandler = open('temp.html', 'w')
+# filehandler.write(page)
+# filehandler.close()
+
+allUrlsList = getListFromFile('items.txt')
+allUrlsNum = len(allUrlsList)
+
+threadNum = 100
+threadNumPool = {}
+
+
+startProcess = loadProcess()
+
+for i in range(startProcess, len(allUrlsList)):
     setProcess(str(i))
-    print 'start to process %s' % i
-    
-    queryUrl = 'http://www.lol99.com/online/?page=%s&type=1' % i 
-    onePage = getPageWithSpecTimes(0, queryUrl)
-    if onePage == None:
-        #print 'cannot open page,%s' % queryUrl
-        writeToLog('cannot open page,%s' % queryUrl)
-        continue
-    print 'successfully get page %s' % i
-
-    onePersonUrlPatten = re.compile(r'<p class="xiangxi"><a href="([^"]+?)" target="_blank">详细信息>></a></p>')
-    personUrlList = onePersonUrlPatten.findall(onePage)
-
-    print 'there are %s people found' % len(personUrlList)
-    for compPersonUrl in personUrlList:
-        uidPattern = re.compile(r'\?uid=(\d+)')
-        try:
-            uid = uidPattern.findall(compPersonUrl)[0]
-        except Exception as ep:
-            print 'cannot find uid in %s' % compPersonUrl
-            continue
-
-        picsQueryUrl = 'http://www.lol99.com/member/photo_list.php?uid=%s' % uid
-        picsInfoForOnePerson = getPageWithSpecTimes(0, picsQueryUrl)
-        if picsInfoForOnePerson == None:
-            writeToLog('cannot find pics info for,%s,%s' % (uid, picsQueryUrl))
-            continue
-
-        picsUrlPattern = re.compile(r'<img src="(http://head.+?)" /></a>')
-        picsUrlList = picsUrlPattern.findall(picsInfoForOnePerson)
-        if len(picsUrlList) < 5:
-            print '%s pics found, not enough,%s' % (len(picsUrlList), uid)
-            continue
-
-
-        onePersonPage = getPageWithSpecTimes(0, compPersonUrl)
-        if onePersonPage == None:
-            print 'cannot open page for person,%s' % compPersonUrl
-            writeToLog('cannot open page for person,%s' % compPersonUrl)
-            continue
-
-
-        rawGenderPattern = re.compile(r'<span>性别：(.+?)</span>')
-        gender = 0
-        try:
-            rawGender = rawGenderPattern.findall(onePersonPage)[0]
-            if rawGender == '男':
-                gender = 'm'
-            elif rawGender == '女':
-                gender = 'f'
+    print 'process: %s/%s' % (i, allUrlsNum)
+    findThread = False
+    while findThread == False:
+        for j in range(threadNum):
+            if not threadNumPool.has_key(j):
+                threadNumPool[j] = FetchInfoForProduct(allUrlsList[i])
+                threadNumPool[j].start()
+                findThread = True
+                break
             else:
-                print 'raw gender is %s' % rawGender
-                continue
-        except Exception as ep:
-            writeToLog('cannot find gender info,%s' % compPersonUrl)
-            continue
-
-        agePattern = re.compile(r'<span>年龄：(\d+)岁</span>')
-        try:
-            age = agePattern.findall(onePersonPage)[0]
-        except Exception as ep:
-            writeToLog('cannot find age info,%s' % compPersonUrl)
-            continue
-
-
-
-        print 'dir name is %s_%s_%s' % (uid, age, gender)
-
-        if not os.path.exists('%s_%s_%s' % (uid, age, gender)):
-            os.makedirs('%s_%s_%s' % (uid, age, gender))
-
-        for j in range(len(picsUrlList)):
-            picurl = picsUrlList[j].replace('_slt', '_y')
-            picPath = os.path.join('%s_%s_%s' % (uid, age, gender), '%s.jpg' % j)
-            try:
-                #urllib.urlretrieve(picurl, picPath)
-                picContent = urllib2.urlopen(picurl).read()
-                filehandler = open(picPath, 'wb')
-                filehandler.write(picContent)
-                filehandler.close()
-                print 'pic url is %s\n' % picurl
-            except Exception as ep:
-                writeToLog('cannot download pic,%s,%s\n' % (picurl, compPersonUrl))
-
+                if not threadNumPool[j].isAlive():
+                    #threadNumPool[j].stop()
+                    threadNumPool[j] = FetchInfoForProduct(allUrlsList[i])
+                    threadNumPool[j].start()
+                    findThread = True
+                    break
+        if findThread == False: 
+            time.sleep(5)
 
 
 

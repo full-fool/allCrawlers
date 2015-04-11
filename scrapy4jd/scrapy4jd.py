@@ -84,12 +84,17 @@ def getListFromFile(fileName):
 
 
 def getInfoForProduct(url):
-    try:
-        productMainPage = urllib.urlopen(url).read().decode('gbk', 'ignore').encode('utf8')
-    except Exception as ep:
-        print ep.message
+    productMainPage = getPageWithSpecTimes(2, url)
+    if productMainPage == None:
         writeToLog('cannot open page,%s' % url)
         return
+
+    # try:
+    #     productMainPage = urllib.urlopen(url).read().decode('gbk', 'ignore').encode('utf8')
+    # except Exception as ep:
+        # print ep.message
+        # writeToLog('cannot open page,%s' % url)
+        # return
 
     if '京东网上商城' in productMainPage:
         writeToLog('url out of date,%s' % url)
@@ -194,7 +199,7 @@ class FetchInfoForProduct(threading.Thread):
 allUrlsList = getListFromFile('items.txt')
 allUrlsNum = len(allUrlsList)
 
-threadNum = 100
+threadNum = 10
 threadNumPool = {}
 
 

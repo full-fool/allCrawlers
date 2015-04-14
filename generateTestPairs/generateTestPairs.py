@@ -10,10 +10,10 @@ import copy
 
 
 
-def writeFile(datasetName, pairNum, fileName, uri):
-	if not os.path.exists(os.path.join('Data', datasetName, 'pair%s'%pairNum)):
-		os.makedirs(os.path.join('Data', datasetName, 'pair%s'%pairNum))
-	filehandler = open(os.path.join('Data', datasetName, 'pair%s' % pairNum, fileName), 'a')
+def writeFile(datasetName, pairNum, databaseNum, fileName, uri):
+	if not os.path.exists(os.path.join('Data', datasetName, str(databaseNum), 'pair%s'%pairNum)):
+		os.makedirs(os.path.join('Data', datasetName, str(databaseNum), 'pair%s'%pairNum))
+	filehandler = open(os.path.join('Data', datasetName, str(databaseNum), 'pair%s' % pairNum, fileName), 'a')
 	filehandler.write(uri)
 	filehandler.close()
 
@@ -26,22 +26,27 @@ def getRandomNormalPic(picsList):
 		return None
 	return normalPicsList[random.randint(0, len(normalPicsList) - 1)]
 
+def writePairList(fileName, content):
+	filehandler = open(fileName, 'a')
+	filehandler.write(content)
+	filehandler.close()
+
 try:
 	datasetName = sys.argv[1]
 	databasePicNum = int(sys.argv[2])
 	positiveNum = int(sys.argv[3])
 	negativeNum = int(sys.argv[4])
 except Exception as ep:
-	print ep.message
-	print 'wrong arguments'
+	#print ep.message
+	print 'wrong arguments: dataset_name database_num positive_num negative_num'
 	sys.exit()
 
 if not os.path.exists(os.path.join('Image', datasetName)):
 	print 'cannot find dataset %s' % datasetName
 	sys.exit()
 
-if not os.path.exists(os.path.join('Data', datasetName)):
-	os.makedirs(os.path.join('Data', datasetName))
+if not os.path.exists(os.path.join('Data', datasetName, str(databasePicNum))):
+	os.makedirs(os.path.join('Data', datasetName, str(databasePicNum)))
 
 
 
@@ -74,8 +79,8 @@ while 1:
 		for eachPic in picsList:
 			if not '-' in eachPic:
 				hasIDPhoto = True
-				picURI = str(os.path.join('Image', datasetName, 'database', selectedFolder, eachPic.split('.')[0]))
-				writeFile(datasetName, alreadyPairNum, 'database.txt', picURI+'\n')
+				picURI = str(os.path.join(datasetName, 'database', selectedFolder, eachPic.split('.')[0]))
+				writeFile(datasetName, alreadyPairNum, databasePicNum, 'database.txt', picURI+'\n')
 		if hasIDPhoto == True:
 			alreadyDatabasePicNum += 1
 			selectedPeopleList.append(selectedFolder)
@@ -102,8 +107,8 @@ while 1:
 			#print 'normalPicsList length is %s' % len(normalPicsList)
 			if not len(normalPicsList) == 0:
 				selectedPic = normalPicsList[random.randint(0, len(normalPicsList) - 1)]
-				picURI = str(os.path.join('Image', datasetName, 'database', selectedFolder, selectedPic.split('.')[0]))
-				writeFile(datasetName, alreadyPairNum, 'positive.txt', picURI+'\n')
+				picURI = str(os.path.join(datasetName, 'database', selectedFolder, selectedPic.split('.')[0]))
+				writeFile(datasetName, alreadyPairNum, databasePicNum, 'positive.txt', picURI+'\n')
 				alreadyPositiveNum += 1
 			if alreadyPositiveNum == positiveNum or len(tempSelectedPeopleList) == 0:
 				break
@@ -115,7 +120,7 @@ while 1:
 		if os.path.exists(os.path.join('Image', datasetName, 'noise')):
 			noisePicsInFolder = os.listdir(os.path.join('Image', datasetName, 'noise'))
 			for eachNoisePic in noisePicsInFolder:
-				allNoisePics.append(str(os.path.join('Image', datasetName, 'noise', eachNoisePic.split('.')[0])))
+				allNoisePics.append(str(os.path.join(datasetName, 'noise', eachNoisePic.split('.')[0])))
 		# if there is no Noise folder
 		else:
 			tempDirsList = copy.copy(allDirsList)
@@ -125,16 +130,17 @@ while 1:
 					randomPic = getRandomNormalPic(tempPicsList)
 					if randomPic == None:
 						continue
-					allNoisePics.append(str(os.path.join('Image', datasetName, 'database', eachFolder, randomPic.split('.')[0])))
+					allNoisePics.append(str(os.path.join(datasetName, 'database', eachFolder, randomPic.split('.')[0])))
 
 		while 1:
 			selectedNegativePic = allNoisePics[random.randint(0, len(allNoisePics) - 1)]
 			allNoisePics.remove(selectedNegativePic)
-			writeFile(datasetName, alreadyPairNum, 'negative.txt', selectedNegativePic+'\n')
+			writeFile(datasetName, alreadyPairNum, databasePicNum, 'negative.txt', selectedNegativePic+'\n')
 			alreadyNegativeNum += 1
 			if alreadyNegativeNum == negativeNum or len(allNoisePics) == 0:
 				break
 
+	writePairList(os.path.join('Data', datasetName, str(databasePicNum), 'pairlist.txt'), str(alreadyPairNum)+'\n')
 	alreadyPairNum += 1
 	if alreadyNegativeNum == negativeNum and alreadyPositiveNum == positiveNum:
 		break

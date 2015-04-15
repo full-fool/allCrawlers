@@ -38,7 +38,7 @@ try:
 	negativeNum = int(sys.argv[4])
 except Exception as ep:
 	#print ep.message
-	print 'wrong arguments: dataset_name database_num positive_num negative_num'
+	print 'wrong arguments: dataset_name database_num positive_num negative_num '
 	sys.exit()
 
 if not os.path.exists(os.path.join('Image', datasetName)):
@@ -77,7 +77,7 @@ while 1:
 		picsList = os.listdir(os.path.join('Image', datasetName, 'database', selectedFolder))
 		hasIDPhoto = False
 		for eachPic in picsList:
-			if not '-' in eachPic:
+			if eachPic.split('.')[0][-3:-1] == 'id':
 				hasIDPhoto = True
 				picURI = str(os.path.join(datasetName, 'database', selectedFolder, eachPic.split('.')[0]))
 				writeFile(datasetName, alreadyPairNum, databasePicNum, 'database.txt', picURI+'\n')
@@ -141,6 +141,7 @@ while 1:
 				break
 
 	writePairList(os.path.join('Data', datasetName, str(databasePicNum), 'pairlist.txt'), str(alreadyPairNum)+'\n')
+	print 'pair %s had done' % alreadyPairNum
 	alreadyPairNum += 1
 	if alreadyNegativeNum == negativeNum and alreadyPositiveNum == positiveNum:
 		break

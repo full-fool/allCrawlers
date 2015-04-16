@@ -82,11 +82,11 @@ while 1:
             if eachPic.split('.')[0][-3:] == 'id1' and aorc == 'a':
                 hasIDPhoto = True
                 picURI = str(os.path.join(datasetName, 'database', selectedFolder, eachPic.split('.')[0]))
-                writeFile(datasetName+'_a', alreadyPairNum, databasePicNum, 'database.txt', picURI+'\n')
+                writeFile(datasetName+'_a_newNoise', alreadyPairNum, databasePicNum, 'database.txt', picURI+'\n')
             elif eachPic.split('.')[0][-3:] == 'id2' and aorc == 'c':
                 hasIDPhoto = True
                 picURI = str(os.path.join(datasetName, 'database', selectedFolder, eachPic.split('.')[0]))
-                writeFile(datasetName+'_c', alreadyPairNum, databasePicNum, 'database.txt', picURI+'\n')
+                writeFile(datasetName+'_c_newNoise', alreadyPairNum, databasePicNum, 'database.txt', picURI+'\n')
         
 
         if hasIDPhoto == True:
@@ -113,9 +113,9 @@ while 1:
                 selectedPic = normalPicsList[random.randint(0, len(normalPicsList) - 1)]
                 picURI = str(os.path.join(datasetName, 'database', selectedFolder, selectedPic.split('.')[0]))
                 if aorc == 'a':
-                    writeFile(datasetName+'_a', alreadyPairNum, databasePicNum, 'positive.txt', picURI+'\n')
+                    writeFile(datasetName+'_a_newNoise', alreadyPairNum, databasePicNum, 'positive.txt', picURI+'\n')
                 elif aorc == 'c':
-                    writeFile(datasetName+'_c', alreadyPairNum, databasePicNum, 'positive.txt', picURI+'\n')
+                    writeFile(datasetName+'_c_newNoise', alreadyPairNum, databasePicNum, 'positive.txt', picURI+'\n')
                 alreadyPositiveNum += 1
             if alreadyPositiveNum == positiveNum or len(tempSelectedPeopleList) == 0:
                 break
@@ -124,36 +124,30 @@ while 1:
     # allNoisePics中也是自带完整路径，且没有后缀名
     if alreadyNegativeNum < negativeNum:
         allNoisePics = []
-        if os.path.exists(os.path.join('Image', datasetName, 'noise')):
-            noisePicsInFolder = os.listdir(os.path.join('Image', datasetName, 'noise'))
-            for eachNoisePic in noisePicsInFolder:
-                allNoisePics.append(str(os.path.join(datasetName, 'noise', eachNoisePic.split('.')[0])))
-        # if there is no Noise folder
-        else:
-            tempDirsList = copy.copy(allDirsList)
-            for eachFolder in tempDirsList:
-                if not eachFolder in selectedPeopleList:
-                    tempPicsList = os.listdir(os.path.join('Image', datasetName, 'database', eachFolder))
-                    randomPic = getRandomNormalPic(tempPicsList)
-                    if randomPic == None:
-                        continue
-                    allNoisePics.append(str(os.path.join(datasetName, 'database', eachFolder, randomPic.split('.')[0])))
+        tempDirsList = copy.copy(allDirsList)
+        for eachFolder in tempDirsList:
+            if not eachFolder in selectedPeopleList:
+                tempPicsList = os.listdir(os.path.join('Image', datasetName, 'database', eachFolder))
+                randomPic = getRandomNormalPic(tempPicsList)
+                if randomPic == None:
+                    continue
+                allNoisePics.append(str(os.path.join(datasetName, 'database', eachFolder, randomPic.split('.')[0])))
 
         while 1:
             selectedNegativePic = allNoisePics[random.randint(0, len(allNoisePics) - 1)]
             allNoisePics.remove(selectedNegativePic)
             if aorc == 'a':
-                writeFile(datasetName+'_a', alreadyPairNum, databasePicNum, 'negative.txt', selectedNegativePic+'\n')
+                writeFile(datasetName+'_a_newNoise', alreadyPairNum, databasePicNum, 'negative.txt', selectedNegativePic+'\n')
             elif aorc == 'c':
-                writeFile(datasetName+'_c', alreadyPairNum, databasePicNum, 'negative.txt', selectedNegativePic+'\n')                
+                writeFile(datasetName+'_c_newNoise', alreadyPairNum, databasePicNum, 'negative.txt', selectedNegativePic+'\n')                
             alreadyNegativeNum += 1
             if alreadyNegativeNum == negativeNum or len(allNoisePics) == 0:
                 break
 
     if aorc == 'a':
-    	writePairList(os.path.join('Data', datasetName+'_a', str(databasePicNum), 'pairlist.txt'), str(alreadyPairNum)+'\n')
+        writePairList(os.path.join('Data', datasetName+'_a_newNoise', str(databasePicNum), 'pairlist.txt'), str(alreadyPairNum)+'\n')
     elif aorc == 'c':
-    	writePairList(os.path.join('Data', datasetName+'_c', str(databasePicNum), 'pairlist.txt'), str(alreadyPairNum)+'\n')
+        writePairList(os.path.join('Data', datasetName+'_c_newNoise', str(databasePicNum), 'pairlist.txt'), str(alreadyPairNum)+'\n')
     print 'pair %s has done' % alreadyPairNum
     alreadyPairNum += 1
     if alreadyNegativeNum == negativeNum and alreadyPositiveNum == positiveNum:

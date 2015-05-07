@@ -114,7 +114,7 @@ def getFoodTypes(cityName, url):
     #pageContent = urllib.urlopen(url).read()
     pageContent = getPageWithSpecTimes(0, url)
     if pageContent == None:
-        writeToLog('cannot open food page,%s,%s' % (cityName, url))
+        writeToLog('cannot open food page,%s,%s' % (cityName.decode('utf8'), url))
         return None
 
     foodTypesSectionPattern = re.compile(r'美食频道</a> .+?</div>',re.S)
@@ -136,7 +136,7 @@ def getFoodTypes(cityName, url):
 def getEachShopLinkForOnePage(cityName, foodType, pageNum, url):
     pageContent = getPageWithSpecTimes(0, url)
     if pageContent == None:
-        writeToLog('cannot open page for page,%s,%s,%s,%s' % (cityName, foodType, pageNum, url))
+        writeToLog('cannot open page for page,%s,%s,%s,%s' % (cityName.decode('utf8'), foodType.decode('utf8'), pageNum.decode('utf8'), url))
         return None
     #pageContent = urllib2.urlopen(url).read()
     #print pageContent
@@ -152,7 +152,7 @@ def fetchAllInfoForOneShop(city, foodType, url):
     time.sleep(1)
     pageContent = getPageWithSpecTimes(0, url)
     if pageContent == None:
-        writeToLog('cannot open page for one shop,%s,%s,%s' % (city, foodType, url))
+        writeToLog('cannot open page for one shop,%s,%s,%s' % (city.decode('utf8'), foodType.decode('utf8'), url))
         return None
 
 
@@ -163,24 +163,24 @@ def fetchAllInfoForOneShop(city, foodType, url):
         iList = str(pagesoup.find_all("div", attrs={"class": "breadcrumb"})[0])
     except Exception as ep:
         #print pageContent
-        writeToLog('cannot open page for one shop,%s,%s,%s'%(city,foodType,url))
-        return
+        writeToLog('open main page for shop,%s,%s,%s'%(city.decode('utf8'),foodType.decode('utf8'),url))
+        return None
     placeListPattern = re.compile(r'<a href=".+?" itemprop="url">\s+(\S+?)\s+</a>',re.S)
     placeList = placeListPattern.findall(iList)
     shopNamePattern = re.compile(r'<span>(.+?)</span>')
     shopName = shopNamePattern.findall(iList)[0]
     placeList.append(shopName)
-    print shopName
-    if not os.path.exists(os.path.join(city, foodType, shopName)):
-        os.makedirs(os.path.join(city, foodType, shopName))
-    filehandler = open(os.path.join(city, foodType, shopName, 'info.txt'), 'w')
+    print shopName.decode('utf8')
+    if not os.path.exists(os.path.join(city.decode('utf8'), foodType.decode('utf8'), shopName.decode('utf8'))):
+        os.makedirs(os.path.join(city.decode('utf8'), foodType.decode('utf8'), shopName.decode('utf8')))
+    filehandler = open(os.path.join(city.decode('utf8'), foodType.decode('utf8'), shopName.decode('utf8'), 'info.txt'), 'w')
     filehandler.write(shopName+'\n')
     filehandler.write('location: %s' % placeList[0])
     for i in range(1, len(placeList)):
         filehandler.write('->%s' % placeList[i])
         #print 'place is ' + placeList[i]
     filehandler.write('\n')
-    print 'done locatioin for %s' % shopName
+    print 'done locatioin for %s' % shopName.decode('utf8')
 
     # get rating and write to file
     try:
@@ -197,12 +197,16 @@ def fetchAllInfoForOneShop(city, foodType, url):
         print ep.message
         pass
     filehandler.close()
-    print 'down rating for %s' % shopName
+    print 'down rating for %s' % shopName.decode('utf8')
 
 
     # all pics and tabs
     picPageUrl = url + '/photos'
-    picPageContent = urllib2.urlopen(picPageUrl).read()
+    picPageContent = getPageWithSpecTimes(0, picPageUrl)
+    if picPageContent == None:
+        writeToLog('cannot open picPage for shop,%s,%s,%s,%s' % (city.decode('utf8'),foodType.decode('utf8'), shopName.decode('utf8'), picPageUrl))
+        return None        
+    #picPageContent = urllib2.urlopen(picPageUrl).read()
     picPagesoup = BeautifulSoup(picPageContent, from_encoding='utf8')
     allDlsInPage = picPagesoup.find_all("dl")
     dishesSection = None
@@ -216,8 +220,8 @@ def fetchAllInfoForOneShop(city, foodType, url):
 
     if dishesSection != None:
         # process each dish
-        filehandler = open(os.path.join(city, foodType, shopName, 'dishPicUrlList.txt'), 'w')
-        tagFileHandler = open(os.path.join(city, foodType, shopName, 'dishTag.txt'), 'w')
+        filehandler = open(os.path.join(city.decode('utf8'), foodType.decode('utf8'), shopName.decode('utf8'), 'dishPicUrlList.txt'), 'w')
+        tagFileHandler = open(os.path.join(city.decode('utf8'), foodType.decode('utf8'), shopName.decode('utf8'), 'dishTag.txt'), 'w')
 
         dishNameAndLinkPattern = re.compile(r'<a href="(.+?)" onclick="pageTracker\._trackPageview.+?;" title="([^"]+?)\(')
         dishNameAndLinkList = dishNameAndLinkPattern.findall(dishesSection)
@@ -225,8 +229,11 @@ def fetchAllInfoForOneShop(city, foodType, url):
         for eachDish in dishNameAndLinkList:
             dishName = eachDish[1]
             dishUrl = 'http://www.dianping.com' + eachDish[0]
-            dishPicPage = urllib2.urlopen(dishUrl).read()
-
+            #dishPicPage = urllib2.urlopen(dishUrl).read()
+            dishPicPage = getPageWithSpecTimes(0, dishUrl)
+            if dishPicPage == None:
+                writeToLog('cannot open one dish,%s,%s,%s,%s' % (city.decode('utf8'),foodType.decode('utf8'), shopName.decode('utf8'), dishUrl))
+                continue
             # get dish attributes here
             if 'class="picture-tag"' in dishPicPage:
                 tagSectionPattern = re.compile(r'<div class="picture-tag">.+?</div>', re.S)
@@ -245,7 +252,12 @@ def fetchAllInfoForOneShop(city, foodType, url):
             while '下一页' in dishPicPage:
                 currentPage += 1
                 dishUrl = 'http://www.dianping.com' + eachDish[0] + '?pg=%s' % currentPage
-                dishPicPage = urllib2.urlopen(dishUrl).read()
+                #dishPicPage = urllib2.urlopen(dishUrl).read()
+                dishPicPage = getPageWithSpecTimes(0, dishUrl)
+                if dishPicPage == None:
+                    writeToLog('cannot open spec page for one dish,%s,%s,%s,%s,%s' % \
+                        (city.decode('utf8'),foodType.decode('utf8'), shopName.decode('utf8'),currentPage, dishUrl))
+                    break
                 dishPicUrlList += dishPicUrlPattern.findall(dishPicPage)                
             for i in range(len(dishPicUrlList)):
                 resultUrl = dishPicUrlList[i].replace('240c180', '700x700')
@@ -255,27 +267,39 @@ def fetchAllInfoForOneShop(city, foodType, url):
         tagFileHandler.close()
 
     else:
-        writeToLog('cannot find pics of dishes in url,%s,%s,%s,%s' % (city, foodType, shopName, picPageUrl))
+        writeToLog('cannot find pics of dishes in url,%s,%s,%s,%s' % (city.decode('utf8'), foodType.decode('utf8'), shopName.decode('utf8'), picPageUrl))
 
-    print 'done all dishes for %s' % shopName
+    print 'done all dishes for %s' % shopName.decode('utf8')
     
 
     #process enviconment
     if environmentSection != None:
-        environFilehandler = open(os.path.join(city, foodType, shopName, 'environPicUrlList.txt'), 'w')
+        environFilehandler = open(os.path.join(city.decode('utf8'), foodType.decode('utf8'), shopName.decode('utf8'), 'environPicUrlList.txt'), 'w')
         environNameAndLinkPattern = re.compile(r'<a href="([^"]+?)" onclick="pageTracker\._trackPageview[^"]+?" title="([^"]+?)\(')
         environNameAndLinkList = environNameAndLinkPattern.findall(environmentSection)
         for eachEnviron in environNameAndLinkList:
             environName = eachEnviron[1]
             environUrl = 'http://www.dianping.com' + eachEnviron[0]
-            environPicPage = urllib2.urlopen(environUrl).read()
+            #environPicPage = urllib2.urlopen(environUrl).read()
+            environPicPage = getPageWithSpecTimes(0, environUrl)
+            if environPicPage == None:
+                writeToLog('cannot open environ page for shop,%s,%s,%s,%s,%s' % \
+                    (city.decode('utf8'), foodType.decode('utf8'), shopName.decode('utf8'), environName.decode('utf8'), environUrl))
+                continue
             environPicUrlPattern = re.compile(r'<img src="(.+?thumb\.jpg)"')
             environPicUrlList = environPicUrlPattern.findall(environPicPage)
             currentPage = 1
             while '下一页' in environPicPage:
                 currentPage += 1
                 environUrl = 'http://www.dianping.com' + eachEnviron[0] + '?pg=%s' % currentPage
-                environPicPage = urllib2.urlopen(environUrl).read()
+                #environPicPage = urllib2.urlopen(environUrl).read()
+
+                environPicPage = getPageWithSpecTimes(0, environUrl)
+                if environPicPage == None:
+                    writeToLog('cannot open environ page for shop,%s,%s,%s,%s,%s' % \
+                        (city.decode('utf8'), foodType.decode('utf8'), shopName.decode('utf8'), environName.decode('utf8'), environUrl))
+                    break
+
                 environPicUrlList += environPicUrlPattern.findall(environPicPage)
             for i in range(len(environPicUrlList)):
                 resultUrl = environPicUrlList[i].replace('240c180', '700x700')
@@ -283,8 +307,8 @@ def fetchAllInfoForOneShop(city, foodType, url):
                 environFilehandler.write('%s,%s\n' % (picName, resultUrl))
         environFilehandler.close()
     else:
-        writeToLog('cannot find pics of environment in url,%s,%s,%s,%s' % (city, foodType, shopName, picPageUrl))
-    print 'done all environment for %s' % shopName
+        writeToLog('cannot find pics of environment in url,%s,%s,%s,%s' % (city.decode('utf8'), foodType.decode('utf8'), shopName.decode('utf8'), picPageUrl))
+    print 'done all environment for %s' % shopName.decode('utf8')
 
     return True
 
@@ -293,7 +317,7 @@ citiesInfoList = getCitiesInfo()
 for i in range(len(citiesInfoList)):
     cityName = citiesInfoList[i][1]
     cityCode = citiesInfoList[i][0]
-    print cityName
+    print cityName.decode('utf8')
     cityUrl = 'http://www.dianping.com/%s' % cityCode
     allFoodTypesAndLink = getFoodTypes(cityName, cityUrl)
     if allFoodTypesAndLink == None:
@@ -301,7 +325,7 @@ for i in range(len(citiesInfoList)):
         continue
     for j in range(len(allFoodTypesAndLink)):
         foodType = allFoodTypesAndLink[j][1]
-        print foodType
+        print foodType.decode('utf8')
         for k in range(15):
             foodPageUrl = allFoodTypesAndLink[j][0] + 'p%s' % (k+1)
             shopListsForOnePage = getEachShopLinkForOnePage(cityName, foodType, k, foodPageUrl)

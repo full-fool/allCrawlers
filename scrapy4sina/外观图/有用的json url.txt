@@ -1,2 +1,0 @@
-有用的json url
-http://photo.auto.sina.com.cn/interface/v2/general/get_car_photo.php?subid=1811&pic_type=1&page=1&limit=10000

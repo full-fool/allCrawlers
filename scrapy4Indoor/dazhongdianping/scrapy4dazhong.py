@@ -170,8 +170,8 @@ def fetchAllInfoForOneShop(city, foodType, url):
         return None
     placeListPattern = re.compile(r'<a href=".+?" itemprop="url">\s+(\S+?)\s+</a>',re.S)
     placeList = placeListPattern.findall(iList)
-    shopNamePattern = re.compile(r'<span>(.+?)</span>')
-    shopName = shopNamePattern.findall(iList)[0]
+    shopNamePattern = re.compile(r'<title>(.+?)电话,')
+    shopName = shopNamePattern.findall(pageContent)[0]
     placeList.append(shopName)
     robustPrint(shopName.decode('utf8'))
 

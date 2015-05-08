@@ -30,10 +30,16 @@ opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
 opener.addheaders = [headers]
 urllib2.install_opener(opener)
 
+def robustPrint(content):
+    try:
+        print content
+    except Exception as ep:
+        print ep.message
+
 def loadProcess():
     try:
-        carBrandNum = int(open('process.txt').read())
-        return carBrandNum
+        contentList = open('process.txt').read().split(',')
+        return int(contentList[0]), int(contentList[1]), int(contentList[2]), int(contentList[3])
     except Exception as ep:
         print 'wrong with the process.txt'
         sys.exit()
@@ -66,9 +72,9 @@ def getPageWithSpecTimes(decodeType, url):
             if alreadyTriedTimes == 1:
                 time.sleep(1)
             elif alreadyTriedTimes == 2:
-                time.sleep(10)
-            elif alreadyTriedTimes == 3: 
                 time.sleep(60)
+            elif alreadyTriedTimes == 3: 
+                time.sleep(300)
             else:
                 return None
     return html
@@ -76,10 +82,7 @@ def getPageWithSpecTimes(decodeType, url):
 def writeToLog(content):
     writeLock.acquire()
 
-    try:
-        print content
-    except Exception as ep:
-        print ep.message
+    robustPrint(content)
     filehandler = open('log.txt', 'a')
     filehandler.write(content+'\n')
     filehandler.close()
@@ -170,7 +173,8 @@ def fetchAllInfoForOneShop(city, foodType, url):
     shopNamePattern = re.compile(r'<span>(.+?)</span>')
     shopName = shopNamePattern.findall(iList)[0]
     placeList.append(shopName)
-    print shopName.decode('utf8')
+    robustPrint(shopName.decode('utf8'))
+
     if not os.path.exists(os.path.join(city.decode('utf8'), foodType.decode('utf8'), shopName.decode('utf8'))):
         os.makedirs(os.path.join(city.decode('utf8'), foodType.decode('utf8'), shopName.decode('utf8')))
     filehandler = open(os.path.join(city.decode('utf8'), foodType.decode('utf8'), shopName.decode('utf8'), 'info.txt'), 'w')
@@ -178,9 +182,8 @@ def fetchAllInfoForOneShop(city, foodType, url):
     filehandler.write('location: %s' % placeList[0])
     for i in range(1, len(placeList)):
         filehandler.write('->%s' % placeList[i])
-        #print 'place is ' + placeList[i]
     filehandler.write('\n')
-    print 'done locatioin for %s' % shopName.decode('utf8')
+    robustPrint('done locatioin for %s' % shopName.decode('utf8'))
 
     # get rating and write to file
     try:
@@ -195,9 +198,8 @@ def fetchAllInfoForOneShop(city, foodType, url):
             filehandler.write('%s,'%(eachRating))
     except Exception as ep:
         print ep.message
-        pass
     filehandler.close()
-    print 'down rating for %s' % shopName.decode('utf8')
+    robustPrint('down rating for %s' % shopName.decode('utf8'))
 
 
     # all pics and tabs
@@ -269,8 +271,8 @@ def fetchAllInfoForOneShop(city, foodType, url):
     else:
         writeToLog('cannot find pics of dishes in url,%s,%s,%s,%s' % (city.decode('utf8'), foodType.decode('utf8'), shopName.decode('utf8'), picPageUrl))
 
-    print 'done all dishes for %s' % shopName.decode('utf8')
-    
+    robustPrint('done all dishes for %s' % shopName.decode('utf8'))
+
 
     #process enviconment
     if environmentSection != None:
@@ -308,31 +310,48 @@ def fetchAllInfoForOneShop(city, foodType, url):
         environFilehandler.close()
     else:
         writeToLog('cannot find pics of environment in url,%s,%s,%s,%s' % (city.decode('utf8'), foodType.decode('utf8'), shopName.decode('utf8'), picPageUrl))
-    print 'done all environment for %s' % shopName.decode('utf8')
+    robustPrint('done all environment for %s' % shopName.decode('utf8'))
 
     return True
 
 
+
 citiesInfoList = getCitiesInfo()
-for i in range(len(citiesInfoList)):
+process1, process2, process3, process4 = loadProcess()
+for i in range(process1, len(citiesInfoList)):
     cityName = citiesInfoList[i][1]
     cityCode = citiesInfoList[i][0]
-    print cityName.decode('utf8')
+    robustPrint(cityName.decode('utf8')) 
     cityUrl = 'http://www.dianping.com/%s' % cityCode
     allFoodTypesAndLink = getFoodTypes(cityName, cityUrl)
     if allFoodTypesAndLink == None:
         writeToLog('allFoodTypesAndLink is None, process is,%s' % (i))
         continue
-    for j in range(len(allFoodTypesAndLink)):
+
+    if i == process1:
+        jStartPoint = process2
+    else:
+        jStartPoint = 0
+    for j in range(jStartPoint, len(allFoodTypesAndLink)):
         foodType = allFoodTypesAndLink[j][1]
-        print foodType.decode('utf8')
-        for k in range(15):
+        robustPrint(foodType.decode('utf8'))
+
+        if i == process1 and j == process2:
+            kStartPoint = process3
+        else:
+            kStartPoint = 0
+        for k in range(kStartPoint, 7):
             foodPageUrl = allFoodTypesAndLink[j][0] + 'p%s' % (k+1)
             shopListsForOnePage = getEachShopLinkForOnePage(cityName, foodType, k, foodPageUrl)
             if shopListsForOnePage == None:
                 writeToLog('shopListsForOnePage is None, process is,%s,%s,%s' % (i,j,k))
                 continue
-            for z in range(len(shopListsForOnePage)):
+
+            if i == process1 and j == process2 and k == process3:
+                zStartPoint = process4
+            else:
+                zStartPoint = 0
+            for z in range(zStartPoint, len(shopListsForOnePage)):
                 setProcess('%s,%s,%s,%s' % (i,j,k,z))
                 result = fetchAllInfoForOneShop(cityName, foodType, shopListsForOnePage[z])
                 if result == None:

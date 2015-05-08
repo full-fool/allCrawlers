@@ -80,7 +80,7 @@ class DownloadPicsForOneShop(threading.Thread):
             dishPicsUrlList = getListFromFile(dishPicsFilePath)
         except Exception as ep:
             writeToLog('dish file not found,%s' % str(dishPicsFilePath))
-            writeDoneWorkLock(dirName)
+            writeDoneWork(dirName)
             return 
         for eachDishPic in dishPicsUrlList:
             if not os.path.exists(os.path.join(dirName, 'dish')):
@@ -99,7 +99,7 @@ class DownloadPicsForOneShop(threading.Thread):
             environPicsUrlList = getListFromFile(environPicsFilePath)
         except Exception as ep:
             writeToLog('environ file not found,%s' % str(environPicsFilePath))
-            writeDoneWorkLock(dirName)
+            writeDoneWork(dirName)
             return
         for eachEnvironPic in environPicsUrlList:
             if not os.path.exists(os.path.join(dirName, 'environment')):

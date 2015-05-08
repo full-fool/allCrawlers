@@ -87,7 +87,11 @@ class DownloadPicsForOneShop(threading.Thread):
                 os.makedirs(os.path.join(dirName, 'dish'))
             dishName = eachDishPic[0]
             dishPicUrl = eachDishPic[1]
-            picPath = os.path.join(dirName, 'dish', dishName.encode('gbk'))
+            try:
+                picPath = os.path.join(dirName, 'dish', dishName.encode('gbk'))
+            except Exception as ep:
+                print ep.message
+                continue
             try:
                 urllib.urlretrieve(dishPicUrl, picPath)
                 robustPrint('download one dish pic for %s,%s' % (dirName, dishPicUrl))
@@ -106,7 +110,11 @@ class DownloadPicsForOneShop(threading.Thread):
                 os.makedirs(os.path.join(dirName, 'environment'))
             environName = eachEnvironPic[0]
             environPicUrl = eachEnvironPic[1]
-            picPath = os.path.join(dirName, 'environment', environName.encode('gbk'))
+            try:
+                picPath = os.path.join(dirName, 'environment', environName.encode('gbk'))
+            except Exception as ep:
+                print ep.message
+                continue
             try:
                 urllib.urlretrieve(environPicUrl, picPath)
                 robustPrint('download one environment pic for %s,%s' % (dirName, environPicUrl))
@@ -130,7 +138,8 @@ allFilesList = os.listdir('.')
 for eachFile in allFilesList:
     if os.path.isdir(eachFile) and not eachFile in doneWorkList:
         allDirsList.append(eachFile)
-
+    elif os.path.isdir(eachFile) and eachFile in doneWorkList:
+        print eachFile+' has already done'
 
 
 

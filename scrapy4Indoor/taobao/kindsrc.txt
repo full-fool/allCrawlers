@@ -1,0 +1,62 @@
+<a class="" data-spell="" data-ppath="-1:50049175" data-traceclick=";cps:yes_y" data-param-value="50049175" trace="navCategoryNew" title="懒人沙发" >
+                                    懒人沙发                    </a>
+                </li>
+                                <li data-from="" data-count="3063"
+                    class=""
+                >
+                    <a class="" data-spell="" data-ppath="-1:50066865" data-traceclick=";cps:yes_y" data-param-value="50066865" trace="navCategoryNew" title="布艺沙发" >
+                                    布艺沙发                    </a>
+                </li>
+                                <li data-from="" data-count="1270"
+                    class=""
+                >
+                    <a class="" data-spell="" data-ppath="-1:50049174" data-traceclick=";cps:yes_y" data-param-value="50049174" trace="navCategoryNew" title="沙发床" >
+                                    沙发床                    </a>
+                </li>
+                                <li data-from="" data-count="575"
+                    class=""
+                >
+                    <a class="" data-spell="" data-ppath="-1:50066867" data-traceclick=";cps:yes_y" data-param-value="50066867" trace="navCategoryNew" title="实木沙发" >
+                                    实木沙发                    </a>
+                </li>
+                                <li data-from="" data-count="498"
+                    class=""
+                >
+                    <a class="" data-spell="" data-ppath="-1:50066866" data-traceclick=";cps:yes_y" data-param-value="50066866" trace="navCategoryNew" title="皮艺沙发" >
+                                    皮艺沙发                    </a>
+                </li>
+                                <li data-from="" data-count="300"
+                    class=""
+                >
+                    <a class="" data-spell="" data-ppath="-1:50094883" data-traceclick=";cps:yes_y" data-param-value="50094883" trace="navCategoryNew" title="儿童沙发" >
+                                    儿童沙发                    </a>
+                </li>
+                                <li data-from="" data-count="87"
+                    class=""
+                >
+                    <a class="" data-spell="" data-ppath="-1:50066872" data-traceclick=";cps:yes_y" data-param-value="50066872" trace="navCategoryNew" title="沙发脚踏" >
+                                    沙发脚踏                    </a>
+                </li>
+                                <li data-from="" data-count="23"
+                    class=""
+                >
+                    <a class="" data-spell="" data-ppath="-1:50066868" data-traceclick=";cps:yes_y" data-param-value="50066868" trace="navCategoryNew" title="藤/竹沙发" >
+                                    藤/竹沙发                    </a>
+                </li>
+                                <li data-from="" data-count="12"
+                    class=""
+                >
+                    <a class="" data-spell="" data-ppath="-1:50066871" data-traceclick=";cps:yes_y" data-param-value="50066871" trace="navCategoryNew" title="充气沙发" >
+                                    充气沙发                    </a>
+                </li>
+                                <li data-from="" data-count="9"
+                    class=""
+                >
+                    <a class="" data-spell="" data-ppath="-1:50066870" data-traceclick=";cps:yes_y" data-param-value="50066870" trace="navCategoryNew" title="贵妃椅" >
+                                    贵妃椅                    </a>
+                </li>
+                                <li data-from="" data-count="2"
+                    class=""
+                >
+                    <a class="" data-spell="" data-ppath="-1:50066869" data-traceclick=";cps:yes_y" data-param-value="50066869" trace="navCategoryNew" title="铁艺沙发" >
+                                    铁艺沙发                    </a>

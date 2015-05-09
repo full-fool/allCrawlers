@@ -95,7 +95,7 @@ class DownloadPicsForOnekind(threading.Thread):
         writeDoneWork(dirName)
         
 
-threadNum = 10
+threadNum = 100
 threadNumPool = {}
 
 

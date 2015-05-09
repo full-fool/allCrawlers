@@ -323,50 +323,19 @@ def fetchAllInfoForOneShop(city, foodType, url):
 
 
 
-citiesInfoList = getCitiesInfo()
-process1, process2, process3, process4 = loadProcess()
-for i in range(process1, len(citiesInfoList)):
-    cityName = citiesInfoList[i][1]
-    cityCode = citiesInfoList[i][0]
-    robustPrint(cityName.decode('utf8')) 
-    cityUrl = 'http://www.dianping.com/%s' % cityCode
-    allFoodTypesAndLink = getFoodTypes(cityName, cityUrl)
-    if allFoodTypesAndLink == None:
-        writeToLog('allFoodTypesAndLink is None, process is,%s' % (i))
-        continue
+url  = 'http://s.taobao.com/list?spm=a219r.lm861.3.2.zlPpqx&tab=all&app=list&style=grid&cps=yes&isprepay=1&user_type=0&atype=b&seller_type=taobao&s=0&cat=50008164&cd=false'
+pageContent = open('kindsrc.txt').read()
+#pageContent = urllib.urlopen(url).read()
+#print pageContent
+#<a class="" data-spell="" data-ppath="-1:50008610" data-traceclick=";cps:yes_y" data-param-value="50008610" trace="navCategoryNew" title="沙发" >
+pattern = re.compile(r'<a class="" data-spell="" data-ppath="[^"]+?" data-traceclick=";cps:yes_y" data-param-value="(\d+?)" trace="navCategoryNew" title="(.+?)" >')
+resultList = pattern.findall(pageContent)
+filehandler = open('furnitureTypes.txt', 'a')
+for each in resultList:
+    print each[0], each[1].decode('utf8')
 
-    if i == process1:
-        jStartPoint = process2
-    else:
-        jStartPoint = 0
-    for j in range(jStartPoint, len(allFoodTypesAndLink)):
-        foodType = allFoodTypesAndLink[j][1]
-        robustPrint(foodType.decode('utf8'))
-
-        if i == process1 and j == process2:
-            kStartPoint = process3
-        else:
-            kStartPoint = 0
-        for k in range(kStartPoint, 7):
-            foodPageUrl = allFoodTypesAndLink[j][0] + 'p%s' % (k+1)
-            shopListsForOnePage = getEachShopLinkForOnePage(cityName, foodType, k, foodPageUrl)
-            if shopListsForOnePage == None:
-                writeToLog('shopListsForOnePage is None, process is,%s,%s,%s' % (i,j,k))
-                continue
-
-            if i == process1 and j == process2 and k == process3:
-                zStartPoint = process4
-            else:
-                zStartPoint = 0
-            for z in range(zStartPoint, len(shopListsForOnePage)):
-                setProcess('%s,%s,%s,%s' % (i,j,k,z))
-                result = fetchAllInfoForOneShop(cityName, foodType, shopListsForOnePage[z])
-                if result == None:
-                    writeToLog('fetchAllInfoForOneShop result is None, process is,%s,%s,%s,%s' % (i,j,k,z))
-
-
-
-
+    filehandler.write('%s,%s\n' % (each[1].decode('utf8'), each[0]))
+print len(resultList)
 
 
 

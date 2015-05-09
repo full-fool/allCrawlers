@@ -1,0 +1,27 @@
+淘宝儿童床：
+http://s.taobao.com/list?tab=all&app=list&style=grid&isprepay=1&user_type=0&atype=b&cps=yes&s=0&cat=50040540
+http://s.taobao.com/list?tab=all&app=list&style=grid&isprepay=1&user_type=0&atype=b&cps=yes&s=0&cat=50066815
+http://s.taobao.com/list?tab=all&app=list&style=grid&isprepay=1&user_type=0&atype=b&cps=yes&s=0&cat=50008610
+atype=b有用
+
+
+先获取所有的分类:
+主页中爬取形如
+<a class="" data-spell="" data-ppath="-1:50094983" data-traceclick=";cps:yes_y" data-param-value="50094983" trace="navCategoryNew" title="书桌" >
+                                    书桌                    </a>
+的字段，获取value。对于床类和沙发类，单独操作。获取所有的valueid。
+
+
+精简之后的url如下：
+http://s.taobao.com/list?&atype=b&cat=50008610&s=0，其中cat后为编号，s后为开始的item个数，0，60，120……
+
+进入之后查找风格中的标签，再遍历
+
+带上风格之后的url：
+http://s.taobao.com/list?atype=b&cat=50040540&ppath=20608:76856228，其中最后一个为风格id。
+
+item主页url：
+http://item.taobao.com/item.htm?&id=44805060562
+获取id的方法 正则"nid"
+
+

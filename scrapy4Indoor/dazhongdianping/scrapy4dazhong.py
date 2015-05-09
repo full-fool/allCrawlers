@@ -132,7 +132,7 @@ def getFoodTypes(cityName, url):
             foodTypeList.remove(eachType)
             continue
         #print eachType[0], eachType[1].decode('utf8')
-        resultFoodTypeList.append(('http://www.dianping.com' + eachType[0] + 'o2', eachType[1]))
+        resultFoodTypeList.append(('http://www.dianping.com' + eachType[0] + 'o2', eachType[1].strip(' ')))
     #print resultFoodTypeList
     #print len(resultFoodTypeList)
     return resultFoodTypeList
@@ -173,7 +173,7 @@ def fetchAllInfoForOneShop(city, foodType, url):
     placeList = placeListPattern.findall(iList)
     shopNamePattern = re.compile(r'<span>(.+?)</span>')
     try:
-        shopName = shopNamePattern.findall(iList)[0]
+        shopName = shopNamePattern.findall(iList)[0].strip(' ')
     except Exception as ep:
         shopNamePattern = re.compile(r'<strong>(.+?)</strong>')
         shopName = shopNamePattern.findall(iList)[0]

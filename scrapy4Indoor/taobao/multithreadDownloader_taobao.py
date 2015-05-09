@@ -126,7 +126,10 @@ def getListFromFile(fileName):
 
 
 def fetchallInfoForOneProduct(fatherDirName, url, isAMatch):
+    print 'url is ' + url
     contentPage = getPageWithSpecTimes(2, url)
+    #contentPage = open('page.html').read()
+
     if contentPage == None:
         writeToLog('cannot open page for one product,%s,%s' % (fatherDirName, url))
         return None
@@ -137,6 +140,9 @@ def fetchallInfoForOneProduct(fatherDirName, url, isAMatch):
         productNamePattern = re.compile(r'<meta name="keywords" content="([^"]+?)"/>')
         try:
             productName = productNamePattern.findall(contentPage)[0].strip(' ')
+            productName = re.sub(' ', '', productName)
+            productName = re.sub('/','&', productName)
+            productName = re.sub('\\','&', productName)
         except Exception as ep:
             writeToLog('cannot find product name,%s,%s' % (fatherDirName, url))
             return None
@@ -148,7 +154,7 @@ def fetchallInfoForOneProduct(fatherDirName, url, isAMatch):
 
         
 
-        productDirName = os.path.join(fatherDirName, productName.decode('utf8'))
+        productDirName = os.path.join(fatherDirName, productName.encode('gbk'))
         if not os.path.exists(productDirName):
             os.makedirs(productDirName)
 
@@ -191,8 +197,9 @@ def fetchallInfoForOneProduct(fatherDirName, url, isAMatch):
             userId = userIdPattern.findall(contentPage)[0]
             itemId = url.split('=')[-1]
             newMatchJsonUrl = 'http://otds.alicdn.com/json/MMComponent.htm?&meal=1&userId=%s&itemId=%s' % (userId, itemId)
-            resultJson = json.loads(urllib2.urlopen(newMatchJsonUrl).read().decode('gbk', 'ignore').encode('utf8'))
+            
             try:
+                resultJson = json.loads(urllib2.urlopen(newMatchJsonUrl).read().decode('gbk', 'ignore').encode('utf8'))
                 mealItemsList = resultJson['data']['mealComponentBO']['mealItems']
                 for eachItem in mealItemsList:
                     if int(eachItem['itemId']) != 0 and int(eachItem['itemId']) != int(itemId):
@@ -208,11 +215,18 @@ def fetchallInfoForOneProduct(fatherDirName, url, isAMatch):
         productNamePattern = re.compile(r'"title":"([^"]+?)"}')
         try:
             productName = productNamePattern.findall(contentPage)[0].strip(' ')
+            productName = re.sub(' ', '', productName)
+            productName = re.sub('/','&', productName)
+            productName = re.sub('\\','&', productName)
+
+
+
         except Exception as ep:
             writeToLog('cannot find product name,%s,%s' % (fatherDirName, url))
             return None
-        
-        productDirName = os.path.join(fatherDirName, productName.decode('utf8'))
+        #print 'productName is ' + productName.decode('utf8')
+        #print fatherDirName, productName.decode('utf8')
+        productDirName = os.path.join(fatherDirName, productName.encode('gbk'))
         if not os.path.exists(productDirName):
             os.makedirs(productDirName)
         
@@ -257,8 +271,9 @@ def fetchallInfoForOneProduct(fatherDirName, url, isAMatch):
             userId = userIdPattern.findall(contentPage)[0]
             itemId = url.split('=')[-1]
             newMatchJsonUrl = 'http://otds.alicdn.com/json/MMComponent.htm?&meal=1&userId=%s&itemId=%s' % (userId, itemId)
-            resultJson = json.loads(urllib2.urlopen(newMatchJsonUrl).read().decode('gbk', 'ignore').encode('utf8'))
+            
             try:
+                resultJson = json.loads(urllib2.urlopen(newMatchJsonUrl).read().decode('gbk', 'ignore').encode('utf8'))
                 mealItemsList = resultJson['data']['mealComponentBO']['mealItems']
                 for eachItem in mealItemsList:
                     if int(eachItem['itemId']) != 0 and int(eachItem['itemId']) != int(itemId):
@@ -268,7 +283,7 @@ def fetchallInfoForOneProduct(fatherDirName, url, isAMatch):
             except Exception as ep:
                 pass
 
-    robustPrint('done for,%s,%s' % (fatherDirName, productName.decode('utf8')))
+    robustPrint('done for,%s,%s' % (fatherDirName, productName))
 
 
 
@@ -278,8 +293,25 @@ def fetchallInfoForOneProduct(fatherDirName, url, isAMatch):
 #fetchallInfoForOneProduct(os.path.join('aa', 'bb'),  'http://item.taobao.com/item.htm?&id=43096084342', False)
 #sys.exit()
 #print unescape('出租车是否可运输:&nbsp;&#26159;')
-#print decodeUnicode('<li title="&nbsp;&#25972;&#35013;">是否组装:&nbsp;&#25972;&#35013;</li>')
-#furnitureList = getListFromFile('furnitureTypes.txt')
+# #print decodeUnicode('<li title="&nbsp;&#25972;&#35013;">是否组装:&nbsp;&#25972;&#35013;</li>')
+# #furnitureList = getListFromFile('furnitureTypes.txt')
+# contentPage = open('page.html').read()
+# productNamePattern = re.compile(r'"title":"([^"]+?)"}')
+# productName = None
+# try:
+#     productName = productNamePattern.findall(contentPage)[0].strip(' ')
+# except Exception as ep:
+#     print ep.message
+#     writeToLog('cannot find product name')
+
+# productName = re.sub(' ', '', productName)
+# print productName.decode('utf8')
+# if not os.path.exists(productName):
+#     os.makedirs(productName)
+# sys.exit()
+
+
+
 doneWorkList = getDoneWork()
 
 for filePart in os.walk('.'):

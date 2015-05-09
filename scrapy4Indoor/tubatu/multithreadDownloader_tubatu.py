@@ -31,8 +31,8 @@ def getListFromFile(fileName):
     for line in open(fileName):
         if line == '\n' or line == '\r' or line == '':
             continue
-        picName = line.split(',')[0]
-        picUrl = ''.join(line.split(',')[1:])
+        picName = line.split(',')[1]
+        picUrl = line.split(',')[0]
         picsUrlList.append((picName, picUrl))
 
     return picsUrlList
@@ -66,108 +66,69 @@ def writeToLog(content):
     writeLock.release()
 
 
-class DownloadPicsForOneShop(threading.Thread):
+class DownloadPicsForOnekind(threading.Thread):
     #三个参数分别为start，eachlen，totallen
-    def __init__(self, dirName):
+    def __init__(self, picList, dirName):
         threading.Thread.__init__(self)
         self.dirName = dirName
+        self.picList = picList
 
     def run(self):
         dirName = self.dirName
-        dishPicsFilePath = os.path.join(dirName, 'dishPicUrlList.txt')
-        environPicsFilePath = os.path.join(dirName, 'environPicUrlList.txt')
-        try:
-            dishPicsUrlList = getListFromFile(dishPicsFilePath)
-        except Exception as ep:
-            writeToLog('dish file not found,%s' % str(dishPicsFilePath))
-            writeDoneWork(dirName)
-            return 
-        for eachDishPic in dishPicsUrlList:
-            if not os.path.exists(os.path.join(dirName, 'dish')):
-                os.makedirs(os.path.join(dirName, 'dish'))
-            dishName = eachDishPic[0]
-            dishPicUrl = eachDishPic[1]
-            try:
-                picPath = os.path.join(dirName, 'dish', dishName.encode('gbk'))
-            except Exception as ep:
-                print ep.message
-                continue
-            try:
-                urllib.urlretrieve(dishPicUrl, picPath)
-                robustPrint('download one dish pic for %s,%s' % (dirName, dishPicUrl))
-            except Exception as ep:
-                writeToLog('cannot download dish pic,%s,%s' % (dishPicUrl, dirName))
-        robustPrint('done pics for dish,%s' % dirName)
-
-        try:
-            environPicsUrlList = getListFromFile(environPicsFilePath)
-        except Exception as ep:
-            writeToLog('environ file not found,%s' % str(environPicsFilePath))
-            writeDoneWork(dirName)
-            return
-        for eachEnvironPic in environPicsUrlList:
-            if not os.path.exists(os.path.join(dirName, 'environment')):
-                os.makedirs(os.path.join(dirName, 'environment'))
-            environName = eachEnvironPic[0]
-            environPicUrl = eachEnvironPic[1]
-            try:
-                picPath = os.path.join(dirName, 'environment', environName.encode('gbk'))
-            except Exception as ep:
-                print ep.message
-                continue
-            try:
-                urllib.urlretrieve(environPicUrl, picPath)
-                robustPrint('download one environment pic for %s,%s' % (dirName, environPicUrl))
-            except Exception as ep:
-                writeToLog('cannot download environment pic,%s,%s' % (environPicUrl, dirName))
-        robustPrint('done pics for environment,%s' % dirName)
-        writeDoneWork(dirName)
+        picList = self.picList
         
 
+       
+        for eachPic in picList:
+            picName = eachPic[0] + '.jpg'
+            picUrl = eachPic[1]
+            picPath = os.path.join(dirName, picName)
 
+            try:
+                urllib.urlretrieve(picUrl, picPath)
+                robustPrint('download one pic for %s,%s' % (dirName, picUrl))
+            except Exception as ep:
+                writeToLog('cannot download pic,%s,%s' % (picUrl, dirName))
+        robustPrint('done pics for,%s' % dirName)
 
-
-
-doneWorkList = getDoneWork()
-# getListFromFile('dishPicUrlList.txt')
-
-
-
-allDirsList = []
-allFilesList = os.listdir('.')
-for eachFile in allFilesList:
-    if os.path.isdir(eachFile) and not eachFile in doneWorkList:
-        allDirsList.append(eachFile)
-    elif os.path.isdir(eachFile) and eachFile in doneWorkList:
-        print eachFile+' has already done'
-
-
+      
+        writeDoneWork(dirName)
+        
 
 threadNum = 10
 threadNumPool = {}
 
 
+doneWorkList = getDoneWork()
 
 
+for filePart in os.walk('.'):
+    if 'picsUrlList.txt' in filePart[2]:
+        robustPrint('picsUrlList in ' + filePart[0])
+        if filePart[0] in doneWorkList:
+            robustPrint('already done ' + filePart[0])
+            continue
+        
+        filePath = os.path.join(filePart[0], 'picsUrlList.txt')
+        picList = getListFromFile(filePath)
 
-for i in range(len(allDirsList)):
-    findThread = False
-    while findThread == False:
-        for j in range(threadNum):
-            if not threadNumPool.has_key(j):
-                threadNumPool[j] = DownloadPicsForOneShop(allDirsList[i])
-                threadNumPool[j].start()
-                findThread = True
-                break
-            else:
-                if not threadNumPool[j].isAlive():
-                    #threadNumPool[j].stop()
-                    threadNumPool[j] = DownloadPicsForOneShop(allDirsList[i])
+        
+        findThread = False
+        while findThread == False:
+            for j in range(threadNum):
+                if not threadNumPool.has_key(j):
+                    threadNumPool[j] = DownloadPicsForOnekind(picList, filePart[0])
                     threadNumPool[j].start()
                     findThread = True
                     break
-        if findThread == False: 
-            time.sleep(5)
+                else:
+                    if not threadNumPool[j].isAlive():
+                        threadNumPool[j] = DownloadPicsForOnekind(picList, filePart[0])
+                        threadNumPool[j].start()
+                        findThread = True
+                        break
+            if findThread == False: 
+                time.sleep(5)
 
 
 

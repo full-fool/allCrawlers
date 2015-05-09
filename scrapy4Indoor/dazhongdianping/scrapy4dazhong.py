@@ -131,8 +131,8 @@ def getFoodTypes(cityName, url):
         if eachType[1].decode('utf8') == '其他':
             foodTypeList.remove(eachType)
             continue
-        #print eachType[0], eachType[1].decode('utf8')
-        resultFoodTypeList.append(('http://www.dianping.com' + eachType[0] + 'o2', eachType[1].strip(' ')))
+        #print eachType[0], eachType[1].decode('utf8')  
+        resultFoodTypeList.append(('http://www.dianping.com' + eachType[0] + 'o2',  eachType[1].strip(' ')))
     #print resultFoodTypeList
     #print len(resultFoodTypeList)
     return resultFoodTypeList

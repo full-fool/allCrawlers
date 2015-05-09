@@ -24,4 +24,6 @@ item主页url：
 http://item.taobao.com/item.htm?&id=44805060562
 获取id的方法 正则"nid"
 
-
+获取相关产品的url
+http://otds.alicdn.com/json/MMComponent.htm?&meal=1&userId=880971156&itemId=43096084342
+其中userid在页面中可以获得

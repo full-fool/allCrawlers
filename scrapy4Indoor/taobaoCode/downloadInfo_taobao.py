@@ -287,30 +287,6 @@ def fetchallInfoForOneProduct(fatherDirName, url, isAMatch):
 
 
 
-#getInfoForOneFurnitureType('水床', 'http://s.taobao.com/list?&atype=b&cat=50094063')
-
-#resultList = getProductUrlForOnePage('a', 'b', '12', 'http://s.taobao.com/list?atype=b&cat=50040540&ppath=20608:76856228')
-#fetchallInfoForOneProduct(os.path.join('aa', 'bb'),  'http://item.taobao.com/item.htm?&id=43096084342', False)
-#sys.exit()
-#print unescape('出租车是否可运输:&nbsp;&#26159;')
-# #print decodeUnicode('<li title="&nbsp;&#25972;&#35013;">是否组装:&nbsp;&#25972;&#35013;</li>')
-# #furnitureList = getListFromFile('furnitureTypes.txt')
-# contentPage = open('page.html').read()
-# productNamePattern = re.compile(r'"title":"([^"]+?)"}')
-# productName = None
-# try:
-#     productName = productNamePattern.findall(contentPage)[0].strip(' ')
-# except Exception as ep:
-#     print ep.message
-#     writeToLog('cannot find product name')
-
-# productName = re.sub(' ', '', productName)
-# print productName.decode('utf8')
-# if not os.path.exists(productName):
-#     os.makedirs(productName)
-# sys.exit()
-
-
 
 doneWorkList = getDoneWork()
 
@@ -328,4 +304,4 @@ for filePart in os.walk('.'):
             #print 'eachItem ' + eachItem
             fetchallInfoForOneProduct(filePart[0], eachItem, False)
 
-
+        writeDoneWork(filePart[0])

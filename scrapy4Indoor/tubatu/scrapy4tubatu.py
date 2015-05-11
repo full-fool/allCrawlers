@@ -123,8 +123,8 @@ class ProcessOnePage(threading.Thread):
         currentPageNum = 1
         pageContent = getPageWithSpecTimes(0, pageUrl)
         if pageContent == None:
-            writeToLog('cannot open page,%s,%s,%s,%s' %(space.decode('utf8'), part.decode('utf8'),\
-                style.decode('utf8'), color.decode('utf8')))
+            writeToLog('cannot open page,%s,%s,%s,%s,%s' %(space.decode('utf8'), part.decode('utf8'),\
+                style.decode('utf8'), color.decode('utf8'), pageUrl))
             return
         #print pageContent
         #有两种图片的html格式
@@ -141,8 +141,8 @@ class ProcessOnePage(threading.Thread):
             pageUrl = url +  '&p=%s' % currentPageNum
             pageContent = getPageWithSpecTimes(0, pageUrl)
             if pageContent == None:
-                writeToLog('cannot open page for page,%s,%s,%s,%s,%s' %(space.decode('utf8'), part.decode('utf8'),\
-                    style.decode('utf8'), color.decode('utf8'), currentPageNum))
+                writeToLog('cannot open page for page,%s,%s,%s,%s,%s,%s' %(space.decode('utf8'), part.decode('utf8'),\
+                    style.decode('utf8'), color.decode('utf8'), currentPageNum, pageUrl))
                 break
             picInfoList += picPattern1.findall(pageContent)
             picInfoList += picPattern2.findall(pageContent)
@@ -218,4 +218,5 @@ for i in range(process1, len(spaceList)):
                     if findThread == False: 
                         time.sleep(5)
                 setProcess('%s,%s,%s,%s' % (i,j,k,z))
+
 

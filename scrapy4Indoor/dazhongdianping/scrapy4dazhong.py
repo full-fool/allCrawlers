@@ -357,6 +357,8 @@ for i in range(process1, len(citiesInfoList)):
                 zStartPoint = process4
             else:
                 zStartPoint = 0
+            if len(shopListsForOnePage) == 0:
+                break
             for z in range(zStartPoint, len(shopListsForOnePage)):
                 setProcess('%s,%s,%s,%s' % (i,j,k,z))
                 result = fetchAllInfoForOneShop(cityName, foodType, shopListsForOnePage[z])

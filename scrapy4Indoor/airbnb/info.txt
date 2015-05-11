@@ -1,0 +1,63 @@
+name and address:Feel like a kid again in Tron Room in Austin,Austin, TX, United States
+price:$49
+Amenities:
+Kitchen:yes
+Internet:yes
+Heating:yes
+Air Conditioning:yes
+Washer:yes
+Dryer:yes
+Free Parking on Premises:yes
+Wireless Internet:yes
+Pets Allowed:yes
+Family/Kid Friendly:yes
+Smoke Detector:yes
+Carbon Monoxide Detector:yes
+First Aid Kit:yes
+Fire Extinguisher:yes
+TV:no
+Essentials:no
+Cable TV:no
+Breakfast:no
+Suitable for Events:no
+Smoking Allowed:no
+Wheelchair Accessible:no
+Elevator in Building:no
+Indoor Fireplace:no
+Buzzer/Wireless Intercom:no
+Doorman:no
+Pool:no
+Hot Tub:no
+Gym:no
+Safety Card:no
+The Spaces:
+Bed type: :Real Bed
+Accommodates: :2
+Bedrooms: :1
+Bathrooms: :1
+Beds: :1
+Check In: :3:00 PM
+Check Out: :11:00 AM
+Property type: :House
+Description:
+The Space
+Fun, private room with a full memory foam bed and wireless internet.
+Shared bath, full kitchen, living room. Pets welcome, big backyard.
+On bus line. 3 miles from Downtown, 2 miles from SoCo.
+The garage can house motorcycles and bicycles securely if you have 'em. 
+Built 1959
+Kids are welcome, and there are legos and board games for them to play with, as well as a big back yard. Children under the age of 17 are not allowed to be left alone in the house or on the property.
+See below for our pet policy
+Full Kitchen
+Wireless Internet
+We are very laid back so however much interaction you care for is what we abide by. 
+Please don't forget, the house located on the property is our home and all common spaces are shared. 
+Children and pets may not be left in the house alone unless prior arrangements have been made with us. 
+Since there are ongoing fun-projects in the garage, don't be surprised if you see us in and out of the common areas.
+I love our neighborhood! The neighbors are great and respectful. You can bike to downtown, South Congress, Central Market, Strangebrew 24 hour coffeeshop, and the Cathedral of Junk is across the street.
+There is some road noise from South First, but it's not too bad.
+Several bus lines stop right out the back door off of South 1st Street. Downtown is a mere 4 miles down the same street, 3 miles to Barton Springs - where ACL is held, and 2 miles to the famed SoCo area. All are easily accessible by bicycle. There is parking available for your car in the driveway or on the street. 
+We're still working on parts of the house. All common areas are complete, and no construction is being done. We will be in and out during the weekends to tidy up.
+picDescription:
+reviewNumber:17
+starRating:5.0

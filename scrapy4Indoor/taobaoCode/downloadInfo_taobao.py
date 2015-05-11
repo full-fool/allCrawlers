@@ -23,18 +23,22 @@ writeDoneWorkLock = threading.Lock()
 
 
 
+cookies = 'cookies.txt'
+cj = cookielib.LWPCookieJar(cookies)
+cj.save()
 
 headers = ('User-Agent','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36')
 
-opener = urllib2.build_opener()
+opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
 opener.addheaders = [headers]
 urllib2.install_opener(opener)
 
 def robustPrint(content):
     try:
-        print content
+        print contentList
     except Exception as ep:
-        print ep.message
+        #print ep.message
+        pass
 
 def loadProcess():
     try:
@@ -153,8 +157,11 @@ def fetchallInfoForOneProduct(fatherDirName, url, isAMatch):
 
         
 
-        productDirName = os.path.join(fatherDirName, productName.encode('gbk'))
+        #productDirName = os.path.join(fatherDirName, productName.encode('gbk'))
+        productDirName = os.path.join(fatherDirName, productName)
+
         if not os.path.exists(productDirName):
+
             os.makedirs(productDirName)
 
         filehandler = open(os.path.join(productDirName, 'productInfo.txt'), 'w')
@@ -226,7 +233,9 @@ def fetchallInfoForOneProduct(fatherDirName, url, isAMatch):
             return None
         #print 'productName is ' + productName.decode('utf8')
         #print fatherDirName, productName.decode('utf8')
-        productDirName = os.path.join(fatherDirName, productName.encode('gbk'))
+        #productDirName = os.path.join(fatherDirName, productName.encode('gbk'))
+        productDirName = os.path.join(fatherDirName, productName)
+
         if not os.path.exists(productDirName):
             os.makedirs(productDirName)
         

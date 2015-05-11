@@ -1,0 +1,13 @@
+https://www.airbnb.com/s/Beijing--China,Beijing
+https://www.airbnb.com/s/Hong-Kong,Hong Kong
+https://www.airbnb.com/s/Shanghai--China,Shanghai
+https://www.airbnb.com/s/Chiang-Mai--Thailand,Chiang Mai
+https://www.airbnb.com/s/Osaka--Japan,Osaka
+https://www.airbnb.com/s/Kyoto,Kyoto
+https://www.airbnb.com/s/Singapore,Singapore
+https://www.airbnb.com/s/Kuala-Lumpur,Kuala Lumpur
+https://www.airbnb.com/s/Taipei--Taiwan,Taipei
+https://www.airbnb.com/s/Zurich,Zurich
+https://www.airbnb.com/s/Santiago%EF%BC%8CChile,Santiago
+https://www.airbnb.com/s/sao-paulo,sao paulo
+https://www.airbnb.com/s/Toronto--Canada,Toronto

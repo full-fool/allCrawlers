@@ -1,0 +1,22 @@
+url:https://www.airbnb.com/locations
+
+
+进入搜索页面每个房子信息的url正则：
+<a href="/rooms/2842049?s=IyGh" target="listing_2842049" class="media-photo media-cover">
+
+
+翻页的方式：
+https://www.airbnb.com/s/Austin?neighborhoods%5B%5D=Barton+Hills&page=2，后面加page（从1开始）
+
+
+
+房间信息：
+amenities: 
+pagesoup class="<div class="row amenities">",搜索其中所有的strong 和del
+
+
+pic url:
+https://a0.muscache.com/ic/pictures/8368485/eb71969e_original.jpg?interpolation=lanczos-none&size=x_large&output-format=progressive-jpeg&output-quality=70
+
+
+{"caption":"(.+?)",.+?"url":"([^"]+?)",.+?}

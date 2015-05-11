@@ -1,0 +1,21 @@
+https://www.airbnb.com/locations/austin,Austin
+https://www.airbnb.com/locations/bangkok,Bangkok
+https://www.airbnb.com/locations/barcelona,Barcelona
+https://www.airbnb.com/locations/berlin,Berlin
+https://www.airbnb.com/locations/boston,Boston
+https://www.airbnb.com/locations/buenos-aires,Buenos Aires
+https://www.airbnb.com/locations/lake-tahoe,Lake Tahoe
+https://www.airbnb.com/locations/london,London
+https://www.airbnb.com/locations/los-angeles,Los Angeles
+https://www.airbnb.com/locations/mexico-city,Mexico City
+https://www.airbnb.com/locations/miami,Miami
+https://www.airbnb.com/locations/new-york,New York
+https://www.airbnb.com/locations/paris,Paris
+https://www.airbnb.com/locations/rio-de-janeiro,Rio de Janeiro
+https://www.airbnb.com/locations/rome,Rome
+https://www.airbnb.com/locations/san-francisco,San Francisco
+https://www.airbnb.com/locations/sydney,Sydney
+https://www.airbnb.com/locations/tokyo,Tokyo
+https://www.airbnb.com/locations/venice,Venice
+https://www.airbnb.com/locations/washington-dc,Washington DC
+https://www.airbnb.com/locations/seoul,Seoul

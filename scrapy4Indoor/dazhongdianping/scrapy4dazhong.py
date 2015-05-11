@@ -41,8 +41,7 @@ def loadProcess():
         contentList = open('process.txt').read().split(',')
         return int(contentList[0]), int(contentList[1]), int(contentList[2]), int(contentList[3])
     except Exception as ep:
-        print 'something wrong with the process.txt. you can create a process.txt and write "0,0,0,0" into it, then \
-        restart the program'
+        print 'wrong with the process.txt'
         sys.exit()
 
 def setProcess(process):
@@ -131,8 +130,8 @@ def getFoodTypes(cityName, url):
         if eachType[1].decode('utf8') == '其他':
             foodTypeList.remove(eachType)
             continue
-        #print eachType[0], eachType[1].decode('utf8')  
-        resultFoodTypeList.append(('http://www.dianping.com' + eachType[0] + 'o2',  eachType[1].strip(' ')))
+        #print eachType[0], eachType[1].decode('utf8')
+        resultFoodTypeList.append(('http://www.dianping.com' + eachType[0] + 'o2', eachType[1].strip(' ')))
     #print resultFoodTypeList
     #print len(resultFoodTypeList)
     return resultFoodTypeList
@@ -140,7 +139,7 @@ def getFoodTypes(cityName, url):
 def getEachShopLinkForOnePage(cityName, foodType, pageNum, url):
     pageContent = getPageWithSpecTimes(0, url)
     if pageContent == None:
-        writeToLog('cannot open page for page,%s,%s,%s,%s' % (cityName.decode('utf8'), foodType.decode('utf8'), pageNum.decode('utf8'), url))
+        writeToLog('cannot open page for page,%s,%s,%s,%s' % (cityName.decode('utf8'), foodType.decode('utf8'), pageNum, url))
         return None
     #pageContent = urllib2.urlopen(url).read()
     #print pageContent

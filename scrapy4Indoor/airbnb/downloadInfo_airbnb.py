@@ -312,10 +312,6 @@ doneWorkList = getDoneWork()
 for filePart in os.walk('.'):
     if 'houseUrlList.txt' in filePart[2]:
         robustPrint('houseUrlList.txt in ' + filePart[0])
-        if filePart[0] in doneWorkList:
-            robustPrint('already done ' + filePart[0])
-            continue
-
         filePath = os.path.join(filePart[0], 'houseUrlList.txt')
         itemList = getListFromFile(filePath)
 
@@ -346,5 +342,3 @@ for filePart in os.walk('.'):
                             break
                 if findThread == False: 
                     time.sleep(5)
-            #writeDoneWork(apartmentPath)
-        writeDoneWork(filePart[0])

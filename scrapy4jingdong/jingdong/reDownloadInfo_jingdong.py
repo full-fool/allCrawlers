@@ -21,29 +21,6 @@ tryTimes = 3
 writeLock = threading.Lock()
 writeDoneWorkLock = threading.Lock()
 
-# cookiefile ="./cookies.txt"   
-# cookies = cookielib.MozillaCookieJar(cookiefile)
-# try:
-#     """加载已存在的cookie，尝试此cookie是否还有效"""
-#     cookies.load(ignore_discard=True, ignore_expires=True)
-# except Exception:
-# #        print Exception.message,e
-#     """加载失败，说明从未登录过，需创建一个cookie kong 文件"""
-#     cookies.save(cookiefile,ignore_discard=True, ignore_expires=True)
-
-# """将cookie带入到open中"""
-# opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookies))
-
-
-
-
-
-# cookieFile = urllib2.HTTPCookieProcessor()
-# opener = urllib2.build_opener(cookieFile)
-# opener.addheaders = [('User-agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.92 Safari/537.4')]
-# urllib2.install_opener(opener)
-
-
 cookies = 'cookies.txt'
 cj = cookielib.LWPCookieJar(cookies)
 cj.save()
@@ -160,16 +137,15 @@ class DownloadPicsForOnePeople(threading.Thread):
     def run(self):
         fatherDir = self.fatherDir
         ID = self.ID
-        #print 'thread is running for,%s,%s,%s' % (city, district, url)
 
-        getInfoForProduct(fatherDir, ID, False)
+        getInfoForProduct(fatherDir, ID)
         print 'thread is done for,%s,%s' % (fatherDir,  ID)
 
 
 
 
 
-def getInfoForProduct(fatherDir, ID, isMatch):
+def getInfoForProduct(fatherDir, ID):
     ID = str(ID)
     url = 'http://item.jd.com/%s.html' % ID
     print 'product url is ' + url
@@ -184,36 +160,11 @@ def getInfoForProduct(fatherDir, ID, isMatch):
 
     pagesoup = BeautifulSoup(productMainPage, from_encoding='utf8')
 
-    #resultDict['info']['detail'] = {}
-
-    #getPics
-    if not os.path.exists(os.path.join(fatherDir, ID)):
-        os.makedirs(os.path.join(fatherDir, ID))
-    picUrlPattern = re.compile(r'<img class=\'img-hover\' alt=\'.+?\' src=\'(.+?)\' data-url=')
-    picUrlList = picUrlPattern.findall(productMainPage)
-    extraPicUrlPattern = re.compile(r'<img alt=\'.+?\' src=\'(.+?)\' data-url=')
-    picUrlList += extraPicUrlPattern.findall(productMainPage)
-    print 'there are %s pics' % len(picUrlList)
-    #bigPicUrlList = []
-    for i in range(len(picUrlList)):
-        #bigPicUrlList.append(eachPic.replace('/n5/', '/n0/'))
-        bigPicUrl = picUrlList[i].replace('/n5/', '/n0/')
-        picName = '%s.jpg' % i
-        picPath = os.path.join(fatherDir, ID, picName)
-        print 'picPath is %s' % picPath
-        try:
-            urllib.urlretrieve(bigPicUrl, picPath)
-            print 
-        except Exception as ep:
-            writeToLog('cannot download pic for product,%s,%s,%s,%s' % (fatherDir, ID, picPath, bigPicUrl))
-
-
-
 
 
     descriptionPattern = re.compile(r'<meta name="keywords" content="(.+?)"/>')
     description = descriptionPattern.findall(productMainPage)[0]
-    filehandler = open(os.path.join(fatherDir, ID, 'info.txt'), 'w')
+    filehandler = open(os.path.join(fatherDir, 'info.txt'), 'w')
     filehandler.write('product description:%s\n' % description)
 
 
@@ -258,15 +209,6 @@ def getInfoForProduct(fatherDir, ID, isMatch):
             filehandler.write(attribute.get_text() + '\n')
 
     filehandler.close()
-    # process match
-    if isMatch == False:
-        matchUrl = "http://diviner.jd.com/diviner?lid=1&lim=6&uuid=%s&p=102001&sku=%s" % (ID, ID)
-        matchJson = getPageWithSpecTimes(2, matchUrl)
-        matchJsonResult = json.loads(matchJson)
-        matchPath = os.path.join(fatherDir, ID, 'match')
-        for eachItem in matchJsonResult['data']:
-            #print eachItem['sku']
-            getInfoForProduct(matchPath, eachItem['sku'], True)        
 
 
     writeDoneWork(str(os.path.join(fatherDir, ID)))
@@ -279,32 +221,28 @@ def getInfoForProduct(fatherDir, ID, isMatch):
 threadNum = 50
 threadNumPool = {}
 
-doneWorkList = getDoneWork()
 
 for filePart in os.walk('.'):
-    if 'itemList.txt' in filePart[2]:
-        robustPrint('itemList.txt in ' + filePart[0])
-        filePath = os.path.join(filePart[0], 'itemList.txt')
-        itemList = getListFromFile(filePath)
-
-        for eachItem in itemList:
-            productPath = os.path.join(filePart[0], eachItem)
-            if str(productPath) in doneWorkList:
-                print 'already done ' + str(productPath)
-                continue
+    if 'info.txt' in filePart[2]:
+        robustPrint('info.txt in ' + filePart[0])
+        filePath = os.path.join(filePart[0], 'info.txt')
+        fileContent = open(filePath).read()
+        if len(fileContent) == 0:
+            grandFathername, fatherDirName = os.path.split(filePart[0])
+            ID = str(fatherDirName)
             
             findThread = False
             while findThread == False:
                 for k in range(threadNum):
                     if not threadNumPool.has_key(k):
-                        threadNumPool[k] = DownloadPicsForOnePeople(filePart[0], eachItem)
+                        threadNumPool[k] = DownloadPicsForOnePeople(filePart[0], fatherDirName)
                         threadNumPool[k].start()
                         findThread = True
                         break
                     else:
                         if not threadNumPool[k].isAlive():
                             #threadNumPool[j].stop()
-                            threadNumPool[k] = DownloadPicsForOnePeople(filePart[0], eachItem)
+                            threadNumPool[k] = DownloadPicsForOnePeople(filePart[0], fatherDirName)
                             threadNumPool[k].start()
                             findThread = True
                             break

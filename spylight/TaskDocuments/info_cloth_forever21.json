@@ -1,0 +1,25 @@
+{
+	"url": "...", product url
+	"info": 
+	{
+		"category": "...",
+		"code": "...",
+		"name": "...", product name
+		"price": "...",
+		"description": "...",
+	},
+	"img":
+	[
+		{
+			"url": "...", image url
+			"color": "...", 
+			"name": "...", image name
+		},
+		{
+			"url": "...",
+			"color": "...",
+			"name": "...",
+		},
+		More images go here.
+	]
+}

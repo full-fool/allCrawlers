@@ -1,0 +1,27 @@
+{
+	"url": "...", collection url
+	"info": 
+	{
+		"url": "...", collection image url
+		"name": "collection_0001.jpg", collection image name
+		"tags": ["...", "..."], collection tags
+	},
+	"items":
+	[
+		{
+			"url": "...", item url
+			"name": "...", product name
+			"price": "...", product price
+			"description": "...", product description
+			"img":
+			[
+				{
+					"url": "...", image url
+					"name": "...", item image name
+				},
+				More images go here
+			]
+		},
+		More items go here
+	]
+}

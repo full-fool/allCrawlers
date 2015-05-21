@@ -43,12 +43,25 @@ def generateRandomTest(firstFolder, secondFolder, mappingName):
 		if os.path.isdir(os.path.join('Image', oriFile)):
 			allNamesList.append(oriFile)
 
+
 	totalNum = len(allNamesList)
+
+
+	if requiredNum > totalNum:
+		print 'no enough folders, there are %s folders, %s are needed' % (totalNum, requiredNum)
+		sys.exit()
 
 	alreadyPeopleNum = 0
 	while 1:
+		if totalNum < 1:
+			print 'no enough folders now, already choose %s folder, \
+			there are %s folders left, %s needed in all' % \
+			(alreadyPeopleNum, totalNum, requiredNum)
+			sys.exit()
 		randomFolderIndex = random.randint(0, totalNum - 1)
 		randomFolderName = allNamesList[randomFolderIndex]
+		allNamesList.remove(randomFolderName)
+		totalNum -= 1
 		#print randomFolderName
 		picsList = os.listdir(os.path.join('Image', randomFolderName))
 		firstPic = None
@@ -56,7 +69,7 @@ def generateRandomTest(firstFolder, secondFolder, mappingName):
 		for eachPic in picsList:
 			if '-a' in eachPic:
 				firstPic = eachPic
-			if '-d' in eachPic:
+			if '-c' in eachPic:
 				secondPic = eachPic
 		if firstPic == None or secondPic == None:
 			print 'no enough pics for ac in people,%s' % randomFolderName
@@ -72,4 +85,4 @@ def generateRandomTest(firstFolder, secondFolder, mappingName):
 			break
 
 
-generateRandomTest('ad_a', 'ad_d', 'mapping_ad.csv')
+generateRandomTest('ac_a', 'ac_c', 'mapping_ac.csv')

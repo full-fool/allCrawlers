@@ -73,10 +73,10 @@ def getItemList(realcate, cate, url, fhandler, page):
         writeToLog('cannot open list page: %s' % url)
         getItemList(realcate, cate, url, fhandler, page + 1)
     else:
-        productPattern = re.compile(r"<a class='pdpLink' href='.+&ProductID=(\d+).+'>")
+        productPattern = re.compile(r"<a class='pdpLink' href='.+&Category=(.*?)&ProductID=(\d+).+'>")
         productList = productPattern.findall(pageContent)
-        for productId in productList:
-            fhandler.write('%s %s\n' % (realcate, productId))
+        for productInfo in productList:
+            fhandler.write('%s %s\n' % productInfo)
         print 'Found %d products in page %d, cate %s' \
                 % (len(productList), page, cate)
         if len(productList) < 120:

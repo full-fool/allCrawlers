@@ -1,0 +1,778 @@
+<?NOTxml version="1.0" encoding="utf-8"?>
+<database>
+	<folder name="C:\Users\cyq_2_000\Pictures\" created="2015-Mar-17 01:54:54.817877" modified="2015-Apr-18 05:42:18.761144">
+	</folder>
+	<folder name="C:\Users\cyq_2_000\Documents\" created="2015-Apr-13 08:27:06.788757" modified="2015-Apr-13 08:27:06.788757">
+	</folder>
+	<folder name="C:\Users\cyq_2_000\Desktop\" created="2015-Apr-18 03:50:04.820027" modified="2015-Apr-18 10:47:34.509030">
+	</folder>
+	<folder name="C:\Users\cyq_2_000\Videos\" created="2015-Mar-17 01:54:54.802347" modified="2015-Mar-17 01:54:54.802347">
+	</folder>
+	<folder name="C:\" created="2015-Apr-17 19:00:15.120067">
+	</folder>
+	<folder name="D:\" created="2015-Apr-17 19:00:11.818607">
+	</folder>
+	<folder name="E:\" created="2015-Apr-17 19:00:11.819607">
+	</folder>
+	<folder name="E:\cyq's document\data\renrenResult\renren_244586389\" created="2015-Mar-06 07:00:46.955305">
+	</folder>
+	<folder name="C:\Users\cyq_2_000\Desktop\renrenResult\" created="2015-Apr-18 08:26:24.811784" modified="2015-Apr-18 10:18:41.985764">
+	</folder>
+	<folder name="C:\Users\cyq_2_000\Desktop\testForXml\" created="2015-Apr-18 09:25:39.696333" modified="2015-Apr-18 10:06:48.587862">
+	</folder>
+	<folder name="C:\Users\cyq_2_000\Desktop\renrenResult\renren_244586389\" created="2015-Apr-18 10:14:21.633424" modified="2015-Apr-20 02:53:19.698922">
+	</folder>
+	<folder name="C:\Users\cyq_2_000\Desktop\Release\" created="2015-Mar-31 04:00:41.914042">
+	</folder>
+	<folder name="C:\Users\cyq_2_000\Desktop\intern\" created="2015-Jan-23 07:27:05.341933">
+	</folder>
+	<folder name="C:\Users\cyq_2_000\Desktop\exportpicasa-0.4.1-win32\" created="2015-Apr-20 02:29:46.273542">
+	</folder>
+	<folder name="C:\Users\cyq_2_000\Desktop\新建文件夹\" created="2015-Mar-06 06:38:47.919249">
+	</folder>
+	<folder name="C:\Users\cyq_2_000\Desktop\11550419 植物园 jpg\" created="2015-Apr-20 09:50:54.856303" modified="2015-Apr-20 09:57:58.846018">
+		<file name="P1000018.JPG" created="2015-Apr-19 02:36:55" modified="2015-Apr-19 02:36:54" width="4608" height="3456" avg_color="#ff6e6d67">
+			<face rect_left="0.342443" rect_top="0.324941" rect_right="0.428824" rect_bottom="0.463249"/>
+		</file>
+		<file name="P1000019.JPG" created="2015-Apr-19 02:41:37" modified="2015-Apr-19 02:41:36" width="4608" height="3456" avg_color="#ffb6b2af">
+		</file>
+		<file name="P1000026.JPG" created="2015-Apr-19 02:43:42" modified="2015-Apr-19 02:43:42" width="4608" height="3456" avg_color="#ff736a65">
+			<face rect_left="0.391928" rect_top="0.210941" rect_right="0.620661" rect_bottom="0.576684"/>
+		</file>
+		<file name="P1000029.JPG" created="2015-Apr-19 03:03:03" modified="2015-Apr-19 03:03:02" width="4608" height="3456" avg_color="#ffa59e99">
+		</file>
+		<file name="P1000031.JPG" created="2015-Apr-19 03:09:16" modified="2015-Apr-19 03:09:16" width="4608" height="3456" avg_color="#ff7d7872">
+			<face contact_name="tr" rect_left="0.358724" rect_top="0.394095" rect_right="0.414923" rect_bottom="0.483223"/>
+			<face contact_name="m1" rect_left="0.233066" rect_top="0.416663" rect_right="0.293843" rect_bottom="0.513313"/>
+			<face rect_left="0.0917983" rect_top="0.400748" rect_right="0.129335" rect_bottom="0.460945"/>
+			<face contact_name="lj" rect_left="0.128695" rect_top="0.552377" rect_right="0.212451" rect_bottom="0.686625"/>
+			<face rect_left="0.903212" rect_top="0.496529" rect_right="0.954421" rect_bottom="0.579278"/>
+			<face rect_left="0.0381933" rect_top="0.40827" rect_right="0.0687877" rect_bottom="0.457465"/>
+			<face contact_name="ld" rect_left="0.74197" rect_top="0.44242" rect_right="0.811856" rect_bottom="0.554116"/>
+		</file>
+		<file name="P1000032.JPG" created="2015-Apr-19 03:09:19" modified="2015-Apr-19 03:09:18" width="4608" height="3456" avg_color="#ff766e64">
+			<face contact_name="tr" rect_left="0.728084" rect_top="0.390051" rect_right="0.786892" rect_bottom="0.483223"/>
+			<face rect_left="0.833112" rect_top="0.632517" rect_right="0.861326" rect_bottom="0.678248"/>
+			<face rect_left="0.034287" rect_top="0.385122" rect_right="0.0581521" rect_bottom="0.423316"/>
+			<face rect_left="0.565545" rect_top="0.426795" rect_right="0.593103" rect_bottom="0.470771"/>
+			<face contact_name="ll" rect_left="0.249348" rect_top="0.364294" rect_right="0.326818" rect_bottom="0.488426"/>
+			<face rect_left="0.378683" rect_top="0.448203" rect_right="0.420569" rect_bottom="0.515053"/>
+			<face contact_name="lj" rect_left="0.440101" rect_top="0.484947" rect_right="0.489372" rect_bottom="0.564233"/>
+		</file>
+		<file name="P1000035.JPG" created="2015-Apr-19 03:09:28" modified="2015-Apr-19 03:09:28" width="4608" height="3456" avg_color="#ff76736a">
+			<face rect_left="0.938796" rect_top="0.502602" rect_right="0.981338" rect_bottom="0.570886"/>
+			<face contact_name="tr" rect_left="0.110674" rect_top="0.405966" rect_right="0.176867" rect_bottom="0.511574"/>
+			<face rect_left="0.908858" rect_top="0.489296" rect_right="0.949432" rect_bottom="0.554116"/>
+			<face rect_left="0.735027" rect_top="0.429114" rect_right="0.803174" rect_bottom="0.537621"/>
+			<face contact_name="m1" rect_left="0" rect_top="0.437507" rect_right="0.0668345" rect_bottom="0.554971"/>
+			<face contact_name="xb" rect_left="0.403647" rect_top="0.449943" rect_right="0.450523" rect_bottom="0.52488"/>
+			<face rect_left="0.164279" rect_top="0.404227" rect_right="0.191196" rect_bottom="0.446754"/>
+			<face rect_left="0.701823" rect_top="0.503471" rect_right="0.726772" rect_bottom="0.543404"/>
+			<face rect_left="0.269963" rect_top="0.439231" rect_right="0.287541" rect_bottom="0.466728"/>
+			<face rect_left="0.833768" rect_top="0.473381" rect_right="0.854383" rect_bottom="0.506661"/>
+			<face rect_left="0.0399329" rect_top="0.435767" rect_right="0.0655375" rect_bottom="0.477424"/>
+		</file>
+		<file name="P1000036.JPG" created="2015-Apr-19 03:09:29" modified="2015-Apr-19 03:09:28" width="4608" height="3456" avg_color="#ff7b746c">
+			<face rect_left="0.156252" rect_top="0.40827" rect_right="0.197482" rect_bottom="0.47512"/>
+			<face contact_name="m1" rect_left="0.4757" rect_top="0.44329" rect_right="0.520623" rect_bottom="0.515908"/>
+			<face contact_name="tr" rect_left="0.579431" rect_top="0.427375" rect_right="0.611322" rect_bottom="0.478294"/>
+			<face contact_name="ll" rect_left="0.334417" rect_top="0.350118" rect_right="0.471794" rect_bottom="0.570016"/>
+			<face contact_name="xb" rect_left="0.815106" rect_top="0.425055" rect_right="0.897566" rect_bottom="0.55671"/>
+			<face rect_left="0.918181" rect_top="0.450813" rect_right="0.940536" rect_bottom="0.487556"/>
+			<face rect_left="0.721355" rect_top="0.435767" rect_right="0.73872" rect_bottom="0.464118"/>
+			<face rect_left="0.157549" rect_top="0.648432" rect_right="0.191196" rect_bottom="0.702541"/>
+			<face rect_left="0.205081" rect_top="0.398444" rect_right="0.232425" rect_bottom="0.44329"/>
+			<face rect_left="0.100038" rect_top="0.397574" rect_right="0.11632" rect_bottom="0.424186"/>
+			<face rect_left="0.0499123" rect_top="0.392355" rect_right="0.0731365" rect_bottom="0.429114"/>
+		</file>
+		<file name="P1000040.JPG" created="2015-Apr-19 03:09:38" modified="2015-Apr-19 03:09:38" width="4608" height="3456" avg_color="#ff827c73">
+			<face contact_name="ll" rect_left="0.353079" rect_top="0.359091" rect_right="0.508034" rect_bottom="0.606775"/>
+			<face rect_left="0.573785" rect_top="0.4757" rect_right="0.608728" rect_bottom="0.531533"/>
+			<face rect_left="0.0894026" rect_top="0.500008" rect_right="0.119356" rect_bottom="0.548318"/>
+			<face contact_name="m1" rect_left="0.930556" rect_top="0.466728" rect_right="0.999344" rect_bottom="0.580728"/>
+			<face contact_name="lj" rect_left="0.768658" rect_top="0.643229" rect_right="0.820523" rect_bottom="0.725689"/>
+		</file>
+		<file name="P1000041.JPG" created="2015-Apr-19 03:09:49" modified="2015-Apr-19 03:09:48" width="4608" height="3456" avg_color="#ff817d72">
+			<face rect_left="0.22678" rect_top="0.573205" rect_right="0.279942" rect_bottom="0.658274"/>
+			<face contact_name="ll" rect_left="0.421225" rect_top="0.454276" rect_right="0.523659" rect_bottom="0.619211"/>
+			<face contact_name="m1" rect_left="0.886931" rect_top="0.52488" rect_right="0.959411" rect_bottom="0.640909"/>
+			<face rect_left="0.186847" rect_top="0.530968" rect_right="0.23003" rect_bottom="0.600702"/>
+			<face rect_left="0" rect_top="0.551797" rect_right="0.0618448" rect_bottom="0.67332"/>
+			<face rect_left="0.331807" rect_top="0.554971" rect_right="0.367407" rect_bottom="0.610819"/>
+			<face rect_left="0.662547" rect_top="0.541665" rect_right="0.695094" rect_bottom="0.594034"/>
+		</file>
+		<file name="P1000042.JPG" created="2015-Apr-19 03:09:50" modified="2015-Apr-19 03:09:50" width="4608" height="3456" avg_color="#ff686153">
+			<face contact_name="ll" rect_left="0.376303" rect_top="0.437507" rect_right="0.483726" rect_bottom="0.608225"/>
+			<face rect_left="0.1888" rect_top="0.560769" rect_right="0.242405" rect_bottom="0.646708"/>
+			<face rect_left="0.146273" rect_top="0.548318" rect_right="0.181857" rect_bottom="0.605035"/>
+			<face rect_left="0.638666" rect_top="0.533272" rect_right="0.670573" rect_bottom="0.584207"/>
+			<face rect_left="0.256291" rect_top="0.561639" rect_right="0.289937" rect_bottom="0.614878"/>
+			<face rect_left="0.186191" rect_top="0.528359" rect_right="0.204425" rect_bottom="0.55758"/>
+		</file>
+		<file name="P1000043.JPG" created="2015-Apr-19 03:10:37" modified="2015-Apr-19 03:10:36" width="4608" height="3456" avg_color="#ff746e67">
+			<face contact_name="m1" rect_left="0.370657" rect_top="0.394095" rect_right="0.423835" rect_bottom="0.479164"/>
+			<face contact_name="ll" rect_left="0.44445" rect_top="0.253468" rect_right="0.627604" rect_bottom="0.546578"/>
+			<face contact_name="lj" rect_left="0.761929" rect_top="0.453422" rect_right="0.804471" rect_bottom="0.520836"/>
+			<face rect_left="0.134981" rect_top="0.3776" rect_right="0.173175" rect_bottom="0.439231"/>
+			<face contact_name="xb" rect_left="0.659281" rect_top="0.40914" rect_right="0.70811" rect_bottom="0.486686"/>
+			<face contact_name="ld" rect_left="0.936202" rect_top="0.385122" rect_right="0.999344" rect_bottom="0.540795"/>
+			<face rect_left="0.0944076" rect_top="0.450813" rect_right="0.14931" rect_bottom="0.538201"/>
+		</file>
+		<file name="P1000044.JPG" created="2015-Apr-19 03:10:38" modified="2015-Apr-19 03:10:38" width="4608" height="3456" avg_color="#ff726b63">
+			<face contact_name="ll" rect_left="0.356344" rect_top="0.26244" rect_right="0.523217" rect_bottom="0.530098"/>
+			<face rect_left="0.144961" rect_top="0.379919" rect_right="0.18381" rect_bottom="0.44242"/>
+			<face rect_left="0.764981" rect_top="0.458335" rect_right="0.796231" rect_bottom="0.50753"/>
+		</file>
+		<file name="P1000045.JPG" created="2015-Apr-19 03:10:45" modified="2015-Apr-19 03:10:44" width="4608" height="3456" avg_color="#ff635958">
+			<face contact_name="xb" rect_left="0.406256" rect_top="0.277485" rect_right="0.676219" rect_bottom="0.709209"/>
+			<face rect_left="0.288838" rect_top="0.561639" rect_right="0.354391" rect_bottom="0.665797"/>
+		</file>
+		<file name="P1000046.JPG" created="2015-Apr-19 03:10:52" modified="2015-Apr-19 03:10:52" width="4608" height="3456" avg_color="#ff29221d">
+		</file>
+		<file name="P1000047.JPG" created="2015-Apr-19 03:11:09" modified="2015-Apr-19 03:11:08" width="4608" height="3456" avg_color="#ff6f4e40">
+		</file>
+		<file name="P1000050.JPG" created="2015-Apr-19 03:12:09" modified="2015-Apr-19 03:12:08" width="4608" height="3456" avg_color="#ff82766d">
+			<face contact_name="ll" rect_left="0.312505" rect_top="0.272572" rect_right="0.440101" rect_bottom="0.4757"/>
+		</file>
+		<file name="P1000051.JPG" created="2015-Apr-19 03:18:44" modified="2015-Apr-19 03:18:44" width="4608" height="3456" avg_color="#ff766d62">
+			<face rect_left="0.385641" rect_top="0.466728" rect_right="0.44509" rect_bottom="0.561639"/>
+		</file>
+		<file name="P1000055.JPG" created="2015-Apr-19 03:19:18" modified="2015-Apr-19 03:19:18" width="4608" height="3456" avg_color="#ff5e4f4a">
+			<face rect_left="0.307515" rect_top="0" rect_right="0.86067" rect_bottom="0.839124"/>
+		</file>
+		<file name="P1000056.JPG" created="2015-Apr-19 03:19:28" modified="2015-Apr-19 03:19:28" width="4608" height="3456" avg_color="#ff968b83">
+			<face contact_name="ll" rect_left="0.270619" rect_top="0" rect_right="0.816846" rect_bottom="0.8533"/>
+		</file>
+		<file name="P1000057.JPG" created="2015-Apr-19 03:22:10" modified="2015-Apr-19 03:22:10" width="4608" height="3456" avg_color="#ff655847">
+		</file>
+		<file name="P1000058.JPG" created="2015-Apr-19 03:22:19" modified="2015-Apr-19 03:22:18" width="4608" height="3456" avg_color="#ff6d6b4a">
+			<face rect_left="0.335073" rect_top="0.499138" rect_right="0.360678" rect_bottom="0.539925"/>
+			<face rect_left="0.248051" rect_top="0.512444" rect_right="0.305562" rect_bottom="0.605035"/>
+			<face rect_left="0" rect_top="0.586801" rect_right="0.14432" rect_bottom="0.831601"/>
+			<face rect_left="0.146273" rect_top="0.539055" rect_right="0.213107" rect_bottom="0.646708"/>
+			<face rect_left="0.29189" rect_top="0.528359" rect_right="0.316182" rect_bottom="0.567422"/>
+			<face rect_left="0.432502" rect_top="0.511574" rect_right="0.447486" rect_bottom="0.536751"/>
+			<face rect_left="0.379995" rect_top="0.520836" rect_right="0.396918" rect_bottom="0.547448"/>
+			<face rect_left="0.398215" rect_top="0.493339" rect_right="0.424475" rect_bottom="0.535882"/>
+		</file>
+		<file name="P1000059.JPG" created="2015-Apr-19 03:23:39" modified="2015-Apr-19 03:23:38" width="4608" height="3456" avg_color="#ff333a20">
+			<face rect_left="0.55816" rect_top="0.428244" rect_right="0.575525" rect_bottom="0.455726"/>
+		</file>
+		<file name="P1000060.JPG" created="2015-Apr-19 03:23:45" modified="2015-Apr-19 03:23:44" width="4608" height="3456" avg_color="#ff4e5736">
+			<face rect_left="0.44184" rect_top="0.469032" rect_right="0.468101" rect_bottom="0.510704"/>
+		</file>
+		<file name="P1000063.JPG" created="2015-Apr-19 03:24:47" modified="2015-Apr-19 03:24:46" width="4608" height="3456" avg_color="#ff804d36">
+		</file>
+		<file name="P1000064.JPG" created="2015-Apr-19 03:25:40" modified="2015-Apr-19 03:25:40" width="4608" height="3456" avg_color="#ffaba19f">
+		</file>
+		<file name="P1000066.JPG" created="2015-Apr-19 03:26:12" modified="2015-Apr-19 03:26:12" width="4608" height="3456" avg_color="#ff504b38">
+			<face contact_name="wyr" rect_left="0.463111" rect_top="0.333333" rect_right="0.571832" rect_bottom="0.50753"/>
+		</file>
+		<file name="P1000068.JPG" created="2015-Apr-19 03:27:04" modified="2015-Apr-19 03:27:04" width="4608" height="3456" avg_color="#ff5c5548">
+			<face contact_name="wyr" rect_left="0.205722" rect_top="0.305852" rect_right="0.387579" rect_bottom="0.597513"/>
+		</file>
+		<file name="P1000070.JPG" created="2015-Apr-19 03:27:59" modified="2015-Apr-19 03:27:58" width="4608" height="3456" avg_color="#ff7e7b6b">
+			<face rect_left="0.701823" rect_top="0.700816" rect_right="0.728725" rect_bottom="0.743343"/>
+			<face rect_left="0.319448" rect_top="0.707469" rect_right="0.391272" rect_bottom="0.822629"/>
+			<face rect_left="0.40061" rect_top="0.679973" rect_right="0.424475" rect_bottom="0.717586"/>
+			<face rect_left="0.593103" rect_top="0.637446" rect_right="0.623041" rect_bottom="0.685771"/>
+			<face rect_left="0.659937" rect_top="0.841718" rect_right="0.679911" rect_bottom="0.874128"/>
+			<face rect_left="0.466148" rect_top="0.645838" rect_right="0.491325" rect_bottom="0.684901"/>
+			<face rect_left="0.904952" rect_top="0.624994" rect_right="0.95877" rect_bottom="0.710933"/>
+		</file>
+		<file name="P1000071.JPG" created="2015-Apr-19 03:28:07" modified="2015-Apr-19 03:28:06" width="4608" height="3456" avg_color="#ff5b532d">
+		</file>
+		<file name="P1000072.JPG" created="2015-Apr-19 03:28:36" modified="2015-Apr-19 03:28:36" width="4608" height="3456" avg_color="#ff825614">
+		</file>
+		<file name="P1000073.JPG" created="2015-Apr-19 03:29:04" modified="2015-Apr-19 03:29:04" width="4608" height="3456" avg_color="#ff323228">
+		</file>
+		<file name="P1000074.JPG" created="2015-Apr-19 03:29:11" modified="2015-Apr-19 03:29:10" width="4608" height="3456" avg_color="#ff535144">
+		</file>
+		<file name="P1000075.JPG" created="2015-Apr-19 03:29:18" modified="2015-Apr-19 03:29:18" width="4608" height="3456" avg_color="#ff535247">
+		</file>
+		<file name="P1000076.JPG" created="2015-Apr-19 03:29:25" modified="2015-Apr-19 03:29:24" width="4608" height="3456" avg_color="#ff766b51">
+			<face rect_left="0.371313" rect_top="0.247395" rect_right="0.44683" rect_bottom="0.368338"/>
+			<face rect_left="0.471794" rect_top="0.285878" rect_right="0.58117" rect_bottom="0.460945"/>
+			<face rect_left="0.561852" rect_top="0.405966" rect_right="0.687495" rect_bottom="0.605905"/>
+			<face rect_left="0.629984" rect_top="0.2309" rect_right="0.681208" rect_bottom="0.312505"/>
+			<face rect_left="0.195102" rect_top="0.260121" rect_right="0.298177" rect_bottom="0.425055"/>
+			<face rect_left="0.105684" rect_top="0.320027" rect_right="0.161242" rect_bottom="0.40914"/>
+			<face rect_left="0" rect_top="0.333333" rect_right="0.049485" rect_bottom="0.425925"/>
+		</file>
+		<file name="P1000077.JPG" created="2015-Apr-19 03:29:28" modified="2015-Apr-19 03:29:28" width="4608" height="3456" avg_color="#ff635c47">
+			<face rect_left="0.25565" rect_top="0.254047" rect_right="0.310552" rect_bottom="0.341726"/>
+			<face rect_left="0.0381933" rect_top="0.355901" rect_right="0.128038" rect_bottom="0.500008"/>
+			<face rect_left="0.748699" rect_top="0.269093" rect_right="0.781247" rect_bottom="0.320897"/>
+			<face rect_left="0.779293" rect_top="0.260121" rect_right="0.807507" rect_bottom="0.305852"/>
+			<face rect_left="0.899962" rect_top="0.322621" rect_right="0.985031" rect_bottom="0.458335"/>
+			<face rect_left="0.704433" rect_top="0.199069" rect_right="0.760632" rect_bottom="0.289937"/>
+			<face rect_left="0.854383" rect_top="0.273442" rect_right="0.89865" rect_bottom="0.344045"/>
+			<face rect_left="0.565103" rect_top="0.2607" rect_right="0.596796" rect_bottom="0.312505"/>
+			<face rect_left="0.543832" rect_top="0.26157" rect_right="0.573129" rect_bottom="0.308446"/>
+			<face rect_left="0.820096" rect_top="0.245075" rect_right="0.843091" rect_bottom="0.281544"/>
+			<face rect_left="0.706157" rect_top="0.324071" rect_right="0.786236" rect_bottom="0.451682"/>
+			<face rect_left="0.485679" rect_top="0.306706" rect_right="0.520623" rect_bottom="0.363424"/>
+		</file>
+		<file name="P1000079.JPG" created="2015-Apr-19 03:29:40" modified="2015-Apr-19 03:29:40" width="4608" height="3456" avg_color="#ff7b796f">
+			<face rect_left="0.82118" rect_top="0.0115816" rect_right="0.867399" rect_bottom="0.062501"/>
+			<face rect_left="0.821836" rect_top="0.0983749" rect_right="0.863066" rect_bottom="0.144091"/>
+			<face rect_left="0.843091" rect_top="0.201678" rect_right="0.878035" rect_bottom="0.239872"/>
+		</file>
+		<file name="P1000080.JPG" created="2015-Apr-19 03:30:29" modified="2015-Apr-19 03:30:28" width="4608" height="3456" avg_color="#ff777737">
+		</file>
+		<file name="P1000081.JPG" created="2015-Apr-19 03:31:00" modified="2015-Apr-19 03:31:00" width="4608" height="3456" avg_color="#ff3d3a2d">
+		</file>
+		<file name="P1000082.JPG" created="2015-Apr-19 03:31:10" modified="2015-Apr-19 03:31:10" width="4608" height="3456" avg_color="#ff5c5445">
+		</file>
+		<file name="P1000083.JPG" created="2015-Apr-19 03:31:42" modified="2015-Apr-19 03:31:42" width="4608" height="3456" avg_color="#ff2a3b1d">
+		</file>
+		<file name="P1000084.JPG" created="2015-Apr-19 03:31:58" modified="2015-Apr-19 03:31:58" width="4608" height="3456" avg_color="#ff26321f">
+		</file>
+		<file name="P1000085.JPG" created="2015-Apr-19 03:32:31" modified="2015-Apr-19 03:32:30" width="4608" height="3456" avg_color="#ff7e6f33">
+		</file>
+		<file name="P1000087.JPG" created="2015-Apr-19 03:32:41" modified="2015-Apr-19 03:32:40" width="4608" height="3456" avg_color="#ff897a3f">
+		</file>
+		<file name="P1000088.JPG" created="2015-Apr-19 03:33:08" modified="2015-Apr-19 03:33:08" width="4608" height="3456" avg_color="#ff6e7150">
+			<face rect_left="0.845701" rect_top="0.6224" rect_right="0.865675" rect_bottom="0.655085"/>
+			<face rect_left="0.894316" rect_top="0.577539" rect_right="0.926863" rect_bottom="0.629053"/>
+			<face rect_left="0.845045" rect_top="0.586801" rect_right="0.871305" rect_bottom="0.628473"/>
+			<face rect_left="0.36936" rect_top="0.581598" rect_right="0.384329" rect_bottom="0.605905"/>
+			<face rect_left="0.796231" rect_top="0.592599" rect_right="0.81445" rect_bottom="0.620951"/>
+			<face rect_left="0.458762" rect_top="0.572625" rect_right="0.4757" rect_bottom="0.600122"/>
+			<face rect_left="0.698131" rect_top="0.579278" rect_right="0.716793" rect_bottom="0.609949"/>
+		</file>
+		<file name="P1000089.JPG" created="2015-Apr-19 03:33:42" modified="2015-Apr-19 03:33:42" width="4608" height="3456" avg_color="#ff948735">
+		</file>
+		<file name="P1000090.JPG" created="2015-Apr-19 03:33:47" modified="2015-Apr-19 03:33:46" width="4608" height="3456" avg_color="#ff746424">
+		</file>
+		<file name="P1000091.JPG" created="2015-Apr-19 03:34:00" modified="2015-Apr-19 03:34:00" width="4608" height="3456" avg_color="#ff726325">
+		</file>
+		<file name="P1000092.JPG" created="2015-Apr-19 03:34:14" modified="2015-Apr-19 03:34:14" width="4608" height="3456" avg_color="#ff65533e">
+		</file>
+		<file name="P1000093.JPG" created="2015-Apr-19 03:34:47" modified="2015-Apr-19 03:34:46" width="4608" height="3456" avg_color="#ff6c715a">
+		</file>
+		<file name="P1000094.JPG" created="2015-Apr-19 03:35:00" modified="2015-Apr-19 03:35:00" width="4608" height="3456" avg_color="#ff65654d">
+		</file>
+		<file name="P1000098.JPG" created="2015-Apr-19 03:40:29" modified="2015-Apr-19 03:40:28" width="4608" height="3456" avg_color="#ff644a4a">
+			<face contact_name="wyr" rect_left="0.409293" rect_top="0.196765" rect_right="0.644968" rect_bottom="0.574075"/>
+		</file>
+		<file name="P1000100.JPG" created="2015-Apr-19 03:40:42" modified="2015-Apr-19 03:40:42" width="4608" height="3456" avg_color="#ff735b54">
+			<face contact_name="lj" rect_left="0.41883" rect_top="0.362554" rect_right="0.633677" rect_bottom="0.7066"/>
+			<face contact_name="ll" rect_left="0.570535" rect_top="0.132525" rect_right="0.70573" rect_bottom="0.348379"/>
+		</file>
+		<file name="P1000101.JPG" created="2015-Apr-19 03:43:28" modified="2015-Apr-19 03:43:28" width="4608" height="3456" avg_color="#ff837769">
+		</file>
+		<file name="P1000102.JPG" created="2015-Apr-19 03:43:37" modified="2015-Apr-19 03:43:36" width="4608" height="3456" avg_color="#ff8f8577">
+		</file>
+		<file name="P1000103.JPG" created="2015-Apr-19 03:44:00" modified="2015-Apr-19 03:44:00" width="4608" height="3456" avg_color="#ff707e47">
+		</file>
+		<file name="P1000104.JPG" created="2015-Apr-19 03:53:24" modified="2015-Apr-19 03:53:24" width="4608" height="3456" avg_color="#ff617744">
+		</file>
+		<file name="P1000105.JPG" created="2015-Apr-19 03:53:36" modified="2015-Apr-19 03:53:36" width="4608" height="3456" avg_color="#ff3f601e">
+		</file>
+		<file name="P1000106.JPG" created="2015-Apr-19 03:53:46" modified="2015-Apr-19 03:53:46" width="4608" height="3456" avg_color="#ff88847b">
+			<face rect_left="0.51931" rect_top="0.479164" rect_right="0.549477" rect_bottom="0.527489"/>
+			<face rect_left="0.268666" rect_top="0.484947" rect_right="0.30251" rect_bottom="0.538201"/>
+			<face rect_left="0.313802" rect_top="0.504051" rect_right="0.346349" rect_bottom="0.55671"/>
+			<face rect_left="0.424918" rect_top="0.484092" rect_right="0.462455" rect_bottom="0.544274"/>
+			<face rect_left="0.923827" rect_top="0.515908" rect_right="0.942489" rect_bottom="0.546578"/>
+		</file>
+		<file name="P1000107.JPG" created="2015-Apr-19 03:54:16" modified="2015-Apr-19 03:54:16" width="4608" height="3456" avg_color="#ff474743">
+			<face rect_left="0.628031" rect_top="0.606775" rect_right="0.695537" rect_bottom="0.682582"/>
+		</file>
+		<file name="P1000110.JPG" created="2015-Apr-19 03:54:52" modified="2015-Apr-19 03:54:52" width="4608" height="3456" avg_color="#ff635e54">
+			<face rect_left="0.186191" rect_top="0.297459" rect_right="0.206165" rect_bottom="0.329854"/>
+			<face rect_left="0.428168" rect_top="0.265049" rect_right="0.54818" rect_bottom="0.456596"/>
+		</file>
+		<file name="P1000111.JPG" created="2015-Apr-19 03:55:40" modified="2015-Apr-19 03:55:40" width="4608" height="3456" avg_color="#ff62584a">
+		</file>
+		<file name="P1000112.JPG" created="2015-Apr-19 03:55:53" modified="2015-Apr-19 03:55:52" width="4608" height="3456" avg_color="#ff504d41">
+			<face rect_left="0.198779" rect_top="0.602426" rect_right="0.241321" rect_bottom="0.67071"/>
+			<face rect_left="0.262592" rect_top="0.469032" rect_right="0.292531" rect_bottom="0.516777"/>
+		</file>
+		<file name="P1000114.JPG" created="2015-Apr-19 03:56:13" modified="2015-Apr-19 03:56:12" width="4608" height="3456" avg_color="#ff807465">
+			<face rect_left="0.789273" rect_top="0.938369" rect_right="0.856764" rect_bottom="0.99913"/>
+		</file>
+		<file name="P1000115.JPG" created="2015-Apr-19 03:56:33" modified="2015-Apr-19 03:56:32" width="4608" height="3456" avg_color="#ff8c8b5e">
+		</file>
+		<file name="P1000116.JPG" created="2015-Apr-19 04:41:23" modified="2015-Apr-19 04:41:22" width="4608" height="3456" avg_color="#ff3a3828">
+			<face contact_name="xb" rect_left="0.47071" rect_top="0.363424" rect_right="0.573129" rect_bottom="0.526619"/>
+			<face contact_name="m1" rect_left="0.316182" rect_top="0.374136" rect_right="0.396262" rect_bottom="0.501732"/>
+		</file>
+		<file name="P1000117.JPG" created="2015-Apr-19 04:41:39" modified="2015-Apr-19 04:41:38" width="4608" height="3456" avg_color="#ff6c6951">
+			<face contact_name="m1" rect_left="0.651255" rect_top="0.383398" rect_right="0.731334" rect_bottom="0.512444"/>
+		</file>
+		<file name="P1000118.JPG" created="2015-Apr-19 04:41:40" modified="2015-Apr-19 04:41:40" width="4608" height="3456" avg_color="#ff757359">
+			<face contact_name="m1" rect_left="0.411246" rect_top="0.361685" rect_right="0.48806" rect_bottom="0.484092"/>
+			<face contact_name="tr" rect_left="0.199435" rect_top="0.364294" rect_right="0.239368" rect_bottom="0.428244"/>
+		</file>
+		<file name="P1000120.JPG" created="2015-Apr-19 04:41:42" modified="2015-Apr-19 04:41:42" width="4608" height="3456" avg_color="#ff857c6a">
+			<face contact_name="wyr" rect_left="0.501945" rect_top="0.420142" rect_right="0.606332" rect_bottom="0.586801"/>
+		</file>
+		<file name="P1000121.JPG" created="2015-Apr-19 04:41:43" modified="2015-Apr-19 04:41:42" width="4608" height="3456" avg_color="#ff766d5d">
+			<face contact_name="wyr" rect_left="0.198138" rect_top="0.402487" rect_right="0.293843" rect_bottom="0.554971"/>
+		</file>
+		<file name="P1000122.JPG" created="2015-Apr-19 04:41:47" modified="2015-Apr-19 04:41:46" width="4608" height="3456" avg_color="#ff786f62">
+			<face contact_name="xb" rect_left="0.478737" rect_top="0" rect_right="0.608072" rect_bottom="0.131655"/>
+		</file>
+		<file name="P1000123.JPG" created="2015-Apr-19 06:01:51" modified="2015-Apr-19 06:01:50" width="4608" height="3456" avg_color="#ff5f6250">
+			<face contact_name="m1" rect_left="0.472435" rect_top="0.214115" rect_right="0.617411" rect_bottom="0.446754"/>
+		</file>
+		<file name="P1000127.JPG" created="2015-Apr-19 07:27:05" modified="2015-Apr-19 07:27:04" width="4608" height="3456" avg_color="#ff635a52">
+			<face contact_name="wyr" rect_left="0.382589" rect_top="0.29659" rect_right="0.608728" rect_bottom="0.658274"/>
+			<face contact_name="ld" rect_left="0.671229" rect_top="0.204288" rect_right="0.74435" rect_bottom="0.321752"/>
+			<face contact_name="m1" rect_left="0.0861524" rect_top="0.235828" rect_right="0.176211" rect_bottom="0.379919"/>
+			<face contact_name="ll" rect_left="0.434455" rect_top="0.199069" rect_right="0.508034" rect_bottom="0.316548"/>
+		</file>
+		<file name="P1000129.JPG" created="2015-Apr-19 07:27:09" modified="2015-Apr-19 07:27:08" width="4608" height="3456" avg_color="#ff6c624a">
+			<face contact_name="krb" rect_left="0.350042" rect_top="0.129915" rect_right="0.611978" rect_bottom="0.549187"/>
+		</file>
+		<file name="P1000130.JPG" created="2015-Apr-19 07:27:10" modified="2015-Apr-19 07:27:10" width="4608" height="3456" avg_color="#ff51483f">
+			<face contact_name="m1" rect_left="0.363714" rect_top="0.195895" rect_right="0.646265" rect_bottom="0.648432"/>
+		</file>
+		<file name="P1000131.JPG" created="2015-Apr-19 07:27:17" modified="2015-Apr-19 07:27:16" width="4608" height="3456" avg_color="#ff7c7662">
+			<face contact_name="krb" rect_left="0.47808" rect_top="0.175921" rect_right="0.639979" rect_bottom="0.434897"/>
+			<face rect_left="0.0618448" rect_top="0.309895" rect_right="0.133684" rect_bottom="0.425925"/>
+		</file>
+		<file name="P1000132.JPG" created="2015-Apr-19 07:28:30" modified="2015-Apr-19 07:28:30" width="4608" height="3456" avg_color="#ff615851">
+			<face rect_left="0.759335" rect_top="0.656535" rect_right="0.835065" rect_bottom="0.739879"/>
+			<face rect_left="0.813153" rect_top="0.773434" rect_right="0.85005" rect_bottom="0.815106"/>
+		</file>
+		<file name="P1000133.JPG" created="2015-Apr-19 07:28:33" modified="2015-Apr-19 07:28:32" width="4608" height="3456" avg_color="#ff5f544f">
+			<face contact_name="tr" rect_left="0.754345" rect_top="0.88426" rect_right="0.85005" rect_bottom="0.989868"/>
+			<face rect_left="0.732418" rect_top="0.166659" rect_right="0.823789" rect_bottom="0.268223"/>
+			<face rect_left="0.77995" rect_top="0.575814" rect_right="0.821836" rect_bottom="0.6224"/>
+			<face rect_left="0.74435" rect_top="0.125872" rect_right="0.791882" rect_bottom="0.178241"/>
+			<face rect_left="0.805554" rect_top="0.649302" rect_right="0.825528" rect_bottom="0.67158"/>
+		</file>
+		<file name="P1000134.JPG" created="2015-Apr-19 07:28:38" modified="2015-Apr-19 07:28:38" width="4608" height="3456" avg_color="#ff6c6655">
+			<face rect_left="0.221347" rect_top="0.389181" rect_right="0.288838" rect_bottom="0.496529"/>
+			<face contact_name="tr" rect_left="0.66688" rect_top="0.367483" rect_right="0.756298" rect_bottom="0.510704"/>
+			<face rect_left="0.567498" rect_top="0.357641" rect_right="0.623697" rect_bottom="0.448203"/>
+			<face rect_left="0.631296" rect_top="0.394965" rect_right="0.657557" rect_bottom="0.437507"/>
+		</file>
+		<file name="P1000135.JPG" created="2015-Apr-19 07:28:39" modified="2015-Apr-19 07:28:38" width="4608" height="3456" avg_color="#ff6f6e57">
+			<face rect_left="0.245014" rect_top="0.434897" rect_right="0.285588" rect_bottom="0.500008"/>
+			<face contact_name="tr" rect_left="0.524956" rect_top="0.379919" rect_right="0.613718" rect_bottom="0.522576"/>
+		</file>
+		<file name="P1000137.JPG" created="2015-Apr-19 07:28:52" modified="2015-Apr-19 07:28:52" width="4608" height="3456" avg_color="#ff7b715f">
+		</file>
+		<file name="P1000138.JPG" created="2015-Apr-19 07:28:54" modified="2015-Apr-19 07:28:54" width="4608" height="3456" avg_color="#ff6c6155">
+			<face contact_name="krb" rect_left="0.344396" rect_top="0.0682841" rect_right="0.637583" rect_bottom="0.537621"/>
+		</file>
+		<file name="P1000139.JPG" created="2015-Apr-19 07:28:55" modified="2015-Apr-19 07:28:54" width="4608" height="3456" avg_color="#ff6b6360">
+			<face contact_name="m1" rect_left="0.293843" rect_top="0.0567178" rect_right="0.598749" rect_bottom="0.545144"/>
+		</file>
+		<file name="P1000140.JPG" created="2015-Apr-19 07:28:57" modified="2015-Apr-19 07:28:56" width="4608" height="3456" avg_color="#ff756c5f">
+			<face contact_name="ld" rect_left="0.394308" rect_top="0.195895" rect_right="0.575082" rect_bottom="0.485817"/>
+		</file>
+		<file name="P1000141.JPG" created="2015-Apr-19 07:28:59" modified="2015-Apr-19 07:28:58" width="4608" height="3456" avg_color="#ff6a624d">
+			<face contact_name="tr" rect_left="0.320089" rect_top="0.186633" rect_right="0.524956" rect_bottom="0.515053"/>
+			<face contact_name="lj" rect_left="0.838102" rect_top="0.403357" rect_right="0.999344" rect_bottom="0.746532"/>
+		</file>
+		<file name="P1000142.JPG" created="2015-Apr-19 07:29:00" modified="2015-Apr-19 07:29:00" width="4608" height="3456" avg_color="#ff675a4e">
+		</file>
+		<file name="P1000143.JPG" created="2015-Apr-19 07:29:03" modified="2015-Apr-19 07:29:02" width="4608" height="3456" avg_color="#ff6c5d54">
+			<face contact_name="ll" rect_left="0.299474" rect_top="0.175051" rect_right="0.588113" rect_bottom="0.636576"/>
+			<face rect_left="0.0774701" rect_top="0.310765" rect_right="0.235019" rect_bottom="0.562493"/>
+		</file>
+		<file name="P1000146.JPG" created="2015-Apr-19 07:30:15" modified="2015-Apr-19 07:30:14" width="4608" height="3456" avg_color="#ff6d6358">
+		</file>
+		<file name="P1000147.JPG" created="2015-Apr-19 07:30:36" modified="2015-Apr-19 07:30:36" width="4608" height="3456" avg_color="#ff717753">
+		</file>
+		<file name="P1000148.JPG" created="2015-Apr-19 07:30:49" modified="2015-Apr-19 07:30:48" width="4608" height="3456" avg_color="#ff676653">
+		</file>
+		<file name="P1000150.JPG" created="2015-Apr-19 07:35:26" modified="2015-Apr-19 07:35:26" width="4608" height="3456" avg_color="#ff645547">
+			<face contact_name="wyr" rect_left="0.408209" rect_top="0.169268" rect_right="0.680552" rect_bottom="0.605905"/>
+		</file>
+		<file name="P1000151.JPG" created="2015-Apr-19 07:35:28" modified="2015-Apr-19 07:35:28" width="4608" height="3456" avg_color="#ff7e7366">
+			<face contact_name="lj" rect_left="0.385641" rect_top="0.256657" rect_right="0.574441" rect_bottom="0.55903"/>
+		</file>
+		<file name="P1000153.JPG" created="2015-Apr-19 07:35:32" modified="2015-Apr-19 07:35:32" width="4608" height="3456" avg_color="#ff746552">
+			<face contact_name="wyr" rect_left="0.375006" rect_top="0.18085" rect_right="0.664286" rect_bottom="0.644099"/>
+		</file>
+		<file name="P1000156.JPG" created="2015-Apr-19 08:02:22" modified="2015-Apr-19 08:02:22" width="4608" height="3456" avg_color="#ff777875">
+			<face contact_name="ll" rect_left="0.44683" rect_top="0.29659" rect_right="0.481773" rect_bottom="0.352438"/>
+		</file>
+		<file name="P1000157.JPG" created="2015-Apr-19 08:13:30" modified="2015-Apr-19 08:13:30" width="4608" height="3456" avg_color="#ff77726a">
+			<face contact_name="wyr" rect_left="0.397574" rect_top="0.361685" rect_right="0.663188" rect_bottom="0.785885"/>
+		</file>
+		<file name="P1000158.JPG" created="2015-Apr-19 08:13:43" modified="2015-Apr-19 08:13:42" width="4608" height="3456" avg_color="#ff6f5f4a">
+		</file>
+		<file name="P1000159.JPG" created="2015-Apr-19 08:13:50" modified="2015-Apr-19 08:13:50" width="4608" height="3456" avg_color="#ff938c85">
+			<face contact_name="lj" rect_left="0.539284" rect_top="0.540795" rect_right="0.597436" rect_bottom="0.633387"/>
+		</file>
+		<file name="P1000163.JPG" created="2015-Apr-19 08:14:43" modified="2015-Apr-19 08:14:42" width="4608" height="3456" avg_color="#ff776859">
+			<face contact_name="krb" rect_left="0.224399" rect_top="0" rect_right="0.841794" rect_bottom="0.929107"/>
+		</file>
+		<file name="P1000164.JPG" created="2015-Apr-19 08:14:44" modified="2015-Apr-19 08:14:44" width="4608" height="3456" avg_color="#ff78685a">
+			<face contact_name="krb" rect_left="0.209415" rect_top="0" rect_right="0.830076" rect_bottom="0.925933"/>
+		</file>
+		<file name="P1000165.JPG" created="2015-Apr-19 08:14:59" modified="2015-Apr-19 08:14:58" width="4608" height="3456" avg_color="#ff857c72">
+			<face contact_name="ld" rect_left="0.77496" rect_top="0.413199" rect_right="0.876951" rect_bottom="0.577539"/>
+		</file>
+		<file name="P1000166.JPG" created="2015-Apr-19 08:19:17" modified="2015-Apr-19 08:19:16" width="4608" height="3456" avg_color="#ff706c68">
+			<face contact_name="ll" rect_left="0.351339" rect_top="0.23003" rect_right="0.52929" rect_bottom="0.515053"/>
+		</file>
+		<file name="P1000168.JPG" created="2015-Apr-19 08:19:39" modified="2015-Apr-19 08:19:38" width="4608" height="3456" avg_color="#ff736c56">
+			<face contact_name="ld" rect_left="0.344396" rect_top="0.220783" rect_right="0.638025" rect_bottom="0.690974"/>
+		</file>
+		<file name="P1000169.JPG" created="2015-Apr-19 08:20:48" modified="2015-Apr-19 08:20:48" width="4608" height="3456" avg_color="#ff73746f">
+			<face rect_left="0.227436" rect_top="0.500008" rect_right="0.257603" rect_bottom="0.548318"/>
+		</file>
+		<file name="_DSC4253.jpeg" created="2015-Apr-19 01:35:25" modified="2015-Apr-20 09:34:56" width="6000" height="4000" avg_color="#ff6c6261">
+			<face contact_name="ll" rect_left="0.349996" rect_top="0.194995" rect_right="0.466835" rect_bottom="0.404746"/>
+			<face contact_name="lzl" rect_left="0.110674" rect_top="0.257755" rect_right="0.263661" rect_bottom="0.53225"/>
+		</file>
+		<file name="_DSC4254.jpeg" created="2015-Apr-19 03:12:41" modified="2015-Apr-20 09:35:00" width="6000" height="4000" avg_color="#ff5a5856">
+			<face contact_name="tr" rect_left="0.730007" rect_top="0.230503" rect_right="0.801328" rect_bottom="0.358999"/>
+			<face contact_name="xb" rect_left="0.503838" rect_top="0.226749" rect_right="0.601831" rect_bottom="0.403006"/>
+			<face contact_name="m1" rect_left="0.36434" rect_top="0.258747" rect_right="0.441337" rect_bottom="0.396506"/>
+			<face contact_name="ll" rect_left="0.140673" rect_top="0.190249" rect_right="0.283162" rect_bottom="0.446998"/>
+		</file>
+		<file name="_DSC4256.jpeg" created="2015-Apr-19 03:12:44" modified="2015-Apr-20 09:35:06" width="6000" height="4000" avg_color="#ff6f6c66">
+			<face contact_name="xb" rect_left="0.612497" rect_top="0.293248" rect_right="0.743664" rect_bottom="0.529503"/>
+		</file>
+		<file name="_DSC4257.jpeg" created="2015-Apr-19 03:12:54" modified="2015-Apr-20 09:35:12" width="6000" height="4000" avg_color="#ff78736c">
+			<face contact_name="ll" rect_left="0.355001" rect_top="0.217502" rect_right="0.469337" rect_bottom="0.423499"/>
+		</file>
+		<file name="_DSC4258.jpeg" created="2015-Apr-19 03:12:57" modified="2015-Apr-20 09:35:18" width="6000" height="4000" avg_color="#ff67625c">
+			<face contact_name="m1" rect_left="0.596826" rect_top="0.278248" rect_right="0.702495" rect_bottom="0.469505"/>
+		</file>
+		<file name="_DSC4259.jpeg" created="2015-Apr-19 03:12:58" modified="2015-Apr-20 09:35:26" width="6000" height="4000" avg_color="#ff8a8379">
+			<face contact_name="m1" rect_left="0.643168" rect_top="0.269001" rect_right="0.75317" rect_bottom="0.46775"/>
+			<face contact_name="ll" rect_left="0.313664" rect_top="0.210758" rect_right="0.420005" rect_bottom="0.401999"/>
+		</file>
+		<file name="_DSC4260.jpeg" created="2015-Apr-19 03:13:02" modified="2015-Apr-20 09:35:30" width="6000" height="4000" avg_color="#ff6c6a64">
+			<face rect_left="0.383673" rect_top="0.199756" rect_right="0.53933" rect_bottom="0.478996"/>
+		</file>
+		<file name="_DSC4261.jpeg" created="2015-Apr-19 03:13:03" modified="2015-Apr-20 09:35:38" width="6000" height="4000" avg_color="#ff87827a">
+			<face rect_left="0.36434" rect_top="0.139757" rect_right="0.570001" rect_bottom="0.508995"/>
+		</file>
+		<file name="_DSC4262.jpeg" created="2015-Apr-19 03:13:06" modified="2015-Apr-20 09:35:44" width="6000" height="4000" avg_color="#ff76736d">
+			<face contact_name="m1" rect_left="0" rect_top="0.304494" rect_right="0.161334" rect_bottom="0.611002"/>
+		</file>
+		<file name="_DSC4263.jpeg" created="2015-Apr-19 03:13:08" modified="2015-Apr-20 09:35:48" width="6000" height="4000" avg_color="#ff605c56">
+			<face contact_name="m1" rect_left="0.336339" rect_top="0.181003" rect_right="0.553674" rect_bottom="0.571756"/>
+		</file>
+		<file name="_DSC4264.jpeg" created="2015-Apr-19 03:22:36" modified="2015-Apr-20 09:35:56" width="6000" height="4000" avg_color="#ff71665b">
+			<face contact_name="wyr" rect_left="0.381826" rect_top="0.149004" rect_right="0.590661" rect_bottom="0.524742"/>
+		</file>
+		<file name="_DSC4265.jpeg" created="2015-Apr-19 03:23:08" modified="2015-Apr-20 09:36:02" width="6000" height="4000" avg_color="#ff565048">
+			<face contact_name="wyr" rect_left="0.341833" rect_top="0.254002" rect_right="0.600671" rect_bottom="0.719753"/>
+		</file>
+		<file name="_DSC4266.jpeg" created="2015-Apr-19 03:23:24" modified="2015-Apr-20 09:36:06" width="6000" height="4000" avg_color="#ffc9c9b7">
+		</file>
+		<file name="_DSC4267.jpeg" created="2015-Apr-19 03:23:44" modified="2015-Apr-20 09:36:12" width="6000" height="4000" avg_color="#ff94977d">
+			<face contact_name="xb" rect_left="0.843671" rect_top="0.173495" rect_right="0.928664" rect_bottom="0.326253"/>
+			<face rect_left="0.374334" rect_top="0.306493" rect_right="0.420005" rect_bottom="0.388006"/>
+			<face rect_left="0.663661" rect_top="0.224994" rect_right="0.726329" rect_bottom="0.337499"/>
+			<face rect_left="0.76434" rect_top="0.197757" rect_right="0.811337" rect_bottom="0.282002"/>
+			<face rect_left="0.435004" rect_top="0.209003" rect_right="0.49366" rect_bottom="0.315007"/>
+		</file>
+		<file name="_DSC4268.jpeg" created="2015-Apr-19 03:23:46" modified="2015-Apr-20 09:36:20" width="6000" height="4000" avg_color="#ff8f8f78">
+			<face contact_name="wyr" rect_left="0.128664" rect_top="0.284001" rect_right="0.236332" rect_bottom="0.476997"/>
+			<face contact_name="krb" rect_left="0.407507" rect_top="0.212757" rect_right="0.489326" rect_bottom="0.360006"/>
+			<face contact_name="ll" rect_left="0.0706645" rect_top="0.255756" rect_right="0.130007" rect_bottom="0.362753"/>
+			<face contact_name="ld" rect_left="0.621164" rect_top="0.252003" rect_right="0.6925" rect_bottom="0.379507"/>
+			<face contact_name="xb" rect_left="0.701335" rect_top="0.236255" rect_right="0.8" rect_bottom="0.413245"/>
+		</file>
+		<file name="_DSC4269.jpeg" created="2015-Apr-19 03:23:49" modified="2015-Apr-20 09:36:26" width="6000" height="4000" avg_color="#ff4f473b">
+			<face contact_name="wyr" rect_left="0.331838" rect_top="0.18175" rect_right="0.527504" rect_bottom="0.534249"/>
+			<face contact_name="tr" rect_left="0.740001" rect_top="0.123751" rect_right="0.836332" rect_bottom="0.296254"/>
+			<face contact_name="lj" rect_left="0.75816" rect_top="0.295247" rect_right="0.843671" rect_bottom="0.448997"/>
+			<face rect_left="0.653162" rect_top="0.173495" rect_right="0.714336" rect_bottom="0.284001"/>
+		</file>
+		<file name="_DSC4270.jpeg" created="2015-Apr-19 03:24:42" modified="2015-Apr-20 09:36:32" width="6000" height="4000" avg_color="#ff595047">
+			<face contact_name="ll" rect_left="0.318166" rect_top="0.0879988" rect_right="0.496834" rect_bottom="0.409506"/>
+		</file>
+		<file name="_DSC4271.jpeg" created="2015-Apr-19 03:24:43" modified="2015-Apr-20 09:36:40" width="6000" height="4000" avg_color="#ff81786c">
+			<face contact_name="ll" rect_left="0.323659" rect_top="0.248249" rect_right="0.457496" rect_bottom="0.490257"/>
+		</file>
+		<file name="_DSC4272.jpeg" created="2015-Apr-19 03:24:53" modified="2015-Apr-20 09:36:46" width="6000" height="4000" avg_color="#ff585547">
+			<face contact_name="ll" rect_left="0.4" rect_top="0.157504" rect_right="0.599329" rect_bottom="0.516503"/>
+		</file>
+		<file name="_DSC4274.jpeg" created="2015-Apr-19 03:25:21" modified="2015-Apr-20 09:36:52" width="6000" height="4000" avg_color="#ff3b1e1c">
+		</file>
+		<file name="_DSC4275.jpeg" created="2015-Apr-19 03:27:01" modified="2015-Apr-20 09:37:00" width="6000" height="4000" avg_color="#ff989683">
+			<face contact_name="wyr" rect_left="0.287495" rect_top="0.139757" rect_right="0.556832" rect_bottom="0.624247"/>
+		</file>
+		<file name="_DSC4276.jpeg" created="2015-Apr-19 03:28:39" modified="2015-Apr-20 09:37:06" width="6000" height="4000" avg_color="#ff797359">
+		</file>
+		<file name="_DSC4277.jpeg" created="2015-Apr-19 03:28:42" modified="2015-Apr-20 09:37:12" width="6000" height="4000" avg_color="#ff736d52">
+		</file>
+		<file name="_DSC4278.jpeg" created="2015-Apr-19 03:28:51" modified="2015-Apr-20 09:37:20" width="6000" height="4000" avg_color="#ff7b7353">
+		</file>
+		<file name="_DSC4279.jpeg" created="2015-Apr-19 03:29:23" modified="2015-Apr-20 09:37:26" width="6000" height="4000" avg_color="#ff635327">
+		</file>
+		<file name="_DSC4280.jpeg" created="2015-Apr-19 03:29:58" modified="2015-Apr-20 09:37:34" width="6000" height="4000" avg_color="#ff4a4242">
+		</file>
+		<file name="_DSC4281.jpeg" created="2015-Apr-19 03:30:05" modified="2015-Apr-20 09:37:40" width="6000" height="4000" avg_color="#ff514a48">
+		</file>
+		<file name="_DSC4282.jpeg" created="2015-Apr-19 03:32:35" modified="2015-Apr-20 09:37:46" width="6000" height="4000" avg_color="#ff262b27">
+		</file>
+		<file name="_DSC4283.jpeg" created="2015-Apr-19 03:32:48" modified="2015-Apr-20 09:37:54" width="6000" height="4000" avg_color="#ff303731">
+		</file>
+		<file name="_DSC4284.jpeg" created="2015-Apr-19 03:34:26" modified="2015-Apr-20 09:38:02" width="6000" height="4000" avg_color="#ff68652f">
+		</file>
+		<file name="_DSC4285.jpeg" created="2015-Apr-19 03:35:37" modified="2015-Apr-20 09:38:10" width="6000" height="4000" avg_color="#ff4e5543">
+		</file>
+		<file name="_DSC4286.jpeg" created="2015-Apr-19 03:40:51" modified="2015-Apr-20 09:38:16" width="6000" height="4000" avg_color="#ff3d3330">
+			<face contact_name="wyr" rect_left="0.271336" rect_top="0.187503" rect_right="0.43183" rect_bottom="0.476997"/>
+		</file>
+		<file name="_DSC4287.jpeg" created="2015-Apr-19 03:40:52" modified="2015-Apr-20 09:38:24" width="6000" height="4000" avg_color="#ff3c3331">
+			<face contact_name="wyr" rect_left="0.3075" rect_top="0.154757" rect_right="0.466835" rect_bottom="0.441505"/>
+		</file>
+		<file name="_DSC4288.jpeg" created="2015-Apr-19 03:47:09" modified="2015-Apr-20 09:38:32" width="6000" height="4000" avg_color="#ff3d2d23">
+			<face contact_name="ll" rect_left="0.402502" rect_top="0.247501" rect_right="0.505669" rect_bottom="0.433997"/>
+			<face rect_left="0.796338" rect_top="0.202502" rect_right="0.898161" rect_bottom="0.385245"/>
+		</file>
+		<file name="_DSC4289.jpeg" created="2015-Apr-19 03:47:25" modified="2015-Apr-20 09:38:38" width="6000" height="4000" avg_color="#ffb1855d">
+		</file>
+		<file name="_DSC4290.jpeg" created="2015-Apr-19 03:53:01" modified="2015-Apr-20 09:38:46" width="6000" height="4000" avg_color="#ff9f9f92">
+		</file>
+		<file name="_DSC4291.jpeg" created="2015-Apr-19 03:53:13" modified="2015-Apr-20 09:38:56" width="4000" height="6000" avg_color="#ff5f5e52">
+			<face contact_name="ll" rect_left="0.273747" rect_top="0.148165" rect_right="0.421744" rect_bottom="0.266331"/>
+		</file>
+		<file name="_DSC4292.jpeg" created="2015-Apr-19 03:53:30" modified="2015-Apr-20 09:39:02" width="4000" height="6000" avg_color="#ff7a7971">
+		</file>
+		<file name="_DSC4293.jpeg" created="2015-Apr-19 04:07:07" modified="2015-Apr-20 09:39:08" width="6000" height="4000" avg_color="#ff45463d">
+		</file>
+		<file name="_DSC4294.jpeg" created="2015-Apr-19 04:07:36" modified="2015-Apr-20 09:39:16" width="6000" height="4000" avg_color="#ff6c6e5f">
+		</file>
+		<file name="_DSC4296.jpeg" created="2015-Apr-19 04:28:31" modified="2015-Apr-20 09:39:22" width="6000" height="4000" avg_color="#ff575344">
+		</file>
+		<file name="_DSC4297.jpeg" created="2015-Apr-19 04:28:36" modified="2015-Apr-20 09:39:28" width="6000" height="4000" avg_color="#ff4c493b">
+		</file>
+		<file name="_DSC4298.jpeg" created="2015-Apr-19 04:28:46" modified="2015-Apr-20 09:39:34" width="6000" height="4000" avg_color="#ff515246">
+		</file>
+		<file name="_DSC4299.jpeg" created="2015-Apr-19 04:29:00" modified="2015-Apr-20 09:39:40" width="6000" height="4000" avg_color="#ff4a493d">
+			<face contact_name="xb" rect_left="0.329335" rect_top="0.144244" rect_right="0.589334" rect_bottom="0.611002"/>
+		</file>
+		<file name="_DSC4300.jpeg" created="2015-Apr-19 04:29:34" modified="2015-Apr-20 09:39:46" width="6000" height="4000" avg_color="#ff574e52">
+			<face contact_name="wyr" rect_left="0.30634" rect_top="0.0299992" rect_right="0.666835" rect_bottom="0.678508"/>
+		</file>
+		<file name="_DSC4301.jpeg" created="2015-Apr-19 04:29:35" modified="2015-Apr-20 09:39:52" width="6000" height="4000" avg_color="#ff595155">
+			<face contact_name="wyr" rect_left="0.281331" rect_top="0.0375067" rect_right="0.638666" rect_bottom="0.680507"/>
+		</file>
+		<file name="_DSC4302.jpeg" created="2015-Apr-19 04:29:41" modified="2015-Apr-20 09:40:00" width="6000" height="4000" avg_color="#ffcec8c8">
+			<face contact_name="wyr" rect_left="0.249332" rect_top="0.0975052" rect_right="0.510002" rect_bottom="0.566995"/>
+		</file>
+		<file name="_DSC4304.jpeg" created="2015-Apr-19 04:29:43" modified="2015-Apr-20 09:40:06" width="6000" height="4000" avg_color="#ff615d57">
+			<face contact_name="wyr" rect_left="0.256336" rect_top="0.0204929" rect_right="0.617502" rect_bottom="0.671"/>
+		</file>
+		<file name="_DSC4305.jpeg" created="2015-Apr-19 04:30:01" modified="2015-Apr-20 09:40:10" width="6000" height="4000" avg_color="#ffb6b2ab">
+		</file>
+		<file name="_DSC4307.jpeg" created="2015-Apr-19 04:30:16" modified="2015-Apr-20 09:40:26" width="6000" height="4000" avg_color="#ffafafaa">
+		</file>
+		<file name="_DSC4308.jpeg" created="2015-Apr-19 04:30:17" modified="2015-Apr-20 09:40:34" width="6000" height="4000" avg_color="#ffa9a7a0">
+		</file>
+		<file name="_DSC4309.jpeg" created="2015-Apr-19 04:30:33" modified="2015-Apr-20 09:40:40" width="6000" height="4000" avg_color="#ff575144">
+			<face contact_name="krb" rect_left="0.602502" rect_top="0.162249" rect_right="0.700664" rect_bottom="0.337499"/>
+		</file>
+		<file name="_DSC4310.jpeg" created="2015-Apr-19 04:30:34" modified="2015-Apr-20 09:40:46" width="6000" height="4000" avg_color="#ff797664">
+			<face contact_name="ld" rect_left="0.304997" rect_top="0.149996" rect_right="0.403662" rect_bottom="0.327993"/>
+			<face contact_name="krb" rect_left="0.0293278" rect_top="0.217502" rect_right="0.125673" rect_bottom="0.391745"/>
+		</file>
+		<file name="_DSC4311.jpeg" created="2015-Apr-19 05:47:23" modified="2015-Apr-20 09:40:52" width="6000" height="4000" avg_color="#ffb6b39b">
+			<face contact_name="wyr" rect_left="0.434333" rect_top="0.158495" rect_right="0.561166" rect_bottom="0.386252"/>
+		</file>
+		<file name="_DSC4313.jpeg" created="2015-Apr-19 05:47:31" modified="2015-Apr-20 09:41:00" width="6000" height="4000" avg_color="#ffb1ac95">
+		</file>
+		<file name="_DSC4314.jpeg" created="2015-Apr-19 05:47:32" modified="2015-Apr-20 09:41:06" width="6000" height="4000" avg_color="#ff818269">
+		</file>
+		<file name="_DSC4315.jpeg" created="2015-Apr-19 05:47:59" modified="2015-Apr-20 09:41:12" width="6000" height="4000" avg_color="#ff665f5c">
+		</file>
+		<file name="_DSC4316.jpeg" created="2015-Apr-19 05:48:01" modified="2015-Apr-20 09:41:18" width="6000" height="4000" avg_color="#ff948a80">
+			<face contact_name="wyr" rect_left="0.341833" rect_top="0.00750744" rect_right="0.667506" rect_bottom="0.593256"/>
+		</file>
+		<file name="_DSC4318.jpeg" created="2015-Apr-19 05:48:03" modified="2015-Apr-20 09:41:24" width="6000" height="4000" avg_color="#ff7b7767">
+			<face contact_name="wyr" rect_left="0.36817" rect_top="0.121004" rect_right="0.672496" rect_bottom="0.668254"/>
+		</file>
+		<file name="_DSC4319.jpeg" created="2015-Apr-19 05:48:14" modified="2015-Apr-20 09:41:30" width="6000" height="4000" avg_color="#ff817973">
+		</file>
+		<file name="_DSC4320.jpeg" created="2015-Apr-19 05:48:15" modified="2015-Apr-20 09:41:36" width="6000" height="4000" avg_color="#ff9b948b">
+		</file>
+		<file name="_DSC4322.jpeg" created="2015-Apr-19 05:50:46" modified="2015-Apr-20 09:41:42" width="6000" height="4000" avg_color="#ff878876">
+		</file>
+		<file name="_DSC4324.jpeg" created="2015-Apr-19 05:50:49" modified="2015-Apr-20 09:41:48" width="6000" height="4000" avg_color="#ffadac98">
+		</file>
+		<file name="_DSC4328.jpeg" created="2015-Apr-19 05:51:27" modified="2015-Apr-20 09:41:54" width="6000" height="4000" avg_color="#ff70705b">
+			<face contact_name="wyr" rect_left="0.353674" rect_top="0.20325" rect_right="0.522499" rect_bottom="0.506004"/>
+		</file>
+		<file name="_DSC4329.jpeg" created="2015-Apr-19 05:51:29" modified="2015-Apr-20 09:42:00" width="6000" height="4000" avg_color="#ff7b7967">
+		</file>
+		<file name="_DSC4331.jpeg" created="2015-Apr-19 07:01:16" modified="2015-Apr-20 09:42:06" width="6000" height="4000" avg_color="#ffa9a99c">
+			<face contact_name="lj" rect_left="0.323659" rect_top="0.191257" rect_right="0.541833" rect_bottom="0.583001"/>
+		</file>
+		<file name="_DSC4332.jpeg" created="2015-Apr-19 07:12:27" modified="2015-Apr-20 09:42:10" width="6000" height="4000" avg_color="#ffcac7b7">
+			<face contact_name="wyr" rect_left="0.375006" rect_top="0.125505" rect_right="0.606332" rect_bottom="0.540749"/>
+		</file>
+		<file name="_DSC4333.jpeg" created="2015-Apr-19 07:12:28" modified="2015-Apr-20 09:42:16" width="6000" height="4000" avg_color="#ffd9d6ca">
+			<face contact_name="wyr" rect_left="0.472496" rect_top="0.162997" rect_right="0.66067" rect_bottom="0.501503"/>
+		</file>
+		<file name="_DSC4334.jpeg" created="2015-Apr-19 07:12:51" modified="2015-Apr-20 09:42:22" width="6000" height="4000" avg_color="#ff616052">
+			<face rect_left="0.812497" rect_top="0.476997" rect_right="0.87866" rect_bottom="0.596002"/>
+			<face contact_name="tr" rect_left="0.711833" rect_top="0.386252" rect_right="0.771832" rect_bottom="0.493996"/>
+			<face contact_name="krb" rect_left="0.650004" rect_top="0.409506" rect_right="0.7075" rect_bottom="0.513497"/>
+			<face contact_name="wyr" rect_left="0.0943313" rect_top="0.0814984" rect_right="0.187503" rect_bottom="0.249256"/>
+			<face contact_name="lzl" rect_left="0.332494" rect_top="0.401999" rect_right="0.399329" rect_bottom="0.523003"/>
+			<face contact_name="lj" rect_left="0.23566" rect_top="0.416007" rect_right="0.291341" rect_bottom="0.515496"/>
+			<face contact_name="ll" rect_left="0.430671" rect_top="0.360754" rect_right="0.473167" rect_bottom="0.437751"/>
+		</file>
+		<file name="_DSC4335.jpeg" created="2015-Apr-19 07:12:52" modified="2015-Apr-20 09:42:28" width="6000" height="4000" avg_color="#ff5d5a4e">
+			<face rect_left="0.791333" rect_top="0.461997" rect_right="0.85684" rect_bottom="0.580255"/>
+			<face contact_name="tr" rect_left="0.6925" rect_top="0.372" rect_right="0.750668" rect_bottom="0.476997"/>
+			<face contact_name="krb" rect_left="0.63183" rect_top="0.392752" rect_right="0.689326" rect_bottom="0.496757"/>
+			<face contact_name="lzl" rect_left="0.315663" rect_top="0.388006" rect_right="0.381338" rect_bottom="0.506996"/>
+			<face contact_name="lj" rect_left="0.220005" rect_top="0.405753" rect_right="0.274327" rect_bottom="0.503243"/>
+		</file>
+		<file name="_DSC4336.jpeg" created="2015-Apr-19 07:12:53" modified="2015-Apr-20 09:42:34" width="6000" height="4000" avg_color="#ff5b5a4d">
+			<face rect_left="0.742504" rect_top="0.427253" rect_right="0.805661" rect_bottom="0.540749"/>
+			<face contact_name="tr" rect_left="0.644327" rect_top="0.338247" rect_right="0.703166" rect_bottom="0.443244"/>
+			<face contact_name="krb" rect_left="0.585" rect_top="0.360754" rect_right="0.642496" rect_bottom="0.464744"/>
+			<face contact_name="lzl" rect_left="0.265003" rect_top="0.351507" rect_right="0.330663" rect_bottom="0.468498"/>
+			<face contact_name="lj" rect_left="0.141329" rect_top="0.360754" rect_right="0.201328" rect_bottom="0.468498"/>
+		</file>
+		<file name="_DSC4337.jpeg" created="2015-Apr-19 07:13:03" modified="2015-Apr-20 09:42:40" width="6000" height="4000" avg_color="#ff888578">
+			<face contact_name="wyr" rect_left="0.295674" rect_top="0.205249" rect_right="0.474327" rect_bottom="0.527749"/>
+		</file>
+		<file name="_DSC4338.jpeg" created="2015-Apr-19 07:13:06" modified="2015-Apr-20 09:42:44" width="6000" height="4000" avg_color="#ffd5cfc6">
+			<face contact_name="wyr" rect_left="0.336828" rect_top="0.166003" rect_right="0.503838" rect_bottom="0.466743"/>
+		</file>
+		<file name="_DSC4339.jpeg" created="2015-Apr-19 07:13:07" modified="2015-Apr-20 09:42:50" width="6000" height="4000" avg_color="#ff797469">
+			<face contact_name="wyr" rect_left="0.464332" rect_top="0.286748" rect_right="0.621164" rect_bottom="0.568994"/>
+		</file>
+		<file name="_DSC4340.jpeg" created="2015-Apr-19 07:13:07" modified="2015-Apr-20 09:43:06" width="6000" height="4000" avg_color="#ff9b968a">
+			<face contact_name="wyr" rect_left="0.453666" rect_top="0.323247" rect_right="0.576333" rect_bottom="0.542748"/>
+		</file>
+		<file name="_DSC4341.jpeg" created="2015-Apr-19 07:13:08" modified="2015-Apr-20 09:43:22" width="6000" height="4000" avg_color="#ffc2bcb2">
+		</file>
+		<file name="_DSC4342.jpeg" created="2015-Apr-19 07:13:09" modified="2015-Apr-20 09:43:28" width="6000" height="4000" avg_color="#ffd6d1c7">
+			<face contact_name="wyr" rect_left="0.326833" rect_top="0.205249" rect_right="0.479332" rect_bottom="0.478996"/>
+		</file>
+		<file name="_DSC4343.jpeg" created="2015-Apr-19 07:13:10" modified="2015-Apr-20 09:43:42" width="6000" height="4000" avg_color="#ffc5c0b6">
+			<face contact_name="wyr" rect_left="0.408667" rect_top="0.224994" rect_right="0.583169" rect_bottom="0.539757"/>
+		</file>
+		<file name="_DSC4344.jpeg" created="2015-Apr-19 07:13:16" modified="2015-Apr-20 09:43:48" width="6000" height="4000" avg_color="#ffb0a99d">
+			<face contact_name="wyr" rect_left="0.385" rect_top="0.236255" rect_right="0.525002" rect_bottom="0.487251"/>
+		</file>
+		<file name="_DSC4345.jpeg" created="2015-Apr-19 07:13:23" modified="2015-Apr-20 09:43:54" width="6000" height="4000" avg_color="#ff969086">
+			<face contact_name="wyr" rect_left="0.385" rect_top="0.206256" rect_right="0.575006" rect_bottom="0.54725"/>
+		</file>
+		<file name="_DSC4346.jpeg" created="2015-Apr-19 07:13:23" modified="2015-Apr-20 09:44:00" width="6000" height="4000" avg_color="#ff8a857a">
+			<face contact_name="wyr" rect_left="0.379995" rect_top="0.230503" rect_right="0.566827" rect_bottom="0.566003"/>
+		</file>
+		<file name="_DSC4347.jpeg" created="2015-Apr-19 07:13:24" modified="2015-Apr-20 09:44:06" width="6000" height="4000" avg_color="#ff68635a">
+		</file>
+		<file name="_DSC4348.jpeg" created="2015-Apr-19 07:13:24" modified="2015-Apr-20 09:44:12" width="6000" height="4000" avg_color="#ff79736c">
+			<face contact_name="wyr" rect_left="0.418662" rect_top="0.21825" rect_right="0.591333" rect_bottom="0.529503"/>
+		</file>
+		<file name="_DSC4349.jpeg" created="2015-Apr-19 07:13:25" modified="2015-Apr-20 09:44:18" width="6000" height="4000" avg_color="#ff918b82">
+			<face contact_name="wyr" rect_left="0.426337" rect_top="0.199756" rect_right="0.603174" rect_bottom="0.51725"/>
+		</file>
+		<file name="_DSC4350.jpeg" created="2015-Apr-19 07:13:25" modified="2015-Apr-20 09:44:22" width="6000" height="4000" avg_color="#ffb0a9a0">
+			<face contact_name="wyr" rect_left="0.377493" rect_top="0.204257" rect_right="0.549996" rect_bottom="0.514504"/>
+		</file>
+		<file name="_DSC4351.jpeg" created="2015-Apr-19 07:29:08" modified="2015-Apr-20 09:44:28" width="6000" height="4000" avg_color="#ff514741">
+			<face contact_name="wyr" rect_left="0.363165" rect_top="0.222004" rect_right="0.520668" rect_bottom="0.505257"/>
+		</file>
+		<file name="_DSC4352.jpeg" created="2015-Apr-19 07:29:08" modified="2015-Apr-20 09:44:34" width="6000" height="4000" avg_color="#ff413835">
+			<face contact_name="wyr" rect_left="0.495674" rect_top="0.266255" rect_right="0.637507" rect_bottom="0.521004"/>
+		</file>
+		<file name="_DSC4353.jpeg" created="2015-Apr-19 07:29:10" modified="2015-Apr-20 09:44:40" width="6000" height="4000" avg_color="#ff443e3b">
+			<face contact_name="wyr" rect_left="0.552499" rect_top="0.172503" rect_right="0.723659" rect_bottom="0.480751"/>
+			<face contact_name="ld" rect_left="0.101839" rect_top="0.109743" rect_right="0.286839" rect_bottom="0.442252"/>
+		</file>
+		<file name="_DSC4354.jpeg" created="2015-Apr-19 07:29:14" modified="2015-Apr-20 09:44:46" width="6000" height="4000" avg_color="#ff424038">
+			<face contact_name="ld" rect_left="0.313161" rect_top="0.0449989" rect_right="0.590005" rect_bottom="0.542748"/>
+			<face contact_name="krb" rect_left="0.193668" rect_top="0.122744" rect_right="0.359335" rect_bottom="0.420752"/>
+			<face rect_left="0.0906691" rect_top="0.272755" rect_right="0.217502" rect_bottom="0.501503"/>
+		</file>
+		<file name="_DSC4355.jpeg" created="2015-Apr-19 07:29:14" modified="2015-Apr-20 09:44:52" width="6000" height="4000" avg_color="#ff5c594e">
+			<face contact_name="ld" rect_left="0.253162" rect_top="0.136751" rect_right="0.498665" rect_bottom="0.580255"/>
+			<face contact_name="krb" rect_left="0.00866712" rect_top="0.158495" rect_right="0.184329" rect_bottom="0.473243"/>
+		</file>
+		<file name="_DSC4356.jpeg" created="2015-Apr-19 07:29:16" modified="2015-Apr-20 09:45:06" width="6000" height="4000" avg_color="#ff44423b">
+			<face contact_name="ld" rect_left="0.316838" rect_top="0.125505" rect_right="0.565667" rect_bottom="0.572747"/>
+			<face contact_name="m1" rect_left="0" rect_top="0.269001" rect_right="0.111833" rect_bottom="0.511757"/>
+		</file>
+		<file name="_DSC4357.jpeg" created="2015-Apr-19 07:29:18" modified="2015-Apr-20 09:45:12" width="6000" height="4000" avg_color="#ff3e3831">
+			<face contact_name="lj" rect_left="0.453666" rect_top="0.284993" rect_right="0.612497" rect_bottom="0.568994"/>
+		</file>
+		<file name="_DSC4358.jpeg" created="2015-Apr-19 07:29:22" modified="2015-Apr-20 09:45:26" width="6000" height="4000" avg_color="#ffb6b1a3">
+		</file>
+		<file name="_DSC4359.jpeg" created="2015-Apr-19 07:29:23" modified="2015-Apr-20 09:45:30" width="6000" height="4000" avg_color="#ff48443a">
+			<face contact_name="wyr" rect_left="0.338674" rect_top="0.252003" rect_right="0.503166" rect_bottom="0.54725"/>
+		</file>
+		<file name="_DSC4360.jpeg" created="2015-Apr-19 07:29:26" modified="2015-Apr-20 09:45:36" width="6000" height="4000" avg_color="#ff595550">
+			<face contact_name="krb" rect_left="0.371328" rect_top="0.110506" rect_right="0.591333" rect_bottom="0.506996"/>
+			<face contact_name="m1" rect_left="0.89134" rect_top="0.321508" rect_right="0.999329" rect_bottom="0.622248"/>
+		</file>
+		<file name="_DSC4361.jpeg" created="2015-Apr-19 07:29:26" modified="2015-Apr-20 09:45:42" width="6000" height="4000" avg_color="#ff57534d">
+			<face contact_name="krb" rect_left="0.367498" rect_top="0.116243" rect_right="0.593164" rect_bottom="0.521996"/>
+			<face contact_name="m1" rect_left="0.884993" rect_top="0.337499" rect_right="0.999329" rect_bottom="0.624994"/>
+		</file>
+		<file name="_DSC4362.jpeg" created="2015-Apr-19 07:29:27" modified="2015-Apr-20 09:45:48" width="6000" height="4000" avg_color="#ff534f49">
+			<face contact_name="krb" rect_left="0.318166" rect_top="0.117998" rect_right="0.549996" rect_bottom="0.535256"/>
+			<face contact_name="m1" rect_left="0.760006" rect_top="0.378744" rect_right="0.936339" rect_bottom="0.696254"/>
+		</file>
+		<file name="_DSC4363.jpeg" created="2015-Apr-19 07:29:30" modified="2015-Apr-20 09:45:52" width="6000" height="4000" avg_color="#ff575652">
+			<face contact_name="tr" rect_left="0.309331" rect_top="0.0729992" rect_right="0.621164" rect_bottom="0.634501"/>
+		</file>
+		<file name="_DSC4364.jpeg" created="2015-Apr-19 07:29:32" modified="2015-Apr-20 09:46:00" width="6000" height="4000" avg_color="#ff5e5d59">
+			<face contact_name="tr" rect_left="0.338674" rect_top="0.141497" rect_right="0.613169" rect_bottom="0.634501"/>
+		</file>
+		<file name="_DSC4365.jpeg" created="2015-Apr-19 07:29:36" modified="2015-Apr-20 09:46:06" width="6000" height="4000" avg_color="#ff373633">
+			<face contact_name="m1" rect_left="0.381826" rect_top="0.15375" rect_right="0.63566" rect_bottom="0.609995"/>
+		</file>
+		<file name="_DSC4366.jpeg" created="2015-Apr-19 07:29:38" modified="2015-Apr-20 09:46:12" width="6000" height="4000" avg_color="#ff5c574a">
+		</file>
+		<file name="_DSC4367.jpeg" created="2015-Apr-19 07:29:40" modified="2015-Apr-20 09:46:18" width="6000" height="4000" avg_color="#ff5d594c">
+		</file>
+		<file name="_DSC4368.jpeg" created="2015-Apr-19 07:29:44" modified="2015-Apr-20 09:46:24" width="6000" height="4000" avg_color="#ff47443b">
+			<face contact_name="ll" rect_left="0.304997" rect_top="0.144244" rect_right="0.529335" rect_bottom="0.548257"/>
+		</file>
+		<file name="_DSC4369.jpeg" created="2015-Apr-19 07:29:45" modified="2015-Apr-20 09:46:30" width="6000" height="4000" avg_color="#ff4b483f">
+			<face contact_name="ll" rect_left="0.300664" rect_top="0.117998" rect_right="0.533165" rect_bottom="0.536995"/>
+		</file>
+		<file name="_DSC4370.jpeg" created="2015-Apr-19 07:36:25" modified="2015-Apr-20 09:46:36" width="6000" height="4000" avg_color="#ff514c4d">
+		</file>
+		<file name="_DSC4371.jpeg" created="2015-Apr-19 07:36:26" modified="2015-Apr-20 09:46:42" width="6000" height="4000" avg_color="#ff5e5953">
+		</file>
+		<file name="_DSC4372.jpeg" created="2015-Apr-19 08:08:54" modified="2015-Apr-20 09:46:48" width="6000" height="4000" avg_color="#ff848569">
+		</file>
+		<file name="_DSC4373.jpeg" created="2015-Apr-19 08:10:42" modified="2015-Apr-20 09:46:56" width="6000" height="4000" avg_color="#ff878264">
+		</file>
+		<file name="_DSC4374.jpeg" created="2015-Apr-19 08:10:51" modified="2015-Apr-20 09:47:02" width="6000" height="4000" avg_color="#ff7f7f77">
+		</file>
+		<file name="_DSC4375.jpeg" created="2015-Apr-19 08:10:56" modified="2015-Apr-20 09:47:18" width="6000" height="4000" avg_color="#ff818075">
+		</file>
+		<file name="_DSC4376.jpeg" created="2015-Apr-19 08:19:51" modified="2015-Apr-20 09:47:32" width="6000" height="4000" avg_color="#ff929290">
+			<face contact_name="ll" rect_left="0.362493" rect_top="0.134005" rect_right="0.499336" rect_bottom="0.380499"/>
+		</file>
+		<file name="_DSC4377.jpeg" created="2015-Apr-19 08:19:52" modified="2015-Apr-20 09:47:48" width="6000" height="4000" avg_color="#ff8d8d8c">
+			<face contact_name="ll" rect_left="0.405661" rect_top="0.136004" rect_right="0.543664" rect_bottom="0.383246"/>
+		</file>
+		<file name="_DSC4378.jpeg" created="2015-Apr-19 08:19:53" modified="2015-Apr-20 09:47:54" width="6000" height="4000" avg_color="#ff949593">
+			<face contact_name="ll" rect_left="0.400671" rect_top="0.157504" rect_right="0.534997" rect_bottom="0.399252"/>
+		</file>
+		<file name="_DSC4379.jpeg" created="2015-Apr-19 08:19:55" modified="2015-Apr-20 09:48:08" width="6000" height="4000" avg_color="#ff898a89">
+			<face contact_name="ll" rect_left="0.366339" rect_top="0.144244" rect_right="0.495003" rect_bottom="0.375753"/>
+		</file>
+		<file name="_DSC4380.jpeg" created="2015-Apr-19 08:19:58" modified="2015-Apr-20 09:48:14" width="4000" height="6000" avg_color="#ff858583">
+			<face contact_name="ll" rect_left="0.305501" rect_top="0.229999" rect_right="0.497749" rect_bottom="0.383169"/>
+		</file>
+		<file name="_DSC4381.jpeg" created="2015-Apr-19 08:20:00" modified="2015-Apr-20 09:48:22" width="4000" height="6000" avg_color="#ff7b7b79">
+			<face contact_name="ll" rect_left="0.409506" rect_top="0.193668" rect_right="0.600748" rect_bottom="0.346838"/>
+		</file>
+		<file name="_DSC4382.jpeg" created="2015-Apr-19 08:20:02" modified="2015-Apr-20 09:48:28" width="4000" height="6000" avg_color="#ff646361">
+			<face contact_name="ll" rect_left="0.372" rect_top="0.0899977" rect_right="0.549249" rect_bottom="0.23183"/>
+		</file>
+		<file name="_DSC4383.jpeg" created="2015-Apr-19 08:20:03" modified="2015-Apr-20 09:48:32" width="4000" height="6000" avg_color="#ff747370">
+			<face contact_name="ll" rect_left="0.416999" rect_top="0.109331" rect_right="0.566995" rect_bottom="0.228672"/>
+		</file>
+	</folder>
+	<folder name="G:\" created="1979-Dec-31 16:00:00">
+	</folder>
+</database>

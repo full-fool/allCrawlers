@@ -1,0 +1,13 @@
+大堂1.jpg,http://i3.s1.dpfile.com/pc/9abcf8124aba9dbb1267c8a4187a46c8(700x700)/thumb.jpg
+大堂2.jpg,http://i2.s1.dpfile.com/pc/929178e790edb48872e092de5bd37ecc(700x700)/thumb.jpg
+大堂3.jpg,http://i3.s1.dpfile.com/pc/8ca5059e9ff4231a01161b252eadb948(700x700)/thumb.jpg
+大堂4.jpg,http://i3.s1.dpfile.com/pc/ab8b6b51a4959a794ce1dab0f2a39169(700x700)/thumb.jpg
+大堂5.jpg,http://i1.s1.dpfile.com/pc/20a5db95d12de2de51c9c73d6b122802(700x700)/thumb.jpg
+大堂6.jpg,http://i1.s1.dpfile.com/pc/e07a24a8244b4967ca548d2630a9a4f0(700x700)/thumb.jpg
+大堂7.jpg,http://i2.s1.dpfile.com/pc/8a97c770c9cffb4c9767bf88add19aa3(700x700)/thumb.jpg
+包房1.jpg,http://i1.s1.dpfile.com/pc/0b05ce61df2e9ed618d1e836d409ce44(700x700)/thumb.jpg
+包房2.jpg,http://i3.s1.dpfile.com/pc/fd62a4be5246c7e54946b3f3e814ecf2(700x700)/thumb.jpg
+景观位1.jpg,http://i1.s1.dpfile.com/pc/df9fa583c7252fcbf0b01cd12e3cc7fc(700x700)/thumb.jpg
+景观位2.jpg,http://i2.s1.dpfile.com/pc/aabc34dcc0c760c80ce0233993f2ee5d(700x700)/thumb.jpg
+门面1.jpg,http://i2.s1.dpfile.com/pc/6a8dc41576f4073ecc73cdbf8bf47d20(700x700)/thumb.jpg
+门面2.jpg,http://i1.s1.dpfile.com/pc/cf24ed0da8a1f5b01d83d7dd68dffc3f(700x700)/thumb.jpg

@@ -88,14 +88,12 @@ def getDoneWork():
     return open('doneWork.txt').read().split('\n')
 
 
-def fetchInfoForOneMovie(fatherDir, movieName, movieId, url):
-    pageContent = getPageWithSpecTimes(0, url)
-    if pageContent == None:
-        writeToLog('cannot open page for movie,%s,%s,%s,%s' % (fatherDir, movieName, movieId, url))
-        return
-    resultJson = json.loads(pageContent)
+def fetchInfoForOneMovie(movieName, movieId, url):
+    fatherDir = movieName
+    movieUrl = 'https://thetake.com/movie/%s' % movieId
+    resultJson = json.load(urllib2.urlopen(url))
     resultDict = {}
-    resultDict['url'] = url
+    resultDict['url'] = movieUrl
     resultDict['name'] = movieName
     resultDict['frame'] = []
     currentFrameNum = 0
@@ -104,8 +102,16 @@ def fetchInfoForOneMovie(fatherDir, movieName, movieId, url):
     for i in range(len(resultJson)):
         currentItemNum += 1
         eachItemDict = resultJson[i]
-        positionX = eachItemDict['productX']
-        positionY = eachItemDict['productY']
+        #print eachItemDict
+        #sys.exit()
+        try:
+            positionX = eachItemDict['productX']
+            positionY = eachItemDict['productY']
+
+        except Exception as ep:
+            #print eachItemDict
+            positionX = -1
+            positionY = -1
         frameTime = eachItemDict['time']
         productName = eachItemDict['name']
         productBrand = eachItemDict['brand']
@@ -127,6 +133,7 @@ def fetchInfoForOneMovie(fatherDir, movieName, movieId, url):
         tempItemDict['position'] = position
         tempItemDict['description'] = productDescription
         currentFrameDict['items'].append(tempItemDict)
+        #print 'frame %s, item %s, name is %s' % (currentFrameNum, currentItemNum, productName)
 
 
     filehandler = open(os.path.join(fatherDir, 'info.json'), 'w')
@@ -138,7 +145,24 @@ def fetchInfoForOneMovie(fatherDir, movieName, movieId, url):
 
 
 
+class processMovie(threading.Thread):
+    #三个参数分别为start，eachlen，totallen
+    def __init__(self, movieName, movieId, url):
+        threading.Thread.__init__(self)
+        self.movieName = movieName
+        self.movieId = movieId
+        self.url = url
 
+
+    def run(self):
+        movieName = self.movieName
+        movieId = self.movieId
+        url = self.url
+        
+        fetchInfoForOneMovie(movieName, movieId, url)
+      
+threadNum = 203
+threadNumPool = {}
 
 doneWorkList = getDoneWork()
 movieList = getListFromFile('allMovie.txt')
@@ -151,7 +175,23 @@ for i in range(len(movieList)):
     url = 'https://thetake.com/movies/listMovieTrailerFrameProducts?movieId=%s' % movieId
     if not os.path.exists(movieName):
         os.makedirs(movieName)
-    fetchInfoForOneMovie(movieName, url)
+            
+    findThread = False
+    while findThread == False:
+        for j in range(threadNum):
+            if not threadNumPool.has_key(j):
+                threadNumPool[j] = processMovie(movieName, movieId, url)
+                threadNumPool[j].start()
+                findThread = True
+                break
+            else:
+                if not threadNumPool[j].isAlive():
+                    threadNumPool[j] = processMovie(movieName, movieId, url)
+                    threadNumPool[j].start()
+                    findThread = True
+                    break
+        if findThread == False: 
+            time.sleep(5)
 
 
 

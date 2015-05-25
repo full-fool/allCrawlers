@@ -1,0 +1,3 @@
+name:正宗潮州牛肉丸火锅
+id:508513
+url:http://www.dianping.com/shop/508513/dish-%E7%89%9B%E7%AD%8B%E4%B8%B8

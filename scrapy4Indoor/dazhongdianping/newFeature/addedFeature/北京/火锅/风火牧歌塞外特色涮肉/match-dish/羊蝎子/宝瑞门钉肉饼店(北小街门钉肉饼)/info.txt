@@ -1,0 +1,3 @@
+name:宝瑞门钉肉饼店(北小街门钉肉饼)
+id:2584621
+url:http://www.dianping.com/shop/2584621/dish-%E7%BE%8A%E8%9D%8E%E5%AD%90

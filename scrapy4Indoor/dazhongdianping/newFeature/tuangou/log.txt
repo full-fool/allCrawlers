@@ -1,0 +1,7 @@
+allFoodTypesAndLink is None, process is,0
+allFoodTypesAndLink is None, process is,1
+allFoodTypesAndLink is None, process is,2
+allFoodTypesAndLink is None, process is,3
+allFoodTypesAndLink is None, process is,4
+allFoodTypesAndLink is None, process is,5
+allFoodTypesAndLink is None, process is,6

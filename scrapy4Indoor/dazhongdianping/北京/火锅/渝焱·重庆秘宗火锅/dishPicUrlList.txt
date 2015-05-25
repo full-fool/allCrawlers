@@ -1,0 +1,11 @@
+冰粉1.jpg,http://i2.s1.dpfile.com/pc/3e7db559a30cfa133297cce04ee8f3fe(700x700)/thumb.jpg
+冰粉2.jpg,http://i3.s1.dpfile.com/pc/56034c9a5f40fb6b534087ef523386a4(700x700)/thumb.jpg
+黄喉1.jpg,http://i3.s1.dpfile.com/pc/d33bc0f11b2e2fcc626380e81b9dc86e(700x700)/thumb.jpg
+黄喉2.jpg,http://i3.s1.dpfile.com/pc/2e964b2c431b0eb0f366a3921cf5470f(700x700)/thumb.jpg
+屠场毛肚1.jpg,http://i3.s1.dpfile.com/pc/b25468f9f1b7e21635a2bf853d3916f8(700x700)/thumb.jpg
+屠场毛肚2.jpg,http://i3.s1.dpfile.com/pc/85c1fcbbd7a6aece8a92319712ea078b(700x700)/thumb.jpg
+腰片1.jpg,http://i2.s1.dpfile.com/pc/4f5d71e9b064b049667b5ddbba02c5e4(700x700)/thumb.jpg
+功夫腰片1.jpg,http://i1.s1.dpfile.com/pc/f32a51b403c1892dc112a8c3e613a1f7(700x700)/thumb.jpg
+黑芝麻豆奶1.jpg,http://i2.s1.dpfile.com/pc/56cbbe70b682c57216509d06bb3a77f4(700x700)/thumb.jpg
+毛肚鸭肠好吃1.jpg,http://i2.s1.dpfile.com/pc/6f8002d97a5698cfe2b8e850ea2e806a(700x700)/thumb.jpg
+特质嫩牛肉1.jpg,http://i1.s1.dpfile.com/pc/35ba23d1d3feec27704d96c29139bed6(700x700)/thumb.jpg

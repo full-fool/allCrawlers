@@ -1,2 +1,2 @@
-65074908.jpg,http://i2.s1.dpfile.com/pc/da14e4666dad8382f5b8bc350dd1ed16(240c180)/thumb.jpg
-52477728.jpg,http://i2.s1.dpfile.com/pc/a071322a329b030affa88660723858b5(240c180)/thumb.jpg
+65074908.jpg,http://i2.s1.dpfile.com/pc/da14e4666dad8382f5b8bc350dd1ed16(700x700)/thumb.jpg
+52477728.jpg,http://i2.s1.dpfile.com/pc/a071322a329b030affa88660723858b5(700x700)/thumb.jpg

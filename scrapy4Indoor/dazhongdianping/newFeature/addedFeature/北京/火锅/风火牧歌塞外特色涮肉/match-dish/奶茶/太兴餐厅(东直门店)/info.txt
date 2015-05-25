@@ -1,0 +1,3 @@
+name:太兴餐厅(东直门店)
+id:3165172
+url:http://www.dianping.com/shop/3165172/dish-%E5%A5%B6%E8%8C%B6

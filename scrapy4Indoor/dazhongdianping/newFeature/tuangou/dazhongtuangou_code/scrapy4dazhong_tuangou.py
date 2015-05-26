@@ -19,6 +19,7 @@ sys.setdefaultencoding('utf8')
 tryTimes = 3
 
 writeLock = threading.Lock()
+writeDoneWorkLock = threading.Lock()
 
 
 cookies = 'cookies.txt'
@@ -30,24 +31,6 @@ opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
 opener.addheaders = [headers]
 urllib2.install_opener(opener)
 
-def robustPrint(content):
-    try:
-        print content
-    except Exception as ep:
-        print ep.message
-
-def loadProcess():
-    try:
-        contentList = open('process.txt').read().split(',')
-        return int(contentList[0]), int(contentList[1]), int(contentList[2]), int(contentList[3])
-    except Exception as ep:
-        print 'wrong with the process.txt'
-        sys.exit()
-
-def setProcess(process):
-    filehandler = open('process.txt', 'w')
-    filehandler.write(process)
-    filehandler.close()
 
 #type 0,justopen, 1,gb2312, 2,gbk, 3,GBK, 4,utf-8
 def getPageWithSpecTimes(decodeType, url):
@@ -83,7 +66,7 @@ def getPageWithSpecTimes(decodeType, url):
 def writeToLog(content):
     writeLock.acquire()
 
-    robustPrint(content)
+    print content
     filehandler = open('log.txt', 'a')
     filehandler.write(content+'\n')
     filehandler.close()
@@ -95,36 +78,36 @@ def writeToLog(content):
 def writeDoneWork(name):
     writeDoneWorkLock.acquire()
     
-    filehandler = open('doneword_tuangouInfo.txt', 'a')
+    filehandler = open('donework_tuangouInfo.txt', 'a')
     filehandler.write(name+'\n')
     filehandler.close()
     
     writeDoneWorkLock.release()
 
 def getDoneWork():
-    if not os.path.exists('doneword_tuangouInfo.txt'):
+    if not os.path.exists('donework_tuangouInfo.txt'):
         return []
-    return open('doneword_tuangouInfo.txt').read().split('\n')
+    return open('donework_tuangouInfo.txt').read().split('\n')
 
 
 
 
 
 
-def getAllCities():
-    url =  'http://www.dianping.com/beijing'
-    pageContent = urllib.urlopen(url).read()
-    filehandler = open('citiesList.txt', 'w')
+# def getAllCities():
+#     url =  'http://www.dianping.com/beijing'
+#     pageContent = urllib.urlopen(url).read()
+#     filehandler = open('citiesList.txt', 'w')
 
-    cityPattern = re.compile(r'onclick="pageTracker\._trackPageview\(\'dp_head_hotcity_(.+?)\'\);">(.+?)</a>')
-    citiesList = cityPattern.findall(pageContent)
-    for city in citiesList:
-        if city[0] == 'hongkong':
-            break
-        print city[1].decode('utf8')
-        filehandler.write('%s,%s\n'%(city[0], city[1]))
-    print len(citiesList)
-    filehandler.close()
+#     cityPattern = re.compile(r'onclick="pageTracker\._trackPageview\(\'dp_head_hotcity_(.+?)\'\);">(.+?)</a>')
+#     citiesList = cityPattern.findall(pageContent)
+#     for city in citiesList:
+#         if city[0] == 'hongkong':
+#             break
+#         print city[1].decode('utf8')
+#         filehandler.write('%s,%s\n'%(city[0], city[1]))
+#     print len(citiesList)
+#     filehandler.close()
 
 
 def getCitiesInfo():
@@ -135,7 +118,6 @@ def getCitiesInfo():
     return resultList
 
 def getFoodTypes(cityName, url):
-    #pageContent = urllib.urlopen(url).read()
     pageContent = getPageWithSpecTimes(0, url)
     if pageContent == None:
         writeToLog('cannot open food page,%s,%s' % (cityName.decode('utf8'), url))
@@ -143,8 +125,6 @@ def getFoodTypes(cityName, url):
 
     foodTypeSectionPattern = re.compile(r'<div class="tg-nav-submenu">\s.+<h3><a href="/list/home-category_1">美食</a></h3>(.+?)</div>', re.S)
     foodTypeSection = foodTypeSectionPattern.findall(pageContent)[0]
-    #print foodTypeSection
-    #return
     foodTypeInfoPattern = re.compile(r'<a href="(/list/home-category_\d+)">(.+?)</a>')
     foodTypeInfoList = foodTypeInfoPattern.findall(foodTypeSection)
     resultFoodTypeList = []
@@ -153,7 +133,8 @@ def getFoodTypes(cityName, url):
             continue
         foodTypeUrl = 'http://t.dianping.com' + eachFoodType[0] + '?desc=1&sort=sale'
         foodTypeName = eachFoodType[1].strip(' ')
-        print foodTypeUrl, foodTypeName
+        #print foodTypeUrl, foodTypeName
+        resultFoodTypeList.append((foodTypeUrl, foodTypeName))
 
     return resultFoodTypeList
 
@@ -163,22 +144,20 @@ def getEachShopLinkForOnePage(cityName, foodType, pageNum, url):
     if pageContent == None:
         writeToLog('cannot open page for page,%s,%s,%s,%s' % (cityName.decode('utf8'), foodType.decode('utf8'), pageNum, url))
         return None
-    #pageContent = urllib2.urlopen(url).read()
-    #print pageContent
-    shopIdPattern = re.compile(r'"s":(\d+)')
+
+
+    shopIdPattern = re.compile(r'data-eval-config="{\'dealId\':\'(\d+)\'}">')
     shopIdList = shopIdPattern.findall(pageContent)
-    shopUrlList = []
-    for shopId in shopIdList:
-        shopUrlList.append('http://www.dianping.com/shop/%s' % shopId)
-    return shopUrlList
+    return shopIdList
 
 
 
 
 
 
-def fetchAllInfoForOneShop(city, foodType, ID, url):
-    print url
+def fetchAllInfoForOneShop(city, foodType, ID):
+    url = 'http://t.dianping.com/deal/%s' % ID
+    #print url
     time.sleep(1)
     pageContent = getPageWithSpecTimes(0, url)
     if pageContent == None:
@@ -223,35 +202,34 @@ def fetchAllInfoForOneShop(city, foodType, ID, url):
 
     dishNamePattern = re.compile(r'<p class="listitem">(.+?)</p>')
     dishList = dishNamePattern.findall(str(productIntroductionSection))
+    if len(dishList) > 0:
+        filehandler = open(os.path.join(targetDir, 'productIntro.txt'), 'w')
+        for eachDish in dishList:
+            filehandler.write(eachDish+'\n')
+        filehandler.close()
 
     imgSrcPattern = re.compile(r'<img lazy-src-load="([^"]+?)"/>')
     imgSrcList = imgSrcPattern.findall(str(productIntroductionSection))
 
     filehandler = open(os.path.join(targetDir, 'picUrl.txt'), 'w')
-    if len(dishList) != len(imgSrcList):
-        writeToLog('dish num and pic num doesn\'t match,%s,%s,%s,%s' % city, foodType, ID, url)
-    for i in range(min(len(dishList), len(imgSrcList))):
+    #if len(dishList) != len(imgSrcList):
+    #    writeToLog('dish num and pic num doesn\'t match,%s,%s,%s,%s' % (city, foodType, ID, url))
+    for i in range(len(imgSrcList)):
         picUrl = imgSrcList[i]
         suffix = picUrl.split('.')[-1]
         picName = '%s.%s' % (i+1, suffix)
-        filehandler.write('%s,%s,%s\n' % (dishList[i], picName, picUrl))
-        # picPath = os.path.join(targetDir, picName)
-        # try:
-        #     urllib.urlretrieve(picUrl, picPath)
-        # except Exception as ep:
-        #     writeToLog('cannot download pic,%s,%s,%s,%s' % (city, foodType, ID, picUrl))
-
+        filehandler.write('%s,%s\n' % (picName, picUrl))
     
     filehandler.close()
     writeDoneWork('%s,%s,%s' % (city, foodType, ID))
+    print 'done for work, %s,%s,%s' % (city, foodType, ID)
 
 
     return True
 
 
 
-#fetchAllInfoForOneShop('a', 'b', '5010342', 'http://t.dianping.com/deal/5010342')
-#sys.exit()
+doneWorkList = getDoneWork()
 
 citiesInfoList = getCitiesInfo()
 for i in range(len(citiesInfoList)):
@@ -260,6 +238,7 @@ for i in range(len(citiesInfoList)):
     print cityName.decode('utf8')
     cityUrl = 'http://t.dianping.com/%s' % cityCode
     allFoodTypesAndLink = getFoodTypes(cityName, cityUrl)
+    # print allFoodTypesAndLink
     if allFoodTypesAndLink == None:
         writeToLog('allFoodTypesAndLink is None, process is,%s' % (i))
         continue
@@ -267,9 +246,10 @@ for i in range(len(citiesInfoList)):
     for j in range(len(allFoodTypesAndLink)):
         foodType = allFoodTypesAndLink[j][1]
         print foodType.decode('utf8')
-
-        for k in range(7):
-            foodPageUrl = allFoodTypesAndLink[j][0] + 'p%s' % (k+1)
+            
+        dealtShopNum = 0
+        for k in range(3):
+            foodPageUrl = allFoodTypesAndLink[j][0] + '&pageIndex=%s' % (k)
             shopListsForOnePage = getEachShopLinkForOnePage(cityName, foodType, k, foodPageUrl)
             if shopListsForOnePage == None:
                 writeToLog('shopListsForOnePage is None, process is,%s,%s,%s' % (i,j,k))
@@ -278,14 +258,13 @@ for i in range(len(citiesInfoList)):
             if len(shopListsForOnePage) == 0:
                 break
             for z in range(len(shopListsForOnePage)):
+                dealtShopNum += 1
                 if '%s,%s,%s' % (cityName, foodType, shopListsForOnePage[z]) in doneWorkList:
                     print 'alread done %s,%s,%s' % (cityName, foodType, shopListsForOnePage[z])
                     continue
-                result = fetchRecommendedDishes(cityName, foodType, shopListsForOnePage[z])
-                if result == None:
-                    writeToLog('fetchAllInfoForOneShop result is None, process is,%s,%s,%s,%s' % (i,j,k,z))
-                else:
-                    writeDoneWork('%s,%s,%s' % (cityName, foodType, shopListsForOnePage[z]))
+                result = fetchAllInfoForOneShop(cityName, foodType, shopListsForOnePage[z])
+                if dealtShopNum == 100:
+                    break
 
 
 

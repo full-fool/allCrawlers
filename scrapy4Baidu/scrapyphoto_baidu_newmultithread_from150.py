@@ -95,7 +95,7 @@ class DownloadOneName(threading.Thread):
         processPath = os.path.join(name.decode('utf8'), 'process.txt')
         startProcess = None
         if not os.path.exists(processPath):
-            startProcess = 180
+            startProcess = 1800
         else:
             startProcess = int(open(processPath).read())
 
@@ -120,6 +120,7 @@ class DownloadOneName(threading.Thread):
             
             picsUrlPattern = re.compile(r'"objURL":"([^"]+?)"')
             picsUrlList = picsUrlPattern.findall(picsPage)
+            #print 'get %s pics for %s' % (len(picsUrlList), queryUrl)
             if len(picsUrlList) < 60:
                 break
 

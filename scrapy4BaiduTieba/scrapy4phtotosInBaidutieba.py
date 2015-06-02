@@ -132,7 +132,11 @@ def processOnePerson(name):
         return []
     
     pagesoup = BeautifulSoup(pageContent, from_encoding='utf8')
-    albumsSection = pagesoup.find_all("div", attrs={"id": 'op_move_to_catalogs'})[0]
+    try:
+        albumsSection = pagesoup.find_all("div", attrs={"id": 'op_move_to_catalogs'})[0]
+    except Exception as ep:
+        writeToLog('no photo for person,%s\n' % name)
+        return []
     catIDPattern = re.compile(r'<li cat-id="([0-9a-zA-Z]+?)">')
     catIDList = catIDPattern.findall(str(albumsSection))
     allAlbumsIdList = []
@@ -235,9 +239,6 @@ doneWorkList = loadDoneWork()
 
 for i in range(len(namelist)):
     name = namelist[i]
-    if not os.path.exists(name.decode('utf8')):
-        os.makedirs(name.decode('utf8'))
-
     tempIdList = processOnePerson(name)
     if tempIdList == None:
         continue

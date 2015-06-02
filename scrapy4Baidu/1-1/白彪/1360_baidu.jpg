@@ -1,0 +1,1213 @@
+
+
+
+    
+    
+    
+    
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Access-Control-Allow-Origin" content="*" >
+<title>国家电网-浙江省电力公司</title>
+
+
+<link href="/component/css/picShow.css" rel="stylesheet" type="text/css"/>
+<link href="/component/css/Component.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/component/css/frame.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="/component/js/formjs.js"></script>
+<script type="text/javascript" src="/component/js/query.js"></script>
+<script type="text/javascript" src="/component/js/md5.js"></script>
+<!-- marquee.js - jQuery 多功能无缝滚动插件 -->
+<script type="text/javascript" src="/component/js/MSClass.js" ></script>
+<script type="text/javascript" src="/component/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="/component/js/js.js"></script>
+<script type="text/javascript" src="/js/validate.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/component/js/picShow.js"></script>
+<script type="text/javascript">
+
+	$(function() {
+
+		clickSwitch('.newsbox .tab li','.newsbox .tabbox > .list ','0',1);//新闻中心
+
+		clickSwitch('.videonews .tab li','.videonews .tabbox > .item ','0',1);//视频新闻
+
+		clickSwitch('.dy .tab li','.dy .tabbox > .item ','0',1);//服务动态
+		
+		clickSwitch('.main_about .item01 .tab li','.main_about .item01 .tabbox > .hide ','0',1);
+
+		clickSwitch('.main_about .item02 .tab li','.main_about .item02 .tabbox > .hide ','0',1);
+	
+		clickSwitch('.tabbusiness .tab li','.tabbusiness .tabbox > table ','0',1);
+		
+		  	clickSwitch('.item01 .tab li','.item01 .tabbox > .hide ','0',1);
+     	clickSwitch('.item02 .tab li','.item02 .tabbox > .hide ','0',1);
+
+    	clickSwitch('.swfw_login .swfw_tab li','.swfw_login .swfw_tabbox > .swfw_item ','0',1);//商务服务登陆框
+
+	});
+
+</script> 
+</head>
+<body>
+<div class="wraper">
+<div style="width:960px;" class="wrap960" >
+
+
+
+
+<!--[if IE 6]><script type="text/javascript" src="/component/js/DD_belatedPNG.js"></script>
+<script>
+  DD_belatedPNG.fix('*');
+</script>
+<![endif]-->
+
+
+	<div style="background: #fff url(/template/images/header_ws1.jpg) no-repeat right top; width: 100%; height: 110px; text-align: right; overflow: hidden;">
+
+<div class="logo">
+<div class="logo_img">
+ 
+		<img src="/sites/main/images/0f013fc2-857f-4646-9857-140530493122.png" border="0" />
+	 
+</div>
+<div class="gwlogo"><a target="_blank" href="http://www.sgcc.com.cn"><img src="/component/images/blank.gif" /></a></div>
+<div class="sflogo"><a href="http://www.zj.sgcc.com.cn"><img src="/component/images/blank.gif" /></a></div>
+</div>
+<ul objid="6055" class="mininav">
+	
+		
+		
+			<li>
+		
+		<a target="_self" href="http://www.95598.cn/person/index.shtml">消费者
+		</a>
+		</li>
+	
+		
+		
+			<li>
+		
+		<a target="_self" href="/html/main/col80/2012-05/22/20120522100819165496636_1.html">求职者
+		</a>
+		</li>
+	
+		
+		
+			<li>
+		
+		<a target="_self" href="/html/main/col3/column_3_1.html">传媒者
+		</a>
+		</li>
+	
+		
+			<li class="last">
+		
+		
+		<a target="_self" href="/html/main/col5/column_5_1.html">合作者
+		</a>
+		</li>
+	
+</ul>
+</div>
+</div><div style="width:960px;" class="header" >
+
+  
+<div
+
+ class="nav"
+
+
+>
+	<ul>
+	
+	
+		<li class="on">
+	
+	
+			<a target="_self"  href="/html/main/col1/column_1_1.html" >首页</a>
+		</li>
+	
+	
+	
+		<li>
+	
+			<a target="_self"  href="/html/main/col2/column_2_1.html" >关于我们</a>
+		</li>
+	
+	
+	
+		<li>
+	
+			<a target="_self"  href="/html/main/col3/column_3_1.html" >新闻中心</a>
+		</li>
+	
+	
+	
+		<li>
+	
+			<a target="_self"  href="http://www.95598.cn/person/index.shtml" >客户服务</a>
+		</li>
+	
+	
+	
+		<li>
+	
+			<a target="_self"  href="/html/main/col5/column_5_1.html" >商务服务</a>
+		</li>
+	
+	
+	
+		<li>
+	
+			<a target="_self"  href="/html/main/col6/column_6_1.html" >互动交流</a>
+		</li>
+	
+	</ul>
+	<form action="">
+	<input vtype="string"  vmode="not null"  name="q"  vdisp="关键字"  objparam="fieldname:keyword" maxlength="30" tag="_websearchinput"  objid="6256"  type="text" class="inp" onblur="if (this.value ==''){this.value=this.defaultValue}" onFocus="if(this.value==this.defaultValue)this.value=''"value="请输入关键词" /><input onclick="doWebSearch()"  objparam="buttonname:search"  tag="_websearchbutton"  objid="6257"  type="button" value="" class="btn" />
+	</form>
+
+</div>
+</div><div style="width:960px;" class="wrap960" ><div style="width:960px;" class="wrap960" ><div style="width:740px;float:left;" class="marginr10" ><div style="width:740px;height:184px;" class="indexbanner" >
+
+
+  
+
+<div class="banner">
+	
+
+<img src="/template/images/banner_ws1_sy.jpg" />
+	
+
+</div>
+</div><div style="width:740px;" class="marginb102" >
+
+
+  
+<div objparam=""  tag=""  objid="6009"  class="announcement">
+	<h3>通知公告：</h3>
+	   <ul objparam="columnname:通知公告,titlenum:15,columnid:7,pagesize:2,buttontype:auto"  tag="_normalinfolist" objid="6053" >
+	   
+		
+			 
+				<li>
+					<a target="_self" href="/html/files/2015-05/20/20150520101015895692881.pdf" >宁波110kV湖头输变电工程环保验收调查...</a>
+					<span>[2015-05-20]</span>
+				</li>
+			
+			
+			<a  target="_self"  href="/html/main/col7/column_7_1.html" class="more">更多&gt;&gt;</a>
+						
+		
+		</ul>		
+ </div>
+
+</div><div style="width:738px;height:246px;" class="marginb10" >
+
+
+  
+
+<div
+
+ class="newsbox"
+
+
+>
+	<div
+
+ class="title"
+
+
+><h3>新闻中心</h3>
+		<a target="_self"  tag="_column" href="/html/main/col3/column_3_1.html" class="more">更多>></a>
+	</div>
+	<div
+
+ class="cont"
+
+
+>
+        <div
+
+ class="imgtxt"
+
+
+ tag="_normalinfolist_manual">
+        	<a target="_self"  tag="_normalinfoalink1" href="/html/main/col8/2015-05/25/20150525223232569948762_1.html">
+        		<img tag="_normalinfopic" src="/html/files/2015-05/27/20150527143427994168457.jpg">
+			</a>
+			 <span>
+			 	<a target="_self" tag="_normalinfoalink"  href="/html/main/col8/2015-05/25/20150525223232569948762_1.html">500千伏桐乡变电站启动投产</a>
+			 </span>
+		</div>
+	  	<div
+
+ class="listbox"
+
+
+>
+	    	<div
+
+ class="tab"
+
+
+>
+				
+				
+					<li class="current">
+				
+				
+					公司要闻</li>
+				
+				
+				
+					<li>
+				
+					总部动态</li>
+				
+				
+				
+					<li>
+				
+					基层动态</li>
+				
+				
+				
+					<li>
+				
+					农电动态</li>
+				
+				
+				
+					<li>
+				
+					行业资讯</li>
+				
+	        </div>
+	        <div
+
+ class="tabbox"
+
+
+>
+				
+		        	<ul tag="_normalinfolist" class="list">
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col8/2015-05/25/20150525223232569948762_1.html">500千伏桐乡变电站启动投产</a>
+			        		 
+			        		    	<span>2015-05-25</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col8/2015-05/21/20150521155610401108125_1.html">公司积极应对强降雨保电网安全</a>
+			        		 
+			        		    	<span>2015-05-20</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col8/2015-05/12/20150512112506919499182_1.html">国内最大截面导线试放成功</a>
+			        		 
+			        		    	<span>2015-05-14</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col8/2015-05/12/20150512104630297540380_1.html">国家电网公司调整浙江公司领导班子</a>
+			        		 
+			        		    	<span>2015-05-12</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col8/2015-05/05/20150505101257268906756_1.html">五一期间浙江电网安全稳定运行</a>
+			        		 
+			        		    	<span>2015-05-05</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col8/2015-05/05/20150505095612804979924_1.html">国网浙江电力公布4月份电力生产运行数据</a>
+			        		 
+			        		    	<span>2015-05-04</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col8/2015-04/27/20150427110832651406156_1.html">公司深入开展特高压交直流混联大电网运行特性研究</a>
+			        		 
+			        		    	<span>2015-04-27</span>
+			        		  
+			        	
+			        		</li>
+						
+		        	</ul>
+				
+		        	<ul tag="_normalinfolist" class="list">
+						
+			        		<li>
+			        		<a target="_self" href="http://www.sgcc.com.cn/shouye/tbxw/326038.shtml">刘振亚为公司系统党员干部讲&ldquo;三严三实&rdquo;专题党课</a>
+			        		 
+			        		    	<span>2015-06-01</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="http://www.sgcc.com.cn/xwzx/gsyw/2015/05/325972.shtml">公司部署2015年迎峰度夏安全生产工作</a>
+			        		 
+			        		    	<span>2015-05-28</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="http://www.sgcc.com.cn/shouye/tbxw/325714.shtml">李克强、罗塞夫共同为巴西美丽山特高压工程开工揭幕</a>
+			        		 
+			        		    	<span>2015-05-21</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="http://www.sgcc.com.cn/shouye/tbxw/325552.shtml">榆横&mdash;潍坊1000千伏特高压交流输变电工程开工</a>
+			        		 
+			        		    	<span>2015-05-14</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="http://www.sgcc.com.cn/xwzx/gsyw/2015/05/325440.shtml">公司实施知识产权战略成果丰硕</a>
+			        		 
+			        		    	<span>2015-05-12</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="http://www.sgcc.com.cn/xwzx/gsyw/2015/05/325413.shtml">特高压工程建设者喜获中央企业先进集体和劳动模范殊荣</a>
+			        		 
+			        		    	<span>2015-05-11</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="http://www.sgcc.com.cn/xwzx/gsyw/2015/05/325410.shtml">公司三名员工获评&ldquo;全国向上向善好青年&rdquo;</a>
+			        		 
+			        		    	<span>2015-05-08</span>
+			        		  
+			        	
+			        		</li>
+						
+		        	</ul>
+				
+		        	<ul tag="_normalinfolist" class="list">
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col81/2015-06/01/20150601230235881333881_1.html">绍兴供电公司筑起9公里屏障护航&ldquo;美丽乡村&rdquo;电力改造</a>
+			        		 
+			        		    	<span>2015-06-01</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col81/2015-05/28/20150528231800594277198_1.html">舟山供电公司党员服务队为美丽乡村建设添动力</a>
+			        		 
+			        		    	<span>2015-05-29</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col81/2015-05/28/20150528231535607409661_1.html">50座智能变电站托起&ldquo;智慧宁波&rdquo;</a>
+			        		 
+			        		    	<span>2015-05-28</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col81/2015-05/27/20150527230852184238983_1.html">宁波供电公司全力保障市区中高考用电</a>
+			        		 
+			        		    	<span>2015-05-27</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col81/2015-05/27/20150527145350729523160_1.html">绍兴供电公司农网改造保夏收用电</a>
+			        		 
+			        		    	<span>2015-05-26</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col81/2015-05/22/20150522232040988568562_1.html">杭州供电公司推动绿色生产&ldquo;电能替代&rdquo;留蓝天</a>
+			        		 
+			        		    	<span>2015-05-22</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col81/2015-05/21/20150521223522336920340_1.html">绍兴供电公司优化城区电网为地方经济建设腾地</a>
+			        		 
+			        		    	<span>2015-05-21</span>
+			        		  
+			        	
+			        		</li>
+						
+		        	</ul>
+				
+		        	<ul tag="_normalinfolist" class="list">
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col11/2015-06/01/20150601233039817609006_1.html">景宁县供电公司多措并举加强农村用电知识宣传</a>
+			        		 
+			        		    	<span>2015-06-01</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col11/2015-06/01/20150601232926850449406_1.html">洞头县供电公司设立海霞党员&ldquo;海上营业厅&rdquo;开展流动服务</a>
+			        		 
+			        		    	<span>2015-05-29</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col11/2015-06/01/20150601232405732537691_1.html">龙泉市供电公司&ldquo;岗村结对&rdquo;鼎力相助美丽乡村建设</a>
+			        		 
+			        		    	<span>2015-05-28</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col11/2015-06/01/20150601231111174764170_1.html">象山县供电公司开展漏保专项检查确保农村夏季用电安全</a>
+			        		 
+			        		    	<span>2015-05-27</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col11/2015-05/27/20150527231209559520565_1.html">奉化供电公司&ldquo;护航&rdquo;麦收用电</a>
+			        		 
+			        		    	<span>2015-05-26</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col11/2015-05/25/20150525223531791648521_1.html">云和县供电公司助力乡村&ldquo;美丽变革&rdquo;</a>
+			        		 
+			        		    	<span>2015-05-25</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="/html/main/col11/2015-05/22/20150522232336334194330_1.html">嵊州供电公司&ldquo;双管齐下&rdquo;架起&ldquo;绿色安全&rdquo;电网</a>
+			        		 
+			        		    	<span>2015-05-22</span>
+			        		  
+			        	
+			        		</li>
+						
+		        	</ul>
+				
+		        	<ul tag="_normalinfolist" class="list">
+						
+			        		<li>
+			        		<a target="_self" href="http://www.sgcc.com.cn/xwzx/nyzx/2015/05/325985.shtml">我国第四代先进核电技术取得突破进展</a>
+			        		 
+			        		    	<span>2015-05-28</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="http://www.sgcc.com.cn/xwzx/nyzx/2015/05/325945.shtml">2015年年底中国核电装机将达3000万千瓦</a>
+			        		 
+			        		    	<span>2015-05-25</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="http://www.sgcc.com.cn/xwzx/nyzx/2015/05/325711.shtml">2015年1-4月份电力工业运行简况</a>
+			        		 
+			        		    	<span>2015-05-21</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="http://www.sgcc.com.cn/xwzx/nyzx/2015/05/325661.shtml">国家能源局发布2015年4月份全社会用电量</a>
+			        		 
+			        		    	<span>2015-05-18</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="http://www.sgcc.com.cn/xwzx/nyzx/2015/05/325656.shtml">国家统计局：4月规模以上工业增加值增长5.9%</a>
+			        		 
+			        		    	<span>2015-05-15</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="http://www.sgcc.com.cn/xwzx/nyzx/2015/05/325659.shtml">中国智能电网迎来发展新机遇</a>
+			        		 
+			        		    	<span>2015-05-12</span>
+			        		  
+			        	
+			        		</li>
+						
+			        		<li>
+			        		<a target="_self" href="http://www.sgcc.com.cn/xwzx/nyzx/2015/05/325405.shtml">一季度单位GDP能耗同比下降5.6%</a>
+			        		 
+			        		    	<span>2015-05-08</span>
+			        		  
+			        	
+			        		</li>
+						
+		        	</ul>
+				
+	        </div>
+    	</div>
+    </div>
+</div>
+</div><div style="width:740px;" class="overflowh" ><div style="width:235px;float:left;" class="marginr10" ><div style="width:233px;height:227px;" class="zbdt300  marginb10" >
+
+
+  
+<div class="zjlmbt">
+    <div objid="6044" class="item">
+		<div  class="title">
+			<h3>媒体聚焦</h3>
+			
+		</div>
+		
+		<div class="zjlistpoint">
+			
+			<div class="imgtxt">
+				<img src="/sites/main/images/f2ecda9f-5ac2-4cf8-9b6e-d2cd1e608484.jpg" />
+			</div>
+					
+			<ul>		
+							
+					<li >
+						<a  target="_self"  href="/html/main/col37/2015-05/27/20150527161841666396396_1.html" >	
+							浙江日报： 一名电工的&ldquo;光明事...
+						</a>
+									
+					</li>    
+							
+					<li >
+						<a  target="_self"  href="/html/main/col37/2015-05/27/20150527151817392843448_1.html" >	
+							浙江日报：嘉兴：全智能变电站昨...
+						</a>
+									
+					</li>    
+							
+					<li >
+						<a  target="_self"  href="/html/main/col37/2015-05/27/20150527151143481655690_1.html" >	
+							浙江日报头版：拆掉冲天炉 熔铁...
+						</a>
+									
+					</li>    
+							
+					<li >
+						<a  target="_self"  href="/html/main/col37/2015-05/26/20150526101745292259484_1.html" >	
+							浙江日报：加快互联互通 打造坚...
+						</a>
+									
+					</li>    
+					
+					
+			</ul>
+		</div>
+    </div>
+</div>
+
+</div><div style="width:233px;height:230px;" class="marginb10" >
+
+
+ 
+
+<div class="science">
+    <div
+
+ class="title"
+
+
+><h3>电力科普</h3></div>
+    <ul>
+		
+        	<li><a tag="_column" target="_self" href="/html/main/col84/column_84_1.html">用电常识</a></li>
+        
+        	<li><a tag="_column" target="_self" href="/html/main/col61/column_61_1.html">节电常识</a></li>
+        
+        	<li><a tag="_column" target="_self" href="/html/main/col62/column_62_1.html">安全用电</a></li>
+        
+        	<li><a tag="_column" target="_self" href="/html/main/col63/column_63_1.html">科技信息</a></li>
+        
+        	<li><a tag="_column" target="_self" href="/html/main/col64/column_64_1.html">法规政策</a></li>
+        
+        	<li><a tag="_column" target="_self" href="/html/main/col85/column_85_1.html">专家讲坛</a></li>
+        
+    </ul>
+</div>
+</div></div><div style="width:495px;float:left;"  ><div style="width:495px;height:229px;" class="marginb102" >
+
+<!--首页栏目优质服务 -->
+
+<div class="dy">
+    
+	<ul  class="tab">
+		
+			<li>
+				服务动态
+			</li>
+		
+			<li>
+				创新服务
+			</li>
+		
+			<li>
+				服务指南
+			</li>
+		
+	</ul>
+	<div class="tabbox">
+		
+			<div class="item">
+		     	 
+		     	     
+		     	     
+				 
+
+<!--14栏目热点 -->
+
+
+<div class="imgtxt">
+	
+	
+	
+	
+		<a class="more" target="_self">
+		<img src="/sites/main/images/1ec7235b-d00f-40fb-8af0-b6b9dbc4c8ee.JPG" /></a>
+	
+	
+	<span>
+		
+
+		
+	</span>
+</div>
+ 		
+				
+		     	     
+				 
+
+<!-- 栏目列表数据显示 -->
+
+
+<ul class="list">
+		
+			<li>
+			 
+			 	<span>2015-05-25 </span>
+			 
+				<a target="_self" href="/html/main/col41/2015-05/27/20150527162046468517591_1.html">
+				云和县供电公司助力乡村&ldquo;美丽变革&rdquo; </a>
+			</li>
+		
+			<li>
+			 
+			 	<span>2015-05-22 </span>
+			 
+				<a target="_self" href="/html/main/col41/2015-05/27/20150527162046427693538_1.html">
+				嵊州供电公司&ldquo;双管齐下&rdquo;架起&ldquo;绿色安全&rdquo;电网 </a>
+			</li>
+		
+			<li>
+			 
+			 	<span>2015-05-21 </span>
+			 
+				<a target="_self" href="/html/main/col41/2015-05/27/20150527162046382802861_1.html">
+				泰顺供电公司助力岭北打造&ldquo;最美乡村&rdquo; </a>
+			</li>
+		
+</ul>
+ 		
+			</div>
+		
+			<div class="item">
+		     	 
+		     	     
+		     	     
+				 
+
+<!--14栏目热点 -->
+
+
+<div class="imgtxt">
+	
+	
+	
+	
+		<a class="more" target="_self">
+		<img src="/sites/main/images/95fcd6e1-fb61-4154-b163-3d9f0f30e422.jpg" /></a>
+	
+	
+	<span>
+		
+
+		
+	</span>
+</div>
+ 		
+				
+		     	     
+				 
+
+<!-- 栏目列表数据显示 -->
+
+
+<ul class="list">
+		
+			<li>
+			 
+			 	<span>2015-05-26 </span>
+			 
+				<a target="_self" href="/html/main/col14/2015-05/27/20150527161945059526899_1.html">
+				绍兴供电公司农网改造保夏收用电 </a>
+			</li>
+		
+			<li>
+			 
+			 	<span>2015-05-22 </span>
+			 
+				<a target="_self" href="/html/main/col14/2015-05/27/20150527161945020152548_1.html">
+				杭州供电公司推动绿色生产&ldquo;电能替代&rdquo;留蓝天 </a>
+			</li>
+		
+			<li>
+			 
+			 	<span>2015-05-21 </span>
+			 
+				<a target="_self" href="/html/main/col14/2015-05/27/20150527161944994979334_1.html">
+				绍兴供电公司优化城区电网为地方经济建设腾地 </a>
+			</li>
+		
+</ul>
+ 		
+			</div>
+		
+			<div class="item">
+		     	 
+		     	     
+		     	     
+				 
+
+<!--14栏目热点 -->
+
+
+<div class="imgtxt">
+	
+	
+	
+	
+		<a class="more" target="_self">
+		<img src="/sites/main/images/8a21a480-5b20-43cb-a711-baab45ee120a.jpg" /></a>
+	
+	
+	<span>
+		
+
+		
+	</span>
+</div>
+ 		
+				
+		     	     
+				 
+
+<!-- 栏目列表数据显示 -->
+
+
+<ul class="list">
+		
+			<li>
+			 
+			 	<span>2015-03-17 </span>
+			 
+				<a target="_self" href="/html/main/col15/2012-06/28/20120628110222734980672_1.html">
+				用电服务指南 </a>
+			</li>
+		
+			<li>
+			 
+			 	<span>2015-03-17 </span>
+			 
+				<a target="_self" href="/html/main/col15/2012-06/28/20120628104333094966623_1.html">
+				电力缴费 就在您身边 </a>
+			</li>
+		
+			<li>
+			 
+			 	<span>2015-03-17 </span>
+			 
+				<a target="_self" href="/html/main/col15/2012-06/28/20120628104128888613786_1.html">
+				营业窗口指南 </a>
+			</li>
+		
+</ul>
+ 		
+			</div>
+		
+	</div>
+</div>
+</div><div style="width:493px;height:230px;" class="marginb10" >
+
+
+
+<div class="noelectricity2">
+	
+	<input type="hidden" name="electricityheight" value="230" id="electricityheight"/>
+	
+	
+ 	    
+			<div class="title">
+				<h3>
+					停电公告
+				</h3>
+				<a  target="_blank" href="http://www.95598.cn/person/index.shtml" class="more">更多&gt;&gt;</a>
+			</div>
+	   
+		<div class="cont2">
+			
+				<!-- <marquee behavior="scroll" scrollamount="3" direction="up" height="230"
+					onmousemove="this.stop()" onmouseout="this.start()"> -->
+					<div>
+						<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>　　详情请查看浙江95598网上营业厅&nbsp;<a style="TEXT-DECORATION: none" title="" href="http://www.95598.cn/95598/outageNotice/initOutageNotice" target="_self" data_ue_src="http://www.95598.cn/95598/outageNotice/initOutageNotice"><strong><span style="COLOR: #e36c09">停限电公告</span></strong></a><span style="TEXT-DECORATION: none">&nbsp;<span style="LINE-HEIGHT: 0px; DISPLAY: none" id="_baidu_bookmark_start_2">？</span></span>或致电24小时供电服务热线 <strong><span style="FONT-FAMILY: 黑体, SimHei; COLOR: #e36c09"><span style="FONT-FAMILY: arial black, avant garde; COLOR: #e36c09">9559</span><span style="FONT-FAMILY: arial black, avant garde; COLOR: #e36c09">8</span></span></strong> 咨询。&nbsp;</p>
+					</div>
+				<!-- </marquee>  -->
+			
+			
+		</div>
+	
+</div>
+</div></div></div></div><div style="width:210px;float:left;"  ><div style="width:208px;height:210px;" class="marginb102" >
+
+
+  
+
+   <div class="customer_service">
+	   <div  class="title"><h3>服务热线</h3></div>
+	   <ul >
+	      
+	     <li><a  target="_blank"  href="http://www.95598.cn/person/index.shtml"><img src="/template/images/95598kf.jpg"></a></li>
+	    
+	   </ul>
+	 </div>
+
+
+  
+ 
+</div><div style="width:208px;height:246px;" class="marginb10" >
+
+<!-- 专题专栏,组件 -->
+
+
+<div class="topic">
+	<div class="title">
+		<h3>专题专栏
+		</h3>
+		
+	</div>
+	<div class="cont">
+        
+	      
+	      
+	      
+		      <div class="imgtxt">
+			      <ul> 
+			       
+					<a target="_self" href="/html/main/col36/column_36_1.html">
+				    	<img src="/html/files/2014-04/08/20140408145304281352213.jpg">
+					</a>
+					
+					
+				  </ul> 
+			  </div>		  
+	      
+	      
+		
+		<ul>
+			<li>
+				<a target="_blank" href="/html/files/2015-03/10/20150310112535158604265.pdf">公司2014年服务浙江发展白皮书
+				</a>
+			</li>
+			</ul>
+		
+		<ul>
+			<li>
+				<a target="_blank" href="/html/main/col637/column_637_1.html">公司信息公开专栏
+				</a>
+			</li>
+			</ul>
+		
+		<ul>
+			<li>
+				<a target="_blank" href="http://www.sgcc.com.cn/bps/index.shtml">绿色发展白皮书
+				</a>
+			</li>
+			</ul>
+		
+		<ul>
+			<li>
+				<a target="_blank" href="http://www.sgcc.com.cn/ztzl/jswm/">国家电网精神家园
+				</a>
+			</li>
+			</ul>
+		
+	</div>
+</div>
+
+</div><div style="width:208px;" class="marginb10" >
+
+
+  
+
+   <div class="business_services">
+	   <div  class="title"><h3>商务服务</h3></div>
+	   <ul >
+	      
+	     <li><a  target="_blank"  href="http://ecp.sgcc.com.cn/"><img src="/template/images/dzsw.jpg"></a></li>
+	      
+	     <li><a  target="_blank"  href="http://202.107.201.22/dljy/index.htm"><img src="/template/images/dljy.jpg"></a></li>
+	    
+	   </ul>
+	 </div>
+
+
+  
+ 
+</div><div style="width:208px;height:229px;" class="marginb10" >
+
+
+ 
+
+<div class="interactive">
+    <div
+
+ class="title"
+
+
+><h3>互动中心</h3></div>
+    <ul>
+		
+        	<li><a tag="_column" target="_self" href="/html/main/col51/column_51_1.html">常见问题</a></li>
+        
+        	<li><a tag="_column" target="_self" href="/html/main/col50/column_50_1.html">网上调查</a></li>
+        
+        	<li><a tag="_column" target="_self" href="http://www.95598.cn/sms/index.shtml">投诉咨询</a></li>
+        
+        	<li><a tag="_column" target="_self" href="/html/main/col52/column_52_1.html">联系我们</a></li>
+        
+    </ul>
+</div>
+</div></div></div><div style="width:960px;"  >
+
+
+  
+<form class="sitenav">
+	<span objid="6231"  class="l"></span>
+      <span objid="6232"  class="r"></span>
+        <label>站点导航</label>
+		   	
+		         <select onChange="window.open(this.options[this.selectedIndex].value)">      <OPTION value='' selected>国际电力公司链接</OPTION> 
+      <OPTION value='http://www.rao-ees.ru/ru/'>俄罗斯统一电力公司</OPTION> 
+      <OPTION value='http://www.edf.fr/edf-fr-accueil-1.html'>法国电力公司</OPTION> 
+      <OPTION value='http://www.powercorporation.com/index.php?lang=eng'>加拿大电力公司</OPTION> 
+      <OPTION value='http://www.endesa.es/Portal/es/default.htm'>西班牙恩德萨国家电力公司</OPTION> 
+      <OPTION value='http://www.enel.it/'>意大利国家电力公司</OPTION> 
+      <OPTION value='http://www.nationalgrid.com/'>英国国家电力供应公司</OPTION> 
+      <OPTION value='http://www.eskom.co.za/live/index.php'>南非国家电力公司</OPTION> 
+      <OPTION value='http://www.kepco.co.kr/'>韩国电力公司</OPTION> 
+      <OPTION value='http://www.powergridindia.com/PGCIL_NEW/home.aspx'>印度电网公司</OPTION> 
+      <OPTION value='http://www.tepco.co.jp/index-j.html'>东京电力公司</OPTION> 
+</select>
+		  	
+		         <select onChange="window.open(this.options[this.selectedIndex].value)">      <OPTION value='' selected>相关网站链接</OPTION> 
+      <OPTION value='http://www.gov.cn/'>中央政府门户网站</OPTION> 
+      <OPTION value='http://www.expo2010.cn'>上海世界博览会</OPTION> 
+      <OPTION value='http://www.sasac.gov.cn/index.html'>国有资产监督管理委员会</OPTION> 
+      <OPTION value='http://www.sdpc.gov.cn/'>国家发展改革委员会</OPTION> 
+      <OPTION value='http://www.serc.gov.cn/'>国家电力监管委员会</OPTION> 
+      <OPTION value='http://www.cec.org.cn/'>中国电力企业联合会</OPTION> 
+      <OPTION value='http://www.ceg.cn'>中国南方电网有限公司</OPTION> 
+      <OPTION value='http://www.chng.com.cn/'>中国华能集团公司</OPTION> 
+      <OPTION value='http://www.china-cdt.com/'>中国大唐集团公司</OPTION> 
+      <OPTION value='http://www.chd.com.cn/'>中国华电集团公司</OPTION> 
+      <OPTION value='http://www.cgdc.com.cn/'>中国国电集团公司</OPTION> 
+      <OPTION value='http://www.zdt.com.cn/'>中国电力投资集团公司</OPTION> 
+      <OPTION value='http://www.cpecc.net/default.aspx'>中国电力工程顾问集团公司</OPTION> 
+      <OPTION value='http://www.hydrochina.com.cn/'>中国水电工程顾问集团公司</OPTION> 
+      <OPTION value='http://www.sinohydro.com/'>中国水利水电建设集团公司</OPTION> 
+</select>
+		  	
+		         <select onChange="window.open(this.options[this.selectedIndex].value)">      <OPTION value='' selected>国网公司各单位链接</OPTION> 
+      <OPTION value='http://www.nc.sgcc.com.cn'>华北电网有限公司</OPTION> 
+      <OPTION value='http://www.ec.sgcc.com.cn'>华东电网有限公司</OPTION> 
+      <OPTION value='http://www.cc.sgcc.com.cn'>华中电网有限公司</OPTION> 
+      <OPTION value='http://www.ne.sgcc.com.cn/'>东北电网有限公司</OPTION> 
+      <OPTION value='http://www.nw.sgcc.com.cn/'>西北电网有限公司</OPTION> 
+      <OPTION value='http://www.bj.sgcc.com.cn/'>北京电力公司</OPTION> 
+      <OPTION value='http://www.tj.sgcc.com.cn/'>天津市电力公司</OPTION> 
+      <OPTION value='http://www.he.sgcc.com.cn/'>河北省电力公司</OPTION> 
+      <OPTION value='http://www.sx.sgcc.com.cn/'>山西省电力公司</OPTION> 
+      <OPTION value='http://www.sd.sgcc.com.cn/'>山东电力集团公司</OPTION> 
+      <OPTION value='http://www.jibei.sgcc.com.cn'>冀北电力有限公司</OPTION> 
+      <OPTION value='http://www.sh.sgcc.com.cn'>上海市电力公司</OPTION> 
+      <OPTION value='http://www.zj.sgcc.com.cn'>浙江省电力公司</OPTION> 
+      <OPTION value='http://www.js.sgcc.com.cn'>江苏省电力公司</OPTION> 
+      <OPTION value='http://www.ah.sgcc.com.cn'>安徽省电力公司</OPTION> 
+      <OPTION value='http://www.fj.sgcc.com.cn'>福建省电力有限公司</OPTION> 
+      <OPTION value='http://www.hb.sgcc.com.cn'>湖北省电力公司</OPTION> 
+      <OPTION value='http://www.hn.sgcc.com.cn'>湖南省电力公司</OPTION> 
+      <OPTION value='http://www.ha.sgcc.com.cn'>河南省电力公司</OPTION> 
+      <OPTION value='http://www.jx.sgcc.com.cn'>江西省电力公司</OPTION> 
+      <OPTION value='http://www.sc.sgcc.com.cn'>四川省电力公司</OPTION> 
+      <OPTION value='http://www.cq.sgcc.com.cn'>重庆市电力公司</OPTION> 
+      <OPTION value='http://www.ln.sgcc.com.cn/'>辽宁省电力有限公司</OPTION> 
+      <OPTION value='http://www.jl.sgcc.com.cn'>吉林省电力有限公司</OPTION> 
+      <OPTION value='http://www.hl.sgcc.com.cn'>黑龙江省电力有限公司</OPTION> 
+      <OPTION value='http://www.sn.sgcc.com.cn'>陕西省电力公司</OPTION> 
+      <OPTION value='http://www.gs.sgcc.com.cn'>甘肃省电力公司</OPTION> 
+      <OPTION value='http://www.nx.sgcc.com.cn'>宁夏电力公司</OPTION> 
+      <OPTION value='http://www.qh.sgcc.com.cn'>青海省电力公司</OPTION> 
+      <OPTION value='http://www.xj.sgcc.com.cn'>新疆电力公司</OPTION> 
+      <OPTION value='http://www.xz.sgcc.com.cn'>西藏电力有限公司</OPTION> 
+      <OPTION value='http://www.epri.sgcc.com.cn'>中国电力科学研究院</OPTION> 
+      <OPTION value='http://www.chinasperi.sgcc.com.cn'>国网北京经济技术研究院</OPTION> 
+      <OPTION value='http://www.sgeri.sgcc.com.cn'>国网能源研究院</OPTION> 
+      <OPTION value='http://www.atc.sgcc.com.cn'>国家电网公司高级培训中心</OPTION> 
+      <OPTION value='http://www.sgtc.sgcc.com.cn'>国家电网技术学院</OPTION> 
+      <OPTION value='http://www.sgit.sgcc.com.cn'>国家电网公司信息通信分公司</OPTION> 
+      <OPTION value='http://www.sgepri.sgcc.com.cn'>南瑞集团有限公司</OPTION> 
+      <OPTION value='http://www.cet.sgcc.com.cn/web/main/home'>中国电力技术装备有限公司</OPTION> 
+      <OPTION value='http://www.lnjt.sgcc.com.cn'>鲁能集团有限公司</OPTION> 
+      <OPTION value='http://dcwy.sgcc.com.cn'>都城伟业集团有限公司</OPTION> 
+      <OPTION value='http://www.sgxy.com.cn'>国网新源控股有限公司</OPTION> 
+      <OPTION value='http://www.stategrid.com.cn'>国家电网国际发展有限公司</OPTION> 
+      <OPTION value='http://www.zxpower.sgcc.com.cn'>中兴电力实业发展有限公司</OPTION> 
+      <OPTION value='http://www.indaa.com.cn'>英大传媒投资集团有限公司</OPTION> 
+      <OPTION value='http://www.ydjrw.sgcc.com.cn'>国网英大国际控股集团有限公司</OPTION> 
+      <OPTION value='http://www.cpfc.sgcc.com.cn'>中国电力财务有限公司</OPTION> 
+      <OPTION value='http://www.ydpic.sgcc.com.cn'>英大泰和财产保险股份有限公司</OPTION> 
+      <OPTION value='http://www.ydthlife.sgcc.com.cn'>英大泰和人寿保险股份有限公司</OPTION> 
+      <OPTION value='http://www.caib.sgcc.com.cn'>英大长安保险经纪有限公司</OPTION> 
+      <OPTION value='http://www.yditc.sgcc.com.cn'>英大国际信托有限责任公司</OPTION> 
+      <OPTION value='http://www.ydzq.sgcc.com.cn'>英大证券有限责任公司</OPTION> 
+      <OPTION value='http://www.ydfut.sgcc.com.cn'>英大期货有限公司</OPTION> 
+      <OPTION value='http://www.chinaero.com.cn'>能源观察网</OPTION> 
+</select>
+		  	
+ </form></div></div><div style="width:960px;"  >
+
+
+  
+<input type="hidden" name="sitesid" value="main" id="sitesid"/>
+
+<script type="text/javascript">
+	var sitesid = document.getElementsByName("sitesid")[0].value;
+
+    function getCount(){
+       $.ajax({  
+		    url:'/component/foot_element_action!getCount.action',      
+		    type: 'POST',   
+		    dataType: 'json', 
+		    cache:false,
+		    data: {url:window.location.href,sites:sitesid},          
+		    timeout: 5000,                             
+		    error: function(){                        
+		    },   
+		    success: function(result){  
+		        $("#visitscount").html(result.count);
+		    }
+	    });
+    }
+    getCount();
+</script>
+<div objid="6054"  class="footer">
+	<p class="links">
+		
+			<a target="_self"  href="http://www.miibeian.gov.cn/" >版权声明</a>
+			
+			|
+			
+		
+			<a target="_self"  href="/html/main/col110/column_110_1.html" >法律声明</a>
+			
+			|
+			
+		
+			<a target="_self"  href="/html/main/col52/column_52_1.html" >联系我们</a>
+			
+			|
+			
+		
+			<a target="_self"  href="/html/main/col625/column_625_1.html" >网站帮助</a>
+			
+			|
+			
+		
+			<a target="_self"  href="/html/main/col112/column_112_1.html" >网站标识</a>
+			
+			|
+			
+		
+			<a target="_self"  href="/html/main/col51/column_51_1.html" >常见问题</a>
+			
+			
+			
+		
+	</p>
+    <p class="visits">自2012年5月31日起本网站访问量：<span id="visitscount"></span>次</p>
+    <p class="copyright">
+    <span tag="_sitefield"  objid="6233" ><p>国家电网浙江省电力公司 <a href="http://www.zj.sgcc.com.cn">www.zj.sgcc.com.cn</a> 版权所有 Copyright 2009-2011 <br /> <br />浙江省电力公司 地址：浙江省杭州市黄龙路8号 邮编：310007<br /></p></span>
+    </p>
+</div>
+</div></div>
+</body>
+
+
+<script type="text/javascript" src="/component/js/formjs.js"></script>
+<!--网站搜索表单-->
+<form name=form_websearch action='/cms/webapp/search/search.jsp' method=get target="_self">
+</form><!--   当前版本信息：V2.001-012 -->
+</html> 
+

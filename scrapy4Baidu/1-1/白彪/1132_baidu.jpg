@@ -1,0 +1,104 @@
+﻿<html>
+<head>
+<title>Media</title>
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--<link rel="SHORTCUT ICON" href="http://moov.netvigator.com/common/now.ico" >-->
+<link rel="SHORTCUT ICON" href="media_favicon.ico" >
+<meta http-equiv="Expires" content="Mon, 01 Jan 1996 01:01:01 GMT">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="pragma" content="no-store">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="keywords" content="now index">
+<meta http-equiv="description" content="">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="apple-touch-icon" href="http://media.netvigator.com/images2/common/ios_57x57_MediaLogo.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="http://media.netvigator.com/images2/common/ios_72x72_MediaLogo.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="http://media.netvigator.com/images2/common/ios_114x114_MediaLogo.png" />
+<link rel="apple-touch-icon-precomposed" href="http://media.netvigator.com/images2/common/ios_57x57_MediaLogo.png" />
+</head>
+
+<script language="javascript">
+var token = "medianext";
+function redirect()
+{
+	var query = document.cookie;
+	var tmp = query.match(token + "=");
+	if(tmp == token.concat("="))
+	{
+		var next = query.split(token.concat("="));
+		var result = next[1].split(";");
+		var date = new Date();
+		document.cookie = "medianext=expired;expires=" + date ;
+		window.frames[0].document.location = result[0];
+	}
+}
+function redirect1()
+{
+	var query = document.cookie;
+	var tmp = query.match(token + "=");
+	if(tmp == token.concat("="))
+	{
+		var next = query.split(token.concat("="));
+		var result = next[1].split(";");
+		//var date = new Date();
+		var date = "Fri, 02-Jan-1970 00:00:00 GMT";
+		document.cookie = "medianext=expired;expires=" + date;
+		return(result[0].split("\"")[1]);
+
+	} else {
+		return("http://media.netvigator.com");
+	}
+}
+
+</script>
+
+<script language="javascript">
+var isNav, isIE;
+if(parseInt(navigator.appVersion) >= 4){
+	if (navigator.appName == "Netscape"){
+		isNav = true;
+	} else {
+		isIE = true;
+	}
+}
+//if (isNav){ alert("Netscape"); }
+//if (isIE){ alert("IE"); }
+
+var mathRan=Math.random()*1000;
+var differentDomain = false;
+try {
+if (mathRan!=top.mathRan) {
+//	alert("123123");
+	top.document.location.href="http://media.now.com.hk";
+}
+} catch (e) {
+	differentDomain = true;
+	//top.document.location.href="http://moov.hk";
+}
+
+var framecode = "";
+if (!differentDomain ){
+if (isNav){ //Netscape
+	framecode += "<frameset rows=\"*,0\" frameborder=\"NO\" border=\"0\" framespacing=\"0\" >\n";
+	framecode += "    <frame name=\"mainFrame\" src=\"" + redirect1() + "\">\n";
+	framecode += "    <frame name=\"hiddenFrame\" src=\"\" scrolling=\"NO\" NORESIZE>\n";
+	framecode += "</frameset>";
+} else { // IE
+	framecode += "<frameset rows=\"*\" frameborder=\"NO\" border=\"0\" framespacing=\"0\" >\n";
+	framecode += "    <frame name=\"mainFrame\" src=\"" + redirect1() + "\">\n";
+	framecode += "</frameset>";
+}
+}else{
+	framecode += "<body><form name='form1' action='http://media.now.com.hk' method='post' target='_top'></form></body>";
+}
+document.write(framecode);
+document.close();
+
+if (differentDomain){
+	document.form1.submit();
+}
+
+</script>
+</html>

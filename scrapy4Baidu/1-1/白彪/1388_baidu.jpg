@@ -1,0 +1,9 @@
+<meta id="metaId" http-equiv="Refresh" content="1; url=http://404safedog.cn?eCode=404" /> 
+<script>
+var urlStr= document.getElementById("metaId").getAttribute("content");
+var refer = document.referrer;
+if(refer == undefined || refer == "undefined"  || refer == null || refer ==""){
+      	 		refer  = "http://"+location.host;
+}
+location.href="http://404safedog.cn"+urlStr.substring(urlStr.indexOf("?"))+"&refer="+refer;
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>404错误</title>
+	<link rel="stylesheet" type="text/css" href="http://p.leha.com/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="http://p.leha.com/css/global.css">
+	<link rel="stylesheet" type="text/css" href="http://p.leha.com/css/about.css">
+	<meta charset="UTF-8">
+</head>
+<body>
+	<div class="container header">
+    <div class="row">
+        <a href="http://www.leha.com" class="logo">乐哈健康网</a>       
+        </div>    
+    </div>
+</div>
+	<div style="margin-left:180px;width:1110px;margin:0 auto;text-align:center">
+            <h1 style="font-size:27px">您访问的页面不存在！</h1>
+            <div style="background:#fff;height:341px;margin-top:32px">
+                <div style="margin-top:100px;float:left">
+                    <img style="float:left;margin-left:310px" src="http://p.leha.com/images/404.jpg">
+                    <div style="margin-top:39px;text-align:left;padding-left:27px;float:left;">
+                    <p></p>
+                    <p> <a href="http://www.leha.com" style="color:#18BE9C">返回首页</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c2e6e82fc5f3b18f50c2a0ee156e030e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

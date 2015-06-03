@@ -239,11 +239,17 @@ doneWorkList = loadDoneWork()
 
 for i in range(len(namelist)):
     name = namelist[i]
+    if name in doneWorkList:
+        print 'alrady process %s, has no pics' % name
+        continue
     tempIdList = processOnePerson(name)
     if tempIdList == None:
         continue
 
     print 'fetch all %s url for %s' % (len(tempIdList), name)
+    if len(tempIdList) == 0:
+        writeDoneWork(name+'\n')
+        continue
     for eachId in tempIdList:
         #pageUrl = 'http://tieba.baidu.com%s' % eachId
         if '%s,%s' % (name, eachId) in doneWorkList:
@@ -270,6 +276,7 @@ for i in range(len(namelist)):
                         break
             if findThread == False: 
                 time.sleep(5)
+
 
 
 

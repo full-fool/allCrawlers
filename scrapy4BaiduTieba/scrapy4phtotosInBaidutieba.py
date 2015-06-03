@@ -238,6 +238,7 @@ doneWorkList = loadDoneWork()
 
 
 for i in range(len(namelist)):
+    print 'processing %s/%s' % (i, peopleNum)
     name = namelist[i]
     if name in doneWorkList:
         print 'alrady process %s, has no pics' % name

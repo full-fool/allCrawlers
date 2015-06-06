@@ -1,0 +1,2 @@
+运行multiDownloader_picsForTieba.py脚本爬取图片。
+如果有log，则持续运行reDownloaderForPics.py，直到log为空。

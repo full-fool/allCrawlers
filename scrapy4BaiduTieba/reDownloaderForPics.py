@@ -19,7 +19,6 @@ sys.setdefaultencoding('utf8')
 tryTimes = 3
 
 writeLock = threading.Lock()
-writeDoneWorkLock = threading.Lock()
 
 
 def getListFromFile(fileName):
@@ -40,14 +39,6 @@ def getListFromFile(fileName):
     return picsUrlList
 
 
-def writeDoneWork(name):
-    writeDoneWorkLock.acquire()
-    
-    filehandler = open('doneWork_downloadPicsTieba.txt', 'a')
-    filehandler.write(name+'\n')
-    filehandler.close()
-    
-    writeDoneWorkLock.release()
 
 def getDoneWork():
     if not os.path.exists('doneWork_downloadPicsTieba.txt'):
@@ -111,32 +102,43 @@ reDownloadList = getRedownloadList()
 
 threadNum = 50
 threadNumPool = {}
+lastTimeLeftPicsNum = 0
+noDownloadTimes = 0
 
+while len(reDownloadList) > 0:
+    thisTimeLeftPicsNum = len(reDownloadList)
+    if thisTimeLeftPicsNum == lastTimeLeftPicsNum:
+        noDownloadTimes += 1
+        print 'for %s time, %s pics left' % (noDownloadTimes, thisTimeLeftPicsNum)
+    else:
+        noDownloadTimes = 0
 
+    if noDownloadTimes == 10:
+        break
+    lastTimeLeftPicsNum = thisTimeLeftPicsNum
+    for eachPic in reDownloadList:
+        fatherDir = eachPic[0]
+        picName = eachPic[1]
+        picUrl = eachPic[2]
 
-
-#'http://imgsrc.baidu.com/forum/pic/item/%s.jpg'
-for eachPic in reDownloadList:
-    fatherDir = eachPic[0]
-    picName = eachPic[1]
-    picUrl = eachPic[2]
-
-    findThread = False
-    while findThread == False:
-        for j in range(threadNum):
-            if not threadNumPool.has_key(j):
-                threadNumPool[j] = DownloadPic(fatherDir, picName, picUrl)
-                threadNumPool[j].start()
-                findThread = True
-                break
-            else:
-                if not threadNumPool[j].isAlive():
+        findThread = False
+        while findThread == False:
+            for j in range(threadNum):
+                if not threadNumPool.has_key(j):
                     threadNumPool[j] = DownloadPic(fatherDir, picName, picUrl)
                     threadNumPool[j].start()
                     findThread = True
                     break
-        if findThread == False: 
-            time.sleep(5)
+                else:
+                    if not threadNumPool[j].isAlive():
+                        threadNumPool[j] = DownloadPic(fatherDir, picName, picUrl)
+                        threadNumPool[j].start()
+                        findThread = True
+                        break
+            if findThread == False: 
+                time.sleep(5)
+    reDownloadList = getRedownloadList()
+
 
 
 

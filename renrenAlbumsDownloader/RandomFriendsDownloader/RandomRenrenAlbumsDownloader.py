@@ -4,7 +4,8 @@
 #       paramB  ---     the password of www.renern.com
 #       Warning ---     make sure that these two params are nested in '', e.g.: python login.py 'chengli.thu@gmail.com' 'THUcst)('
 #                       All folders and log will be created in the current directory!
-#                       
+#        
+# 每次结束时会记录下没有查询其朋友列表的人的id               
 
 import urllib2, urllib
 import sys
@@ -32,7 +33,9 @@ _rtk = 0
 LoginUrl = 'http://www.renren.com/Login.do'
 WriteLock = threading.Lock()
 writeDoneWorkLock = threading.Lock()
-friendIdListLock = threading.Lock()
+writeTodoIdLock = threading.Lock()
+donePicsWorkListLock = threading.Lock()
+
 
 
 
@@ -80,11 +83,49 @@ urllib2.install_opener(opener)
 def writeDoneWork(doneWork):
     writeDoneWorkLock.acquire()
 
+    # state 1 means has searched the friend list for one, 2 means has download the pics
     filehandler = open('doneWork_renren.txt', 'a')
     filehandler.write(doneWork + '\n')
     filehandler.close()
 
     writeDoneWorkLock.release()
+
+
+def loadDoneWork():
+
+    try:
+        return open('doneWork_renren.txt').read().split('\n')
+    except Exception: 
+        return []
+
+def writeToDoId(personId):
+    writeTodoIdLock.acquire()
+
+    filehandler = open('todoPersonIdList.txt', 'a')
+    filehandler.write(personId+'\n')
+    filehandler.close()
+
+    writeTodoIdLock.release()
+
+
+def loadToDoId():
+    try:
+        fileLines = open('todoPersonIdList.txt').read().split('\n')
+        resultLines = []
+        for eachLine in fileLines:
+            if eachLine != '':
+                resultLines.append(eachLine)
+        filehandler = open('todoPersonIdList.txt', 'w')
+        filehandler.close()
+        return resultLines
+    except Exception:
+        return []
+
+def addDonePicsWorkList(personId):
+    global donePicsWorkList
+    donePicsWorkListLock.acquire()
+    donePicsWorkList.append(personId)
+    donePicsWorkListLock.release()
 
 
 #type 0,justopen, 1,gb2312, 2,gbk, 3,GBK, 4,utf-8
@@ -127,7 +168,7 @@ class fetchPicsForOnePerson(threading.Thread):
 
     def run(self):
         friendId = self.friendId
-        GetSomeFriend(friendId)
+        print 'downloading pics for %s' % friendId
         if not os.path.exists('renren_'+friendId):
             os.makedirs('renren_'+friendId)
         albumsList, albumNamesList= GetAlbumListForId(friendId) 
@@ -146,7 +187,8 @@ class fetchPicsForOnePerson(threading.Thread):
             #DownloadAlbum(friendId, photosList, album)
             #print 'album processed for,%s,%s' % (friendId, album)
         print 'done for person,%s' % friendId
-        writeDoneWork(friendId)
+        writeDoneWork('%s,%s' % (friendId, 2))
+        addDonePicsWorkList(friendId)
             
 
 
@@ -195,7 +237,7 @@ def FindInfoWhenLogin(rawHtml):
 
 #返回id和人名的tuple的list
 def GetSomeFriend(personId):
-    global friendIdList
+    global friendIdList, doneFriendsWorkList
     url = 'http://www.renren.com/%s/profile' % personId
     personMainPage = getPageWithSpecTimes(0, url)
     if personMainPage == None:
@@ -204,18 +246,18 @@ def GetSomeFriend(personId):
     pagesoup = BeautifulSoup(personMainPage, from_encoding='utf8')
     try:
         someFriendSection = pagesoup.find_all("div", attrs={"class": 'has-friend'})[0]
+        allLiList = someFriendSection.find_all('li')
+        for eachLi in allLiList:
+            friendId = eachLi.a.get('namecard')
+            friendIdList.append(friendId)
+        writeDoneWork('%s,%s' % (personId, 1))
     except Exception as ep:
+        writeToDoId(personId)
         print 'cannot find has-friend section for person,%s' % personId
-        return
-    allLiList = someFriendSection.find_all('li')
-    for eachLi in allLiList:
-        friendId = eachLi.a.get('namecard')
-        
-        friendIdListLock.acquire()
-        
-        friendIdList.append(friendId)
-        
-        friendIdListLock.release()
+
+    doneFriendsWorkList.append(personId)
+
+
 
 
 
@@ -308,8 +350,17 @@ def DownloadAlbum(friendId, photosList, albumId):
 
 
 
-rawHtml = loginWithUsernameAndPassword(username, password)
 
+
+friendIdList = loadToDoId()
+#friendIdList = ['395403453', '464455179', '281413186', '540254451', '407714102', '229421625', '283145120']
+alreadyDoneWork = loadDoneWork()
+doneFriendsWorkList = []
+donePicsWorkList = []
+
+
+# login
+rawHtml = loginWithUsernameAndPassword(username, password)
 if not FindInfoWhenLogin(rawHtml):
     print 'cannot login, please try again'
     sys.exit()
@@ -320,13 +371,8 @@ print 'login successfully'
 
 threadNum = 100
 threadNumPool = {}
-
-
-
-friendIdList = ['395403453', '464455179', '281413186', '540254451', '407714102', '229421625', '283145120']
-doneworkList = []
 friendIdListTimes = 0
-while len(doneworkList) < 1000:
+while len(donePicsWorkList) < 1000:
     if len(friendIdList) == 0:
         friendIdListTimes += 1
         if friendIdListTimes == 10:
@@ -334,13 +380,22 @@ while len(doneworkList) < 1000:
             sys.exit()
         time.sleep(1)
         continue
-    friendIdListLock.acquire()
+
 
     processId = friendIdList[0]
     friendIdList.remove(friendIdList[0])
     
-    friendIdListLock.release()
-    if processId in doneworkList:
+
+
+    if not ('%s,%s' % (processId,1) in alreadyDoneWork or processId in doneFriendsWorkList):
+        print 'fetching friends info for %s' % processId
+        GetSomeFriend(processId)
+    else:
+        print 'already find friends for %s' % processId
+
+
+    if '%s,%s' % (processId, 2) in alreadyDoneWork or processId in donePicsWorkList:
+        print 'already done pics for %s' % processId
         continue
 
     findThread = False
@@ -360,7 +415,6 @@ while len(doneworkList) < 1000:
         if findThread == False: 
             time.sleep(5)
 
-    doneworkList.append(processId)
 
 
 

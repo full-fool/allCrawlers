@@ -1,0 +1,13 @@
+逻辑：
+
+程序开始时loadTodoId,alreadyDoneWork。其中alreadyDoneWork中类型为1的为已经查询好友信息的人的id，类型为2
+的为已经下载图片的用户的id。
+
+每次查询完一个用户的好友信息，都必须在doneFriendsWorkList中添加当前id，另外，如果查询成功，还要将这个id写入已完成工作文件，类型为1；
+否则查询失败，就将这个id写入todoId文件。
+
+每次下载完一个用户的所有相册，都要在donePicsWorkList中添加当前id。如果下载完成，还要将这个id写入文件，类型为2.
+
+每次查询好友信息之前，检查(personid, 1)是否在alreadyDoneWork中以及personid是否在doneFriendsWorkList中。
+
+每次下载图片之前，检查(personid, 2)是在alreadyDoneWork中以及personid是否在donePicsWorkList中

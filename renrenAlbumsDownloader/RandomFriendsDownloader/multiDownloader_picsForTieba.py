@@ -89,6 +89,7 @@ class DownloadPicsForOneShop(threading.Thread):
             except Exception as ep:
                 writeToLog('cannot download pic,%s,%s,%s' % (dirName, picName, picUrl))
         writeDoneWork(dirName)
+        os.remove(filePath)
         #shutil.rmtree(dirName) 
         print 'done for %s' % dirName
 

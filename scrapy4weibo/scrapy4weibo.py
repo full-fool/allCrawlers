@@ -9,6 +9,7 @@ import socket
 import threading 
 import time
 import base64  
+import cookielib
 import rsa  
 import binascii 
 from bs4 import BeautifulSoup
@@ -21,151 +22,38 @@ writeLock = threading.Lock()
 writeDoneWorkLock = threading.Lock()
 
 
-class WeiboLogin:
-    def __init__(self, user, pwd, enableProxy = False):
-        "初始化WeiboLogin，enableProxy表示是否使用代理服务器，默认关闭"
-        print "Initializing WeiboLogin..."
-        self.userName = user
-        self.passWord = pwd
-        self.enableProxy = enableProxy
 
-        self.serverUrl = "http://login.sina.com.cn/sso/prelogin.php?entry=weibo&callback=sinaSSOController.preloginCallBack&su=&rsakt=mod&client=ssologin.js(v1.4.11)&_=1379834957683"
-        self.loginUrl = "http://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.4.11)"
-        self.postHeader = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; rv:24.0) Gecko/20100101 Firefox/24.0'}
-
-
-    def Login(self):
-        "登陆程序"  
-        self.EnableCookie(self.enableProxy)#cookie或代理服务器配置
-
-        serverTime, nonce, pubkey, rsakv = self.GetServerTime()#登陆的第一步
-        postData = WeiboEncode.PostEncode(self.userName, self.passWord, serverTime, nonce, pubkey, rsakv)#加密用户和密码
-        print "Post data length:\n", len(postData)
-        req = urllib2.Request(self.loginUrl, postData, self.postHeader)
-        print "Posting request..."
-        result = urllib2.urlopen(req)#登陆的第二步——解析新浪微博的登录过程中3
-        text = result.read()
-        try:
-            loginUrl = WeiboSearch.sRedirectData(text)#解析重定位结果
-            urllib2.urlopen(loginUrl)
-        except:
-            print 'Login error!'
-            return False
-
-        print 'Login sucess!'
-        return True
-
-
-
-
-
-    def EnableCookie(self, enableProxy):
-        "Enable cookie & proxy (if needed)."
-        cookiejar = cookielib.LWPCookieJar()#建立cookie
-        cookie_support = urllib2.HTTPCookieProcessor(cookiejar)
-        if enableProxy:
-            proxy_support = urllib2.ProxyHandler({'http':'http://xxxxx.pac'})#使用代理
-            opener = urllib2.build_opener(proxy_support, cookie_support, urllib2.HTTPHandler)
-            print "Proxy enabled"
-        else:
-            opener = urllib2.build_opener(cookie_support, urllib2.HTTPHandler)
-        urllib2.install_opener(opener)#构建cookie对应的opener
-
-
-
-
-        #EnableCookie函数比较简单  
-    def GetServerTime(self):  
-        "Get server time and nonce, which are used to encode the password"  
-      
-        print "Getting server time and nonce..."  
-        #得到网页内容  
-        serverData = urllib2.urlopen(self.serverUrl).read()  
-        print serverData  
-        try:  
-            #解析得到serverTime，nonce等  
-            serverTime, nonce, pubkey, rsakv = WeiboSearch.sServerData(serverData)  
-            return serverTime, nonce, pubkey, rsakv  
-        except:  
-            print 'Get server time & nonce error!'  
-        return None 
-
-
-    def sServerData(serverData):  
-        "Search the server time & nonce from server data"  
-      
-        p = re.compile('\((.*)\)')  
-        jsonData = p.search(serverData).group(1)  
-        data = json.loads(jsonData)  
-        serverTime = str(data['servertime'])  
-        nonce = data['nonce']  
-        pubkey = data['pubkey']#  
-        rsakv = data['rsakv']#  
-        print "Server time is:", serverTime  
-        print "Nonce is:", nonce  
-        return serverTime, nonce, pubkey, rsakv 
-
-
-    def sRedirectData(text):  
-        p = re.compile('location\.replace\([\'"](.*?)[\'"]\)')  
-        loginUrl = p.search(text).group(1)  
-        print 'loginUrl:',loginUrl  
-        return loginUrl 
-
+userName = '593980756@qq.com'
+passWord = 'cyq591208cyq'
+enableProxy = False
+serverUrl = "http://login.sina.com.cn/sso/prelogin.php?entry=weibo&callback=sinaSSOController.preloginCallBack&su=&rsakt=mod&client=ssologin.js(v1.4.11)&_=1379834957683"
+#loginUrl = "http://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.4.11)"
+loginUrl = "http://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.4.18)"
+postHeader = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; rv:24.0) Gecko/20100101 Firefox/24.0'}
 
  
-    def PostEncode(userName, passWord, serverTime, nonce, pubkey, rsakv):  
-        "Used to generate POST data"  
-      
-        #用户名使用base64加密  
-        encodedUserName = GetUserName(userName)  
-        #目前密码采用rsa加密  
-        encodedPassWord = get_pwd(passWord, serverTime, nonce, pubkey)  
-        postPara = {  
-            'entry': 'weibo',  
-            'gateway': '1',  
-            'from': '',  
-            'savestate': '7',  
-            'userticket': '1',  
-            'ssosimplelogin': '1',  
-            'vsnf': '1',  
-            'vsnval': '',  
-            'su': encodedUserName,  
-            'service': 'miniblog',  
-            'servertime': serverTime,  
-            'nonce': nonce,  
-            'pwencode': 'rsa2',  
-            'sp': encodedPassWord,  
-            'encoding': 'UTF-8',  
-            'prelt': '115',  
-            'rsakv': rsakv,       
-            'url': 'http://weibo.com/ajaxlogin.php?framelogin=1&callback=parent.sinaSSOController.feedBackUrlCallBack',  
-            'returntype': 'META'  
-        }  
-        #网络编码  
-        postData = urllib.urlencode(postPara)  
-        return postData 
-
-
-    def GetUserName(userName):  
-        "Used to encode user name"  
-      
-        userNameTemp = urllib.quote(userName)  
-        userNameEncoded = base64.encodestring(userNameTemp)[:-1]  
-        return userNameEncoded  
   
-    def get_pwd(password, servertime, nonce, pubkey):  
-        rsaPublickey = int(pubkey, 16)  
-        #创建公钥  
-        key = rsa.PublicKey(rsaPublickey, 65537)   
-        #拼接明文js加密文件中得到  
-        message = str(servertime) + '\t' + str(nonce) + '\n' + str(password)   
-        #加密  
-        passwd = rsa.encrypt(message, key)   
-        #将加密信息转换为16进制。  
-        passwd = binascii.b2a_hex(passwd)   
-        return passwd  
+cookie_jar = cookielib.MozillaCookieJar()  
+cookies = open('cookie.txt').read()  
+for cookie in json.loads(cookies):  
+    #print cookie['name']  
+    cookie_jar.set_cookie(cookielib.Cookie(version=0, name=cookie['name'], value=cookie['value'], port=None, port_specified=False, domain=cookie['domain'], domain_specified=False, domain_initial_dot=False, path=cookie['path'], path_specified=True, secure=cookie['secure'], expires=None, discard=True, comment=None, comment_url=None, rest={'HttpOnly': None}, rfc2109=False))      
 
+
+
+
+headers = ('User-Agent','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36')
+
+opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie_jar))
+opener.addheaders = [headers]
+urllib2.install_opener(opener)
+
+#pageContent = getPageWithSpecTimes(0, 'http://weibo.com/p/1003063952070245/album?from=page_100306&mod=TAB#place')
+# pageContent = urllib2.urlopen('http://weibo.com/p/1003063952070245/album?from=page_100306&mod=TAB#place').read()
+# filehandler  = open('testweibo.html', 'w')
+# filehandler.write(pageContent)
+# filehandler.close()
+# sys.exit()
 
 
 
@@ -329,33 +217,58 @@ def getListFromFile(fileName):
 
     return namelist
 
-print 'input the start point'
-try:
-    startPoint = int(raw_input())
-except Exception as ep:
-    print ep.message
-    print 'wrong input'
-    sys.exit()
 
 
-print 'input the people number'
-try:
-    peopleNum = int(raw_input())
-except Exception as ep:
-    print ep.message
-    print 'wrong input'
-    sys.exit()
+#李晨 1259193624
+getAlbumIdUrl = 'http://photo.weibo.com/albums/get_all?uid=1259193624&page=1&count=1000'
+albumListJson = getPageWithSpecTimes(0, getAlbumIdUrl)
+
+print albumListJson
+sys.exit()
+pageContent = getPageWithSpecTimes(0, 'http://s.weibo.com/weibo/%25E6%259D%258E%25E6%2599%25A8&Refer=STopic_box')   
+filehandler  = open('testweibo.html', 'w')
+filehandler.write(pageContent)
+filehandler.close()
+uidPattern = re.compile(r'uid=(\d+)&name')
+#linkPattern = re.compile(r'<div class=\\"star_pic\\"><a href=\\"([^"]+?)" target=')
+#uid = uidPattern.findall(pageContent)[0]
+uid = '1259193624'
+#albumsListUrl = 'http://photo.weibo.com/%s/albums/index?from=profile_wb' % uid
+#albumListPage = getPageWithSpecTimes(0, albumsListUrl)
+#getAlbumIdUrl = 'http://photo.weibo.com/albums/get_all?uid=%s&page=1&count=1000' % uid
+time.sleep(2)
+getAlbumIdUrl = 'http://photo.weibo.com/albums/get_all?uid=1259193624&page=1&count=1000'
+albumListJson = getPageWithSpecTimes(0, getAlbumIdUrl)
+
+print albumListJson
+albumIdPattern = re.compile(r'"album_id":"(\d+)"')
+
+albumIdList = albumIdPattern.findall(albumListJson)
+print 'there are %s albums' % len(albumIdList)
+#albumUrl = 'http://photo.weibo.com/%s/photos/detail/photo_id/3789240839318665/album_id/4913832'
+for eachAlbumId in albumIdList:
+    albumPicsJsonUrl = 'http://photo.weibo.com/photos/get_all?uid=%s&album_id=%s&count=10000&page=1' % (uid, eachAlbumId)
+    albumPicsJson = getPageWithSpecTimes(0, getAlbumIdUrl)
+    picNamePattern = re.compile(r'"pic_name":"([^"]+?)"')
+    picNameListForAlbum = picNamePattern.findall(albumPicsJson)
+    dirPath = os.path.join(uid, eachAlbumId)
+    if not os.path.exists(dirPath):
+        os.makedirs(dirPath)
+    picsUrlListFilePath = os.path.join(dirPath, 'picsUrlList.txt')
+    filehandler = open(picsUrlListFilePath, 'w')
+    for eachPicName in picNameListForAlbum:
+        filehandler.write('http://ww1.sinaimg.cn/mw690/%s\n' % eachPicName)
+    filehandler.close()
+    print 'album %s has done' % eachAlbumId
 
 
+#print link
+#pagesoup = BeautifulSoup(pageContent, from_encoding='utf8')
+#outfits_gridSection = pagesoup.find_all("p", attrs={"class": "star_card"})[0]
+#print outfits_gridSection
+sys.exit()
 
-threadNum = 1
-print 'input the thread number'
-try:
-    threadNum = int(raw_input())
-except Exception as ep:
-    print ep.message
-    print 'wrong input'
-    sys.exit()    
+
 
 
 threadNumPool = {}

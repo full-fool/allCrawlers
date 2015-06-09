@@ -220,23 +220,23 @@ def getListFromFile(fileName):
 
 
 #李晨 1259193624
-getAlbumIdUrl = 'http://photo.weibo.com/albums/get_all?uid=1259193624&page=1&count=1000'
-albumListJson = getPageWithSpecTimes(0, getAlbumIdUrl)
+# getAlbumIdUrl = 'http://photo.weibo.com/albums/get_all?uid=1259193624&page=1&count=1000'
+# albumListJson = getPageWithSpecTimes(0, getAlbumIdUrl)
 
-print albumListJson
-sys.exit()
+# print albumListJson
+# sys.exit()
 pageContent = getPageWithSpecTimes(0, 'http://s.weibo.com/weibo/%25E6%259D%258E%25E6%2599%25A8&Refer=STopic_box')   
 filehandler  = open('testweibo.html', 'w')
 filehandler.write(pageContent)
 filehandler.close()
 uidPattern = re.compile(r'uid=(\d+)&name')
 #linkPattern = re.compile(r'<div class=\\"star_pic\\"><a href=\\"([^"]+?)" target=')
-#uid = uidPattern.findall(pageContent)[0]
-uid = '1259193624'
+uid = uidPattern.findall(pageContent)[0]
+#uid = '1259193624'
 #albumsListUrl = 'http://photo.weibo.com/%s/albums/index?from=profile_wb' % uid
 #albumListPage = getPageWithSpecTimes(0, albumsListUrl)
 #getAlbumIdUrl = 'http://photo.weibo.com/albums/get_all?uid=%s&page=1&count=1000' % uid
-time.sleep(2)
+#time.sleep(2)
 getAlbumIdUrl = 'http://photo.weibo.com/albums/get_all?uid=1259193624&page=1&count=1000'
 albumListJson = getPageWithSpecTimes(0, getAlbumIdUrl)
 

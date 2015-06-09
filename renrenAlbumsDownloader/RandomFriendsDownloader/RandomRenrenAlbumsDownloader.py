@@ -181,7 +181,8 @@ class fetchPicsForOnePerson(threading.Thread):
                 os.makedirs(picsUrlListPath)
             filehandler = open(os.path.join(picsUrlListPath, 'picsUrlList.txt'), 'w')
             for eachPhotoUrl in photosList:
-                filehandler.write(eachPhotoUrl + '\n')
+                validPhotoUrl = eachPhotoUrl.replace('\\', '')
+                filehandler.write(validPhotoUrl + '\n')
             filehandler.close()
 
             #DownloadAlbum(friendId, photosList, album)

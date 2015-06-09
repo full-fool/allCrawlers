@@ -1,17 +1,12 @@
 #coding=utf-8
-import json
 import sys
 import urllib2, urllib
 import re
-import codecs
-import json
 import threading
 import time
 import os
 import socket
 import shutil
-from bs4 import BeautifulSoup
-import uuid
 socket.setdefaulttimeout(50)
 reload(sys)
 sys.setdefaultencoding('utf8')

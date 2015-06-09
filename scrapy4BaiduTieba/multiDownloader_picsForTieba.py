@@ -1,17 +1,12 @@
 #coding=utf-8
-import json
 import sys
 import urllib2, urllib
 import re
-import codecs
-import json
 import threading
 import time
 import os
 import socket
 import shutil
-from bs4 import BeautifulSoup
-import uuid
 socket.setdefaulttimeout(50)
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -70,31 +65,40 @@ def writeToLog(content):
 
 class DownloadPicsForOneShop(threading.Thread):
     #三个参数分别为start，eachlen，totallen
-    def __init__(self, dirName):
+    def __init__(self, dirName, picListList):
         threading.Thread.__init__(self)
         self.dirName = dirName
+        self.picListList = picListList
 
     def run(self):
         dirName = self.dirName
-        filePath = os.path.join(dirName, 'picsUrlList.txt')
-        itemList = getListFromFile(filePath)
-        'http://imgsrc.baidu.com/forum/pic/item/%s.jpg'
-        fatherDir = os.path.split(dirName)[0]
-        #print '%s pics for %s' % (len(itemList), dirName)
-        for eachItem in itemList:
-            picUrl = eachItem
-            picName = eachItem.split('/')[-1]
-            picPath = os.path.join(fatherDir, picName)
-            try:
-                urllib.urlretrieve(picUrl, picPath)
-            except Exception as ep:
-                writeToLog('cannot download pic,%s,%s,%s' % (fatherDir, picName, picUrl))
+        picListList = self.picListList
+        albumsNum = len(picListList)
+        totalNum = 0
+        while totalNum < 1000:
+            allEmpty = True
+            for i in range(albumsNum):
+                if len(picListList[i]) == 0:
+                    continue
+                allEmpty = False
+
+                picUrl = picListList[i][0]
+                picName = picUrl.split('/')[-1]
+                picPath = os.path.join(dirName, picName)
+                picListList[i].remove(picUrl)
+                totalNum += 1
+                try:
+                    urllib.urlretrieve(picUrl, picPath)
+                except Exception as ep:
+                    writeToLog('cannot download pic for,%s,%s,%s' % (dirName, picName, picUrl))
+                if totalNum == 1000:
+                    break
+            if allEmpty == True:
+                break
+        print 'done %s pics for %s' % (totalNum, dirName)
         writeDoneWork(dirName)
-        shutil.rmtree(dirName) 
-        print 'done for %s' % dirName
 
-
-
+        
 
 
 
@@ -102,36 +106,49 @@ doneWorkList = getDoneWork()
 
 
 
-threadNum = 100
+threadNum = 50
 threadNumPool = {}
 
+allDirsList = []
+allFilesList = os.listdir('.')
+for eachFile in allFilesList:
+    if os.path.isdir(eachFile):
+        allDirsList.append(eachFile)
 
+for eachNameDir in allDirsList:
+    if eachNameDir in doneWorkList:
+        print 'already download for,%s' % eachNameDir
+        continue
+    albumsList = os.listdir(eachNameDir)
+    albumsNum = len(albumsList)
+    if albumsNum == 0:
+        writeToLog('no photos for,%s' % eachNameDir)
+        continue 
+    picsListList  = []
+    for eachAlbum in albumsList:
+        picsListPath = os.path.join(eachNameDir, eachAlbum, 'picsUrlList.txt')
+        allPicsForOneList = getListFromFile(picsListPath)
+        picsListList.append(allPicsForOneList)
+        shutil.rmtree(os.path.join(eachNameDir, eachAlbum))
 
-
-#'http://imgsrc.baidu.com/forum/pic/item/%s.jpg'
-
-for filePart in os.walk('.'):
-    if 'picsUrlList.txt' in filePart[2]:
-        print 'picsUrlList.txt in ' + filePart[0]
-        if filePart[0] in doneWorkList:
-            print 'already done for %s' % filePart[0]
-            continue
-        findThread = False
-        while findThread == False:
-            for j in range(threadNum):
-                if not threadNumPool.has_key(j):
-                    threadNumPool[j] = DownloadPicsForOneShop(filePart[0])
+    findThread = False
+    while findThread == False:
+        for j in range(threadNum):
+            if not threadNumPool.has_key(j):
+                threadNumPool[j] = DownloadPicsForOneShop(eachNameDir, picsListList)
+                threadNumPool[j].start()
+                findThread = True
+                break
+            else:
+                if not threadNumPool[j].isAlive():
+                    threadNumPool[j] = DownloadPicsForOneShop(eachNameDir, picsListList)
                     threadNumPool[j].start()
                     findThread = True
                     break
-                else:
-                    if not threadNumPool[j].isAlive():
-                        threadNumPool[j] = DownloadPicsForOneShop(filePart[0])
-                        threadNumPool[j].start()
-                        findThread = True
-                        break
-            if findThread == False: 
-                time.sleep(5)
+        if findThread == False: 
+            time.sleep(5)
+
+
 
 
 

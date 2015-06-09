@@ -59,7 +59,7 @@ os.chdir(rootDirectory)
 
 '''
 username = 'cyq2210@gmail.com'
-password = 'Cyq591208cyq'
+password = 'THUcst2014!'
 rootDirectory = '.'
 
 

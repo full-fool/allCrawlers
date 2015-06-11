@@ -378,6 +378,8 @@ while len(donePicsWorkList) < 1000:
         friendIdListTimes += 1
         if friendIdListTimes == 10:
             print 'cannot find more friendId now'
+            for eachFriendId in friendIdList:
+                writeToDoId(eachFriendId)
             sys.exit()
         time.sleep(1)
         continue

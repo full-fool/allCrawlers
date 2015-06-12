@@ -1,4 +1,4 @@
-#coding=utf-8
+﻿#coding=utf-8
 #usage: python faceQuery.py paramA paramB 
 #       paramA  ---     the username of www.renren.com
 #       paramB  ---     the password of www.renern.com
@@ -250,7 +250,7 @@ def FindInfoWhenLogin(rawHtml):
 
 #返回id和人名的tuple的list
 def GetSomeFriend(personId):
-    global friendIdList, doneFriendsWorkList, fetchFriendsExceed,
+    global friendIdList, doneFriendsWorkList, fetchFriendsExceed
     url = 'http://www.renren.com/%s/profile' % personId
     personMainPage = getPageWithSpecTimes(0, url)
     if personMainPage == None:
@@ -260,6 +260,7 @@ def GetSomeFriend(personId):
         fetchFriendsExceed = True
         print 'cannot find more friends info now'
         doneFriendsWorkList.append(personId)
+        writeToDoId(personId)
         return
     pagesoup = BeautifulSoup(personMainPage, from_encoding='utf8')
     try:
@@ -303,8 +304,6 @@ def GetPhotosForAlbum(albumId, friendId):
         req = urllib2.Request(url)
         result = opener.open(req)
         rawHtml = result.read()
-        #'"url":"http://fmn.rrfmn.com/fmn061/20140615/0255/original_R1Ge_57c600015322118c.jpg"}'
-        #reg = r'"objURL":"(.+?\.[Jj][Pp][Ee]?[Gg])'
         photoUrlPattern = re.compile(r'"url":"(.+?)"')
         photoUrlsList = photoUrlPattern.findall(rawHtml)
         return photoUrlsList
@@ -375,7 +374,7 @@ print 'login successfully'
 threadNum = 100
 threadNumPool = {}
 friendIdListTimes = 0
-while len(donePicsWorkList) < 1000:
+while len(donePicsWorkList) < 10000:
     if len(friendIdList) == 0:
         friendIdListTimes += 1
         if friendIdListTimes == 10:
@@ -398,6 +397,10 @@ while len(donePicsWorkList) < 1000:
             GetSomeFriend(processId)
         else:
             print 'already find friends for %s' % processId
+    else:
+        doneFriendsWorkList.append(processId)
+        writeToDoId(processId)
+
 
 
     if '%s,%s' % (processId, 2) in alreadyDoneWork or processId in donePicsWorkList:

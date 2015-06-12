@@ -190,7 +190,19 @@ class fetchPicsForOnePerson(threading.Thread):
         print 'done for person,%s' % friendId
         writeDoneWork('%s,%s' % (friendId, 2))
         addDonePicsWorkList(friendId)
+           
+
+class GetSomeFriend(threading.Thread):
+    def __init__(self, personId):
+        threading.Thread.__init__(self)
+        self.personId = personId
+
+    def run(self):
+        personId = self.personId
+        GetSomeFriend(personId)
+
             
+
 
 
 
@@ -238,11 +250,16 @@ def FindInfoWhenLogin(rawHtml):
 
 #返回id和人名的tuple的list
 def GetSomeFriend(personId):
-    global friendIdList, doneFriendsWorkList
+    global friendIdList, doneFriendsWorkList, fetchFriendsExceed,
     url = 'http://www.renren.com/%s/profile' % personId
     personMainPage = getPageWithSpecTimes(0, url)
     if personMainPage == None:
         print 'cannot open main page for person,%s' % personId
+        return
+    if '验证码' in personMainPage:
+        fetchFriendsExceed = True
+        print 'cannot find more friends info now'
+        doneFriendsWorkList.append(personId)
         return
     pagesoup = BeautifulSoup(personMainPage, from_encoding='utf8')
     try:
@@ -296,22 +313,6 @@ def GetPhotosForAlbum(albumId, friendId):
         return []
 
 
-# def writeFriendInfoPage(friendId):
-   
-#     try:
-#         url = 'http://www.renren.com/%s/profile?v=info_timeline' % friendId
-#         req = urllib2.Request(url)
-#         result = opener.open(req)
-#         rawHtml = result.read()
-#         if '验证码' in rawHtml:
-#             print 'your access to renren.com has reached today\'s limit, please try later'
-#             sys.exit()
-#         filehandler = open('renren_%s\\info.html' % friendId, 'w')
-#         filehandler.write(rawHtml)
-#         filehandler.close
-#     except Exception as ep:
-#         print ep.message
-
 
 
 def DownloadAlbum(friendId, photosList, albumId):
@@ -358,6 +359,7 @@ friendIdList = loadToDoId()
 alreadyDoneWork = loadDoneWork()
 doneFriendsWorkList = []
 donePicsWorkList = []
+fetchFriendsExceed = False
 
 
 # login
@@ -389,12 +391,13 @@ while len(donePicsWorkList) < 1000:
     friendIdList.remove(friendIdList[0])
     
 
+    if fetchFriendsExceed == False:
 
-    if not ('%s,%s' % (processId,1) in alreadyDoneWork or processId in doneFriendsWorkList):
-        print 'fetching friends info for %s' % processId
-        GetSomeFriend(processId)
-    else:
-        print 'already find friends for %s' % processId
+        if not ('%s,%s' % (processId,1) in alreadyDoneWork or processId in doneFriendsWorkList):
+            print 'fetching friends info for %s' % processId
+            GetSomeFriend(processId)
+        else:
+            print 'already find friends for %s' % processId
 
 
     if '%s,%s' % (processId, 2) in alreadyDoneWork or processId in donePicsWorkList:

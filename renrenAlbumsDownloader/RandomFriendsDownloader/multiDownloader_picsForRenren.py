@@ -43,16 +43,16 @@ def getListFromFile(fileName):
 def writeDoneWork(name):
     writeDoneWorkLock.acquire()
     
-    filehandler = open('doneWork_downloadPicsTieba.txt', 'a')
+    filehandler = open('doneWork_downloadPicsRenren.txt', 'a')
     filehandler.write(name+'\n')
     filehandler.close()
     
     writeDoneWorkLock.release()
 
 def getDoneWork():
-    if not os.path.exists('doneWork_downloadPicsTieba.txt'):
+    if not os.path.exists('doneWork_downloadPicsRenren.txt'):
         return []
-    return open('doneWork_downloadPicsTieba.txt').read().split('\n')
+    return open('doneWork_downloadPicsRenren.txt').read().split('\n')
 
 def writeToLog(content):
     writeLock.acquire()
@@ -89,7 +89,8 @@ class DownloadPicsForOneShop(threading.Thread):
             except Exception as ep:
                 writeToLog('cannot download pic,%s,%s,%s' % (dirName, picName, picUrl))
         writeDoneWork(dirName)
-        os.remove(filePath)
+        doneFilePath = os.path.join(dirName, 'picsUrlList_done.txt')
+        os.rename(filePath, doneFilePath)
         #shutil.rmtree(dirName) 
         print 'done for %s' % dirName
 

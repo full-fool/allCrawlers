@@ -197,19 +197,6 @@ def getAllHouses(city, url):
 
 
 
-
-#getInfoForOneFurnitureType('水床', 'http://s.taobao.com/list?&atype=b&cat=50094063')
-
-#resultList = getProductUrlForOnePage('a', 'b', '12', 'http://s.taobao.com/list?atype=b&cat=50040540&ppath=20608:76856228')
-#fetchallInfoForOneProduct('gf', 'sa', 'http://item.taobao.com/item.htm?&id=43096084342', False, None)
-
-#print unescape('出租车是否可运输:&nbsp;&#26159;')
-#print decodeUnicode('<li title="&nbsp;&#25972;&#35013;">是否组装:&nbsp;&#25972;&#35013;</li>')
-#furnitureList = getListFromFile('furnitureTypes.txt')
-#citiesList = getListFromFile('citiesList.txt')
-#getAllNeighbours('https://www.airbnb.com/locations/new-york')
-#getAllHouses('new york', 'Windsor Terrace', 'https://www.airbnb.com/locations/new-york/windsor-terrace')
-
 threadNum = 13
 threadNumPool = {}
 

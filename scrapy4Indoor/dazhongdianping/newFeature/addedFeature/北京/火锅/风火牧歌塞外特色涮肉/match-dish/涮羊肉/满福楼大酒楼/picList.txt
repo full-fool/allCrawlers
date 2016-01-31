@@ -1,9 +1,0 @@
-27665233.jpg,http://i1.s1.dpfile.com/pc/970f0288d0272635d4b08c4862917d2d(700x700)/thumb.jpg
-25586033.jpg,http://i2.s1.dpfile.com/pc/56ff38d3362cd617dc6118fa8832f060(700x700)/thumb.jpg
-72295315.jpg,http://i2.s1.dpfile.com/pc/92cfe4ca3df50056fac0ac46b82b3781(700x700)/thumb.jpg
-32208342.jpg,http://i1.s1.dpfile.com/pc/bf2f938b47028304806fcf2310eb8495(700x700)/thumb.jpg
-27664901.jpg,http://i1.s1.dpfile.com/pc/ce186448c6286871e00c4cb871406d3c(700x700)/thumb.jpg
-72296742.jpg,http://i2.s1.dpfile.com/pc/4477478363ee7bc01c56a74287d88240(700x700)/thumb.jpg
-38262534.jpg,http://i2.s1.dpfile.com/pc/1d03dd5ebbe8c6ba4a5b60d882033d19(700x700)/thumb.jpg
-38262584.jpg,http://i1.s1.dpfile.com/pc/be8113bf438044c9016119bef00466e2(700x700)/thumb.jpg
-8704466.jpg,http://i3.s1.dpfile.com/2011-07-15/8704466_b.jpg(700x700)/thumb.jpg
